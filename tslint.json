@@ -1,0 +1,59 @@
+{
+  "extends": "tslint:recommended",
+  "rulesDirectory": [
+    "node_modules/tslint-lines-between-class-members"
+  ],
+  "rules": {
+    "align": [true, "elements", "members", "statements"],
+    "eofline": true,
+    "lines-between-class-members": [true, 1],
+    "member-access": [true, "no-public"],
+    "member-ordering": [
+      true,
+      {
+        "alphabetize": true,
+        "order": [
+          "public-static-field",
+          "public-instance-field",
+          "private-static-field",
+          "private-instance-field",
+          "public-constructor",
+          "private-constructor",
+          "public-instance-method",
+          "protected-instance-method",
+          "private-instance-method"
+        ]
+      }
+    ],
+    "no-bitwise": false,
+    "no-console": [true, "log", "error"],
+    "object-literal-sort-keys": true,
+    "only-arrow-functions": false,
+    "ordered-imports": true,
+    "quotemark": [true, "single", "avoid-escape"],
+    "space-before-function-paren": [true, {
+      "anonymous": "always"
+    }],
+    "trailing-comma": false,
+    "variable-name": [
+      true,
+      "check-format",
+      "allow-leading-underscore",
+      "allow-pascal-case",
+      "allow-trailing-underscore"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-rest-spread",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-preblock"
+    ]
+  }
+}
