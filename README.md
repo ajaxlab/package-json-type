@@ -1,42 +1,39 @@
-# Typescript Project Boilerplate
+# package-json-type
 
-A boilerplate for a TypeScript project
+A TypeScript definition for package.json file
 
-## Module
+## Usages
 
-* Build
+* Install
 
-  `npm run build`
+  ```bash
+  npm install package-json-type
+  ```
 
-* Watch
+  or
 
-  * CommonJs
+  ```bash
+  yarn add package-json-type
+  ```
 
-    `npm run dev:cjs`
+* Import
 
-  * ES2015
+  ```typescript
+  import { IPackageJson } from 'package-json-type';
 
-    `npm run dev:esm`
+  const pkg: IPackageJson = {
+    name: 'foo',
+    version: '1.2.3',
+    description: 'This is awesome foo'
+  };
+  ```
 
-## Test
+## Documents
 
-* Mocha & Chai
+* [TS Doc](http://ajaxlab.github.io/package-json-type)
 
-  `npm run test`
+* [Markdown](https://github.com/ajaxlab/package-json-type/blob/master/md/interfaces/ipackagejson.md)
 
-  `npm run test:dev` (watch mode)
+## License
 
-* NYC
-
-  `npm run coverage`
-
-## Clean Code
-
-* TS Lint
-
-  `npm run lint`
-
-## Debugger
-
-* VS Code
-
+* [MIT](./LICENSE)

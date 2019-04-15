@@ -1,26 +1,104 @@
+/**
+ * Package author information.
+ * @see https://docs.npmjs.com/files/package.json#people-fields-author-contributors
+ * @see https://yarnpkg.com/en/docs/package-json#toc-author
+ */
 export interface IAuthor {
   email?: string;
   name: string;
   url?: string;
 }
 
+/**
+ * An executable file which will be installed into the PATH
+ * with a package install. npm will symlink that file into
+ * prefix/bin for global installs, or ./node_modules/.bin/
+ * for local installs.
+ *
+ * ```json
+ * {
+ *   "bin" : {
+ *     "myapp" : "./cli.js"
+ *   }
+ * }
+ * ```
+ *
+ * For example, with linux if you install myapp,
+ * it'll create a symlink from the cli.js script
+ * to /usr/local/bin/myapp.
+ * @see https://docs.npmjs.com/files/package.json#bin
+ */
 export interface IBinMap {
   [commandName: string]: string;
 }
 
+/**
+ * The url to your project's issue tracker and (or) the email
+ * address to which issues should be reported. These are helpful
+ * for people who encounter issues with your package.
+ * @see https://docs.npmjs.com/files/package.json#bugs
+ * @see https://yarnpkg.com/en/docs/package-json#toc-bugs
+ */
 export interface IBugs {
   email?: string;
   url?: string;
 }
 
+/**
+ * A "config" object can be used to set configuration parameters
+ * used in package scripts that persist across upgrades.
+ * For instance, if a package had the following:
+ * ```json
+ * {
+ *   "config" : {
+ *     "port" : "8080"
+ *   }
+ * }
+ * ```
+ * and then had a “start” command that then referenced the
+ * npm_package_config_port environment variable,
+ * then the user could override that by doing npm config set foo:port 8001.
+ * @see https://docs.npmjs.com/files/package.json#config
+ * @see https://yarnpkg.com/en/docs/package-json#toc-config
+ */
 export interface IConfig {
   [key: string]: string;
 }
 
+/**
+ * @see http://wiki.commonjs.org/wiki/Packages/1.0
+ * @see https://docs.npmjs.com/files/package.json#dependencies
+ * @see https://yarnpkg.com/en/docs/package-json#toc-dependencies
+ * @see https://docs.npmjs.com/files/package.json#devdependencies
+ * @see https://yarnpkg.com/en/docs/package-json#toc-devdependencies
+ * @see https://docs.npmjs.com/files/package.json#optionaldependencies
+ * @see https://yarnpkg.com/en/docs/package-json#toc-optionaldependencies
+ * @see https://docs.npmjs.com/files/package.json#peerdependencies
+ * @see https://yarnpkg.com/en/docs/package-json#toc-peerdependencies
+ */
 export interface IDependencyMap {
   [packageName: string]: string;
 }
 
+/**
+ * You can specify exact locations to put binary files, man pages,
+ * documentation, examples, etc. Package manager tools must use
+ * these directory definitions to find various package components.
+ * ```
+ * {
+ *   "directories": {
+ *     "lib": "path/to/lib/",
+ *     "bin": "path/to/bin/",
+ *     "man": "path/to/man/",
+ *     "doc": "path/to/doc/",
+ *     "example": "path/to/example/"
+ *   }
+ * }
+ * ```
+ * @see http://wiki.commonjs.org/wiki/Packages/1.0
+ * @see https://docs.npmjs.com/files/package.json#directories
+ * @see https://yarnpkg.com/en/docs/package-json#toc-directories
+ */
 export interface IDirectories {
 
   /**
@@ -47,7 +125,7 @@ export interface IDirectories {
   /**
    * Tell people where the bulk of your library is.
    * Nothing special is done with the lib folder
-   * in any way, but it’s useful meta info.
+   * in any way, but it's useful meta info.
    */
   lib?: string;
 
@@ -63,6 +141,13 @@ export interface IDirectories {
   test?: string;
 }
 
+/**
+ * You can specify the version of node that your stuff works on.
+ * You can also specify which versions of npm are capable
+ * of properly installing your program.
+ * @see https://docs.npmjs.com/files/package.json#engines
+ * @see https://yarnpkg.com/en/docs/package-json#toc-engines
+ */
 export interface IEngines {
   node?: string;
   npm?: string;
@@ -71,7 +156,7 @@ export interface IEngines {
 }
 
 /**
- * A TypeScript definition for the CommonJS package descriptor file.
+ * A TypeScript definition for the package descriptor file.
  * @see http://wiki.commonjs.org/wiki/Packages/1.0
  * @see https://docs.npmjs.com/files/package.json
  * @see https://yarnpkg.com/en/docs/package-json
@@ -81,40 +166,47 @@ export interface IPackageJson {
   [field: string]: any;
 
   /**
-   * You can shorten that all into a single string.
-   *
-   * ```your-name <account@your-domain> (http://your-url)```
-   *
+   * Package author information. An author is one person.
+   * * Shorthand expression
+   * ```
+   * your-name <account@your-domain> (http://your-url)
+   * ```
    * @see https://docs.npmjs.com/files/package.json#people-fields-author-contributors
    * @see https://yarnpkg.com/en/docs/package-json#toc-author
    */
   readonly author?: string | IAuthor;
 
   /**
-   * A lot of packages have one or more executable files that
-   * they’d like to install into the PATH. On install, npm will
-   * symlink that file into prefix/bin for global installs,
-   * or ./node_modules/.bin/ for local installs.
-   * For example, myapp could have this:
+   * An executable file which will be installed into the PATH
+   * with a package install. npm will symlink that file into
+   * prefix/bin for global installs, or ./node_modules/.bin/
+   * for local installs.
    *
-   * ``` { "bin" : { "myapp" : "./cli.js" } } ```
+   * ```json
+   * {
+   *   "bin" : {
+   *     "myapp" : "./cli.js"
+   *   }
+   * }
+   * ```
    *
-   * So, when you install myapp, it’ll create a symlink
-   * from the cli.js script to /usr/local/bin/myapp.
+   * For example, with linux if you install myapp,
+   * it'll create a symlink from the cli.js script
+   * to /usr/local/bin/myapp.
    * @see https://docs.npmjs.com/files/package.json#bin
    */
   readonly bin?: string | IBinMap;
 
   /**
-   * If your module is meant to be used client-side the browser field
-   * should be used instead of the main field. This is helpful to hint
-   * users that it might rely on primitives that aren’t available
-   * in Node.js modules. (e.g. window)
+   * This is a hint to the module which is meant to be
+   * used client-side instead of nodejs.
+   * @see https://github.com/defunctzombie/package-browser-field-spec
+   * @see http://2ality.com/2017/04/setting-up-multi-platform-packages.html#browser-browser-specific-code
    */
   readonly browser?: string;
 
   /**
-   * The url to your project’s issue tracker and (or) the email
+   * The url to your project's issue tracker and (or) the email
    * address to which issues should be reported. These are helpful
    * for people who encounter issues with your package.
    * @see https://docs.npmjs.com/files/package.json#bugs
@@ -134,10 +226,18 @@ export interface IPackageJson {
    * A "config" object can be used to set configuration parameters
    * used in package scripts that persist across upgrades.
    * For instance, if a package had the following:
-   * ``` "config" : { "port" : "8080" } ```
+   * ```json
+   * {
+   *   "config" : {
+   *     "port" : "8080"
+   *   }
+   * }
+   * ```
    * and then had a “start” command that then referenced the
    * npm_package_config_port environment variable,
    * then the user could override that by doing npm config set foo:port 8001.
+   * @see https://docs.npmjs.com/files/package.json#config
+   * @see https://yarnpkg.com/en/docs/package-json#toc-config
    */
   readonly config?: IConfig;
 
@@ -183,9 +283,9 @@ export interface IPackageJson {
 
   /**
    * If someone is planning on downloading and using your module
-   * in their program, then they probably don’t want or need
+   * in their program, then they probably don't want or need
    * to download and build the external test or documentation
-   * framework that you use. In this case, it’s best to map
+   * framework that you use. In this case, it's best to map
    * these additional items in a devDependencies object.
    * @see https://docs.npmjs.com/files/package.json#devdependencies
    * @see https://yarnpkg.com/en/docs/package-json#toc-devdependencies
@@ -193,11 +293,23 @@ export interface IPackageJson {
   readonly devDependencies?: IDependencyMap;
 
   /**
-   * Object hash of package directories. Typical directories include
-   * "lib", "src", "doc", "jars", "test" and "bin". Package manager
-   * tools must use these directory definitions to find various package components.
-   * @see https://docs.npmjs.com/files/package.json#directories
+   * You can specify exact locations to put binary files, man pages,
+   * documentation, examples, etc. Package manager tools must use
+   * these directory definitions to find various package components.
+   * ```
+   * {
+   *   "directories": {
+   *     "lib": "path/to/lib/",
+   *     "bin": "path/to/bin/",
+   *     "man": "path/to/man/",
+   *     "doc": "path/to/doc/",
+   *     "example": "path/to/example/"
+   *   }
+   * }
+   * ```
    * @see http://wiki.commonjs.org/wiki/Packages/1.0
+   * @see https://docs.npmjs.com/files/package.json#directories
+   * @see https://yarnpkg.com/en/docs/package-json#toc-directories
    */
   readonly directories?: IDirectories;
 
@@ -221,7 +333,7 @@ export interface IPackageJson {
 
   /**
    * If your package only allows one version of a given dependency,
-   * and you’d like to enforce the same behavior as yarn install --flat
+   * and you'd like to enforce the same behavior as yarn install --flat
    * on the command line, set this to true.
    * @see https://yarnpkg.com/en/docs/package-json#toc-flat
    */
@@ -243,9 +355,9 @@ export interface IPackageJson {
 
   /**
    * A license for your package so that people know how they are permitted
-   * to use it, and any restrictions you’re placing on it.
-   * If you’re using a common license such as BSD-2-Clause or MIT,
-   * add a current SPDX license identifier.
+   * to use it, and any restrictions you're placing on it.
+   * If you're using a common license such as BSD-2-Clause or MIT,
+   * add a current {@link https://spdx.org/licenses/ | SPDX license identifier}.
    * @see https://docs.npmjs.com/files/package.json#license
    * @see https://yarnpkg.com/en/docs/package-json#toc-license
    * @see https://spdx.org/licenses/
@@ -256,15 +368,16 @@ export interface IPackageJson {
   /**
    * The main field is a module ID that is the primary entry point to your package.
    * That is, if your package is named foo, and a user installs it, and then
-   * does require("foo"), then your main module’s exports object will be returned.
+   * does require("foo"), then your main module's exports object will be returned.
    * This should be a module ID relative to the root of your package folder.
    * For most modules, it makes the most sense to have a main script and often not much else.
+   * @see https://docs.npmjs.com/files/package.json#main
+   * @see https://yarnpkg.com/en/docs/package-json#toc-main
    */
   readonly main?: string;
 
   /**
-   * Specify either a single file or an array of filenames
-   * to put in place for the man program to find.
+   * A single file (or an array of filenames) for the man program.
    * @see https://docs.npmjs.com/files/package.json#man
    */
   readonly man?: string | string[];
@@ -272,7 +385,7 @@ export interface IPackageJson {
   /**
    * The name of your package.
    * The name and version together should form a unique identifier accoss a project.
-   * The name and version fields are optional if you don’t want to publish your package.
+   * The name and version fields are optional if you don't want to publish your package.
    * A name can be optionally prefixed by a scope, e.g. @types/lodash.
    * @see https://docs.npmjs.com/files/package.json#name
    * @see https://yarnpkg.com/en/docs/package-json#toc-name
@@ -285,7 +398,7 @@ export interface IPackageJson {
    * in the optionalDependencies object. This is a map of package name
    * to version or url, just like the dependencies object.
    * The difference is that build failures do not cause installation to fail.
-   * It is still your program’s responsibility to handle the lack of the dependency.
+   * It is still your program's responsibility to handle the lack of the dependency.
    * @see https://docs.npmjs.com/files/package.json#optionaldependencies
    * @see https://yarnpkg.com/en/docs/package-json#toc-optionaldependencies
    */
@@ -295,8 +408,9 @@ export interface IPackageJson {
    * You can specify which operating systems your module will run on
    * @see https://docs.npmjs.com/files/package.json#os
    * @see https://yarnpkg.com/en/docs/package-json#toc-os
+   * @see https://nodejs.org/api/process.html#process_process_platform
    */
-  readonly os?: NodeJS.Platform[];
+  readonly os?: OS[];
 
   /**
    * In some cases, you want to express the compatibility of your package
@@ -331,24 +445,32 @@ export interface IPackageJson {
 
   /**
    * This is a set of config values that will be used at publish-time.
-   * It’s especially handy if you want to set the tag, registry or access,
+   * It's especially handy if you want to set the tag, registry or access,
    * so that you can ensure that a given package is not tagged with “latest”,
    * published to the global public registry or that a scoped module is private by default.
    * Any config values can be overridden, but only "tag", "registry" and
    * "access" probably matter for the purposes of publishing.
    * See npm-config to see the list of config options that can be overridden.
-   * * public registry
-   * ```
-   * "publishConfig":{
+   * * Public Registry
+   *
+   * ```json
+   * {
+   *   "publishConfig":{
    *     "registry":"https://registry.npmjs.org"
+   *   }
    * }
    * ```
-   * * your private registry
-   * ```
-   * "publishConfig":{
+   *
+   * * Your Private Registry
+   *
+   * ```json
+   * {
+   *   "publishConfig":{
    *     "registry":"http://your-registry.local"
+   *   }
    * }
    * ```
+   *
    * @see https://docs.npmjs.com/files/package.json#publishconfig
    * @see https://yarnpkg.com/en/docs/package-json#toc-publishconfig
    */
@@ -357,22 +479,38 @@ export interface IPackageJson {
   /**
    * Specify the place where your code lives.
    * This is helpful for people who want to contribute.
+   *
+   * * Git
+   *
    * ```json
-   * "repository": {
-   *   "type" : "git",
-   *   "url" : "https://github.com/ajaxlab/package-json-type.git"
-   * }
-   * "repository": {
-   *   "type" : "svn",
-   *   "url" : "https://v8.googlecode.com/svn/trunk/"
+   * {
+   *   "repository": {
+   *     "type": "git",
+   *     "url": "https://github.com/ajaxlab/package-json-type.git"
+   *   }
    * }
    * ```
-   * For monorepo, you can specify like this
+   *
+   * * Svn
+   *
    * ```json
-   * "repository": {
-   *   "type" : "git",
-   *   "url" : "https://github.com/facebook/react.git",
-   *   "directory": "packages/react-dom"
+   * {
+   *   "repository": {
+   *     "type": "svn",
+   *     "url": "https://v8.googlecode.com/svn/trunk/"
+   *   }
+   * }
+   * ```
+   *
+   * * Monorepo
+   *
+   * ```json
+   * {
+   *   "repository": {
+   *     "type": "git",
+   *     "url": "https://github.com/facebook/react.git",
+   *     "directory": "packages/react-dom"
+   *   }
    * }
    * ```
    * @see https://yarnpkg.com/en/docs/package-json#toc-repository
@@ -383,7 +521,7 @@ export interface IPackageJson {
   /**
    * Allows you to override a version of a particular nested dependency.
    * See the Selective Versions Resolutions RFC for the full spec.
-   * Note that installing dependencies via [yarn install --flat] will
+   * Note that installing dependencies via `[yarn install --flat]` will
    * automatically add a resolutions block to your package.json file.
    * @see https://yarnpkg.com/en/docs/package-json#toc-resolutions
    */
@@ -396,26 +534,30 @@ export interface IPackageJson {
    * that are run at various times in the lifecycle of your package.
    * The key is the lifecycle event, and the value is the command to run at that point.
    * ```json
-   * "scripts": {
-   *   "install": "install.js",
-   *   "uninstall": "uninstall.js",
-   *   "build": "build.js",
-   *   "doc": "make-doc.js",
-   *   "test": "test.js",
+   * {
+   *   "scripts": {
+   *     "install": "install.js",
+   *     "uninstall": "uninstall.js",
+   *     "build": "build.js",
+   *     "doc": "make-doc.js",
+   *     "test": "test.js",
+   *   }
    * }
    * ```
    */
-  readonly scripts?: IScriptsMap;
+  readonly scripts?: IScriptsMap | {
+    [scriptName: string]: string;
+  };
 
   /**
    * Indicate the main declaration file in your package.json.
    * Set the types property to point to your bundled declaration file.
    * ```json
    * {
-   *     "name": "some-package",
-   *     "version": "1.0.0",
-   *     "main": "./lib/main.js",
-   *     "types": "./lib/main.d.ts"
+   *   "name": "some-package",
+   *   "version": "1.0.0",
+   *   "main": "./lib/main.js",
+   *   "types": "./lib/main.d.ts"
    * }
    * ```
    * @see https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html
@@ -430,23 +572,108 @@ export interface IPackageJson {
   readonly version?: string;
 }
 
+/**
+ * This is a set of config values that will be used at publish-time.
+ * It's especially handy if you want to set the tag, registry or access,
+ * so that you can ensure that a given package is not tagged with “latest”,
+ * published to the global public registry or that a scoped module is private by default.
+ * Any config values can be overridden, but only "tag", "registry" and
+ * "access" probably matter for the purposes of publishing.
+ * See npm-config to see the list of config options that can be overridden.
+ * * Public Registry
+ *
+ * ```json
+ * {
+ *   "publishConfig":{
+ *     "registry":"https://registry.npmjs.org"
+ *   }
+ * }
+ * ```
+ *
+ * * Your Private Registry
+ *
+ * ```json
+ * {
+ *   "publishConfig":{
+ *     "registry":"http://your-registry.local"
+ *   }
+ * }
+ * ```
+ *
+ * @see https://docs.npmjs.com/files/package.json#publishconfig
+ * @see https://yarnpkg.com/en/docs/package-json#toc-publishconfig
+ */
 export interface IPublishConfig {
   access?: string;
   registry?: string;
   tag?: string;
 }
 
+/**
+ * Specify the place where your code lives.
+ * This is helpful for people who want to contribute.
+ *
+ * * Git
+ *
+ * ```json
+ * {
+ *   "repository": {
+ *     "type": "git",
+ *     "url": "https://github.com/ajaxlab/package-json-type.git"
+ *   }
+ * }
+ * ```
+ *
+ * * Svn
+ *
+ * ```json
+ * {
+ *   "repository": {
+ *     "type": "svn",
+ *     "url": "https://v8.googlecode.com/svn/trunk/"
+ *   }
+ * }
+ * ```
+ *
+ * * Monorepo
+ *
+ * ```json
+ * {
+ *   "repository": {
+ *     "type": "git",
+ *     "url": "https://github.com/facebook/react.git",
+ *     "directory": "packages/react-dom"
+ *   }
+ * }
+ * ```
+ * @see https://yarnpkg.com/en/docs/package-json#toc-repository
+ * @see https://docs.npmjs.com/files/package.json#repository
+ */
 export interface IRepository {
+  directory?: string;
   type: string;
   url: string;
 }
 
 /**
+ * The "scripts" property is a dictionary containing script commands
+ * that are run at various times in the lifecycle of your package.
+ * The key is the lifecycle event, and the value is the command to run at that point.
+ * ```json
+ * {
+ *   "scripts": {
+ *     "install": "install.js",
+ *     "uninstall": "uninstall.js",
+ *     "build": "build.js",
+ *     "doc": "make-doc.js",
+ *     "test": "test.js",
+ *   }
+ * }
+ * ```
  * @see https://docs.npmjs.com/misc/scripts
  * @see https://yarnpkg.com/en/docs/package-json#toc-scripts
  */
 export interface IScriptsMap {
-  [scriptName: string]: string;
   install: string;
   postinstall: string;
   postpack: string;
@@ -496,6 +723,22 @@ export type CPU = 'arm'
   | 's390x'
   | 'x32'
   | 'x64';
+
+/**
+ * You can specify which operating systems your module will run on
+ * @see https://docs.npmjs.com/files/package.json#os
+ * @see https://yarnpkg.com/en/docs/package-json#toc-os
+ * @see https://nodejs.org/api/process.html#process_process_platform
+ */
+export type OS = 'aix'
+  | 'android'
+  | 'darwin'
+  | 'freebsd'
+  | 'linux'
+  | 'openbsd'
+  | 'sunos'
+  | 'win32'
+  | 'cygwin';
 
 /**
  * SPDX License IDs which are not OSI approved.
