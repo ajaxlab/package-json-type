@@ -1,4 +1,4 @@
-import { IPackageJson } from '../';
+import { IPackageJson } from '../src';
 
 const empty: IPackageJson = {};
 
@@ -333,6 +333,79 @@ const repositoryPkg1: IPackageJson = {
 
 const repositoryPkg2: IPackageJson = {
   repository: 'github:user/repo'
+};
+
+const repositoryPkg3: IPackageJson = {
+  repository: {
+    directory: 'packages/react-dom',
+    type: 'git',
+    url: 'https://github.com/facebook/react.git'
+  }
+};
+
+const resolutionsPkg1: IPackageJson = {
+  resolutions: {
+    'dependencies-package-1/transitive-package-3': '^2.1.1',
+    'transitive-package-1': '0.0.29',
+    'transitive-package-2': 'file:./local-forks/transitive-package-2'
+  }
+};
+
+const scriptsPkg1: IPackageJson = {
+  scripts: {
+    custom: 'custom'
+  }
+};
+
+const scriptsPkg2: IPackageJson = {
+  scripts: {
+    install: 'some script',
+    postinstall: 'some script',
+    postpack: 'some script',
+    postrestart: 'some script',
+    postshrinkwrap: 'some script',
+    poststart: 'some script',
+    poststop: 'some script',
+    posttest: 'some script',
+    postuninstall: 'some script',
+    postversion: 'some script',
+    preinstall: 'some script',
+    prepack: 'some script',
+    prepare: 'some script',
+    prepublish: 'some script',
+    prepublishOnly: 'some script',
+    prerestart: 'some script',
+    preshrinkwrap: 'some script',
+    prestart: 'some script',
+    prestop: 'some script',
+    pretest: 'some script',
+    preuninstall: 'some script',
+    preversion: 'some script',
+    publish: 'some script',
+    restart: 'some script',
+    shrinkwrap: 'some script',
+    start: 'some script',
+    stop: 'some script',
+    test: 'some script',
+    uninstall: 'some script',
+    version: 'some script'
+  }
+};
+
+const typesPkg1: IPackageJson = {
+  types: ''
+};
+
+const typesPkg2: IPackageJson = {
+  types: 'types/index.d.ts'
+};
+
+const versionPkg1: IPackageJson = {
+  version: ''
+};
+
+const versionPkg2: IPackageJson = {
+  version: '1.0.1'
 };
 
 const allInOne1: IPackageJson = {
