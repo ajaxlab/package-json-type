@@ -1,6 +1,6 @@
 # package-json-type
 
-A TypeScript definition for package.json file
+> A TypeScript definition for package.json file
 
 ## Usages
 
@@ -10,8 +10,6 @@ A TypeScript definition for package.json file
   npm install package-json-type
   ```
 
-  or
-
   ```bash
   yarn add package-json-type
   ```
@@ -19,20 +17,34 @@ A TypeScript definition for package.json file
 * Import
 
   ```typescript
-  import { IPackageJson } from 'package-json-type';
+  import { IDependencyMap, IPackageJson, SPDXLicenseIDApproved } from 'package-json-type';
+
+  const dependency: IDependencyMap = {
+    bar: '^1.0.0',
+    baz: '^2.1.0',
+    qux: 'file:../src/qux'
+  };
+
+  const license: SPDXLicenseIDApproved = 'MIT';
 
   const pkg: IPackageJson = {
     name: 'foo',
     version: '1.2.3',
-    description: 'This is awesome foo'
+    dependency,
+    description: 'This is awesome foo',
+    license
   };
   ```
 
 ## Documents
 
-* [TS Doc](http://ajaxlab.github.io/package-json-type)
+* [TS Doc](http://ajaxlab.github.io/package-json-type/)
 
 * [Markdown](https://github.com/ajaxlab/package-json-type/blob/master/md/interfaces/ipackagejson.md)
+
+## Issues
+
+* If you have any issues, please report to us posting [issues](https://github.com/ajaxlab/package-json-type/issues) on GitHub.
 
 ## License
 

@@ -65,30 +65,45 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="package-json-type">package-json-type</h1>
-				<p>A TypeScript definition for package.json file</p>
+				<blockquote>
+					<p>A TypeScript definition for package.json file</p>
+				</blockquote>
 				<h2 id="usages">Usages</h2>
 				<ul>
 					<li><p>Install</p>
 						<pre><code class="language-bash">npm install package-json-type</code></pre>
-						<p>or</p>
 						<pre><code class="language-bash">yarn add package-json-type</code></pre>
 					</li>
 					<li><p>Import</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { IPackageJson } <span class="hljs-keyword">from</span> <span class="hljs-string">'package-json-type'</span>;
+						<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { IDependencyMap, IPackageJson, SPDXLicenseIDApproved } <span class="hljs-keyword">from</span> <span class="hljs-string">'package-json-type'</span>;
+
+<span class="hljs-keyword">const</span> dependency: IDependencyMap = {
+  bar: <span class="hljs-string">'^1.0.0'</span>,
+  baz: <span class="hljs-string">'^2.1.0'</span>,
+  qux: <span class="hljs-string">'file:../src/qux'</span>
+};
+
+<span class="hljs-keyword">const</span> license: SPDXLicenseIDApproved = <span class="hljs-string">'MIT'</span>;
 
 <span class="hljs-keyword">const</span> pkg: IPackageJson = {
   name: <span class="hljs-string">'foo'</span>,
   version: <span class="hljs-string">'1.2.3'</span>,
-  description: <span class="hljs-string">'This is awesome foo'</span>
+  dependency,
+  description: <span class="hljs-string">'This is awesome foo'</span>,
+  license
 };</code></pre>
 					</li>
 				</ul>
 				<h2 id="documents">Documents</h2>
 				<ul>
-					<li><p><a href="http://ajaxlab.github.io/package-json-type">TS Doc</a></p>
+					<li><p><a href="http://ajaxlab.github.io/package-json-type/">TS Doc</a></p>
 					</li>
 					<li><p><a href="https://github.com/ajaxlab/package-json-type/blob/master/md/interfaces/ipackagejson.md">Markdown</a></p>
 					</li>
+				</ul>
+				<h2 id="issues">Issues</h2>
+				<ul>
+					<li>If you have any issues, please report to us posting <a href="https://github.com/ajaxlab/package-json-type/issues">issues</a> on GitHub.</li>
 				</ul>
 				<h2 id="license">License</h2>
 				<ul>
