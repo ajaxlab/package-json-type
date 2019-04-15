@@ -1,13 +1,13 @@
 # package-json-type
 
-> A TypeScript definition for package.json file
+A TypeScript definition for package.json file
 
 ## Usages
 
 * Install
 
   ```bash
-  npm install package-json-type
+  npm install -S package-json-type
   ```
 
   ```bash
