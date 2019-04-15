@@ -18,7 +18,7 @@ Package author information.
 
 **● email**: *`undefined` \| `string`*
 
-*Defined in [index.ts:7](https://github.com/ajaxlab/package-json-type/blob/ad7a0e6/src/index.ts#L7)*
+*Defined in [index.ts:7](https://github.com/ajaxlab/package-json-type/blob/7c09ac6/src/index.ts#L7)*
 
 ___
 <a id="name"></a>
@@ -27,7 +27,7 @@ ___
 
 **● name**: *`string`*
 
-*Defined in [index.ts:8](https://github.com/ajaxlab/package-json-type/blob/ad7a0e6/src/index.ts#L8)*
+*Defined in [index.ts:8](https://github.com/ajaxlab/package-json-type/blob/7c09ac6/src/index.ts#L8)*
 
 ___
 <a id="url"></a>
@@ -36,7 +36,7 @@ ___
 
 **● url**: *`undefined` \| `string`*
 
-*Defined in [index.ts:9](https://github.com/ajaxlab/package-json-type/blob/ad7a0e6/src/index.ts#L9)*
+*Defined in [index.ts:9](https://github.com/ajaxlab/package-json-type/blob/7c09ac6/src/index.ts#L9)*
 
 ___
 

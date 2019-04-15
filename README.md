@@ -1,5 +1,7 @@
 # package-json-type
 
+[![npm](https://img.shields.io/npm/v/package-json-type.svg)](https://www.npmjs.com/package/package-json-type)
+
 A TypeScript definition for package.json file
 
 ## Usages
