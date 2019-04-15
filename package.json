@@ -4,10 +4,14 @@
   "description": "A TypeScript definition for the CommonJS package descriptor file.",
   "types": "types/index.d.ts",
   "scripts": {
-    "build": "npm run lint && npm run test && npm run clean && tsc -b",
+    "build": "yarn run lint && yarn run test && yarn run clean && tsc -b",
     "clean": "rimraf types",
     "dev": "tsc -b --watch",
+    "doc": "typedoc --excludePrivate --mode file --out docs src",
     "lint": "tslint 'src/**/*.ts' 'test/**/*.ts'",
+    "md": "typedoc --mode file --theme markdown --mdEngine gitbook --out md src",
+    "prepare": "yarn run build",
+    "prepack": "yarn run doc && yarn run md",
     "test": "ts-node test/package-json.spec.ts"
   },
   "keywords": [
@@ -16,7 +20,11 @@
     "typescript",
     "definition"
   ],
-  "author": "ajaxlab7@gmail.com",
+  "author": {
+    "email": "ajaxlab7@gmail.com",
+    "name": "ajaxlab",
+    "url": "https://github.com/ajaxlab"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -31,6 +39,9 @@
     "ts-node": "^8.0.3",
     "tslint": "^5.12.1",
     "tslint-lines-between-class-members": "^1.3.1",
+    "typedoc": "^0.14.2",
+    "typedoc-plugin-markdown": "^1.2.0",
     "typescript": "^3.3.3"
-  }
+  },
+  "dependencies": {}
 }

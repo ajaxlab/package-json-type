@@ -66,19 +66,27 @@ export interface IDirectories {
 export interface IEngines {
   node?: string;
   npm?: string;
+  yarn?: string;
+  zlib?: string;
 }
 
 /**
  * A TypeScript definition for the CommonJS package descriptor file.
  * @see http://wiki.commonjs.org/wiki/Packages/1.0
+ * @see https://docs.npmjs.com/files/package.json
+ * @see https://yarnpkg.com/en/docs/package-json
  */
 export interface IPackageJson {
+
+  [field: string]: any;
+
   /**
    * You can shorten that all into a single string.
    *
    * ```your-name <account@your-domain> (http://your-url)```
    *
    * @see https://docs.npmjs.com/files/package.json#people-fields-author-contributors
+   * @see https://yarnpkg.com/en/docs/package-json#toc-author
    */
   readonly author?: string | IAuthor;
 
@@ -110,17 +118,15 @@ export interface IPackageJson {
    * address to which issues should be reported. These are helpful
    * for people who encounter issues with your package.
    * @see https://docs.npmjs.com/files/package.json#bugs
+   * @see https://yarnpkg.com/en/docs/package-json#toc-bugs
    */
   readonly bugs?: string | IBugs;
 
   /**
-   * This defines an array of package names that will be bundled
-   * when publishing the package. In cases where you need to preserve
-   * npm packages locally or have them available through a single file
-   * download, you can bundle the packages in a tarball file by
-   * specifying the package names in the bundledDependencies
-   * array and executing npm pack.
+   * Bundled dependencies are an array of package names that
+   * will be bundled together when publishing your package.
    * @see https://docs.npmjs.com/files/package.json#bundleddependencies
+   * @see https://yarnpkg.com/en/docs/package-json#toc-bundleddependencies
    */
   readonly bundledDependencies?: string[];
 
@@ -140,23 +146,28 @@ export interface IPackageJson {
    * npm will treat each line as a Name <email> (url) format,
    * where email and url are optional. Lines which start with a # or are blank,
    * will be ignored.
-   * @see https://docs.npmjs.com/files/package.json#default-values
+   * @see https://docs.npmjs.com/files/package.json#people-fields-author-contributors
+   * @see https://yarnpkg.com/en/docs/package-json#toc-contributors
    */
-  readonly contributors?: string[] | IAuthor[];
+  readonly contributors?: Array<IAuthor | string>;
 
   /**
    * If your code only runs on certain cpu architectures, you can specify which ones.
+   * This checks against process.arch.
    * @see https://docs.npmjs.com/files/package.json#cpu
+   * @see https://yarnpkg.com/en/docs/package-json#toc-cpu
+   * @see https://nodejs.org/api/process.html#process_process_arch
    */
-  readonly cpu?: CPU[] | string[];
+  readonly cpu?: CPU[];
 
   /**
    * Dependencies are specified in a simple object that maps a package name
    * to a version range. The version range is a string which has one or
    * more space-separated descriptors. Dependencies can also be
    * identified with a tarball or git URL.
-   * @see https://docs.npmjs.com/files/package.json#dependencies
    * @see http://wiki.commonjs.org/wiki/Packages/1.0
+   * @see https://docs.npmjs.com/files/package.json#dependencies
+   * @see https://yarnpkg.com/en/docs/package-json#toc-dependencies
    */
   readonly dependencies?: IDependencyMap;
 
@@ -166,6 +177,7 @@ export interface IPackageJson {
    * should be usable as a package title in listings.
    * @see https://docs.npmjs.com/files/package.json#description-1
    * @see http://wiki.commonjs.org/wiki/Packages/1.0
+   * @see https://yarnpkg.com/en/docs/package-json#toc-description
    */
   readonly description?: string;
 
@@ -176,6 +188,7 @@ export interface IPackageJson {
    * framework that you use. In this case, it’s best to map
    * these additional items in a devDependencies object.
    * @see https://docs.npmjs.com/files/package.json#devdependencies
+   * @see https://yarnpkg.com/en/docs/package-json#toc-devdependencies
    */
   readonly devDependencies?: IDependencyMap;
 
@@ -193,28 +206,38 @@ export interface IPackageJson {
    * You can also specify which versions of npm are capable
    * of properly installing your program.
    * @see https://docs.npmjs.com/files/package.json#engines
+   * @see https://yarnpkg.com/en/docs/package-json#toc-engines
    */
   readonly engines?: IEngines;
 
   /**
-   * The optional files field is an array of file patterns that describes
-   * the entries to be included when your package is installed as a dependency.
-   * File patterns follow a similar syntax to .gitignore, but reversed: including
-   * a file, directory, or glob pattern will make it so that file is included
-   * in the tarball when it’s packed. Omitting the field will make it default
-   * to ["*"], which means it will include all files.
+   * Files that are included in your project described
+   * as a glob pattern. Omitting the field will make it default
+   * to ["*"], as it will include all files.
    * @see https://docs.npmjs.com/files/package.json#files
+   * @see https://yarnpkg.com/en/docs/package-json#toc-files
    */
   readonly files?: string[];
 
   /**
+   * If your package only allows one version of a given dependency,
+   * and you’d like to enforce the same behavior as yarn install --flat
+   * on the command line, set this to true.
+   * @see https://yarnpkg.com/en/docs/package-json#toc-flat
+   */
+  readonly flat?: boolean;
+
+  /**
    * The url to the project homepage.
+   * @see https://docs.npmjs.com/files/package.json#homepage
+   * @see https://yarnpkg.com/en/docs/package-json#toc-homepage
    */
   readonly homepage?: string;
 
   /**
    * An array of string keywords to assist users searching for the package in catalogs.
    * @see https://docs.npmjs.com/files/package.json#keywords
+   * @see https://yarnpkg.com/en/docs/package-json#toc-keywords
    */
   readonly keywords?: string[];
 
@@ -224,10 +247,11 @@ export interface IPackageJson {
    * If you’re using a common license such as BSD-2-Clause or MIT,
    * add a current SPDX license identifier.
    * @see https://docs.npmjs.com/files/package.json#license
+   * @see https://yarnpkg.com/en/docs/package-json#toc-license
    * @see https://spdx.org/licenses/
    * @see https://help.github.com/en/articles/licensing-a-repository
    */
-  readonly license?: SPDXLicenseID | string;
+  readonly license?: SPDXLicenseID | SPDXLicenseIDApproved;
 
   /**
    * The main field is a module ID that is the primary entry point to your package.
@@ -246,11 +270,12 @@ export interface IPackageJson {
   readonly man?: string | string[];
 
   /**
-   * The name and version together form an identifier that is assumed to be
-   * completely unique. If you don’t plan to publish your package, the name
-   * and version fields are optional. A name can be optionally prefixed by
-   * a scope, e.g. @myorg/mypackage.
+   * The name of your package.
+   * The name and version together should form a unique identifier accoss a project.
+   * The name and version fields are optional if you don’t want to publish your package.
+   * A name can be optionally prefixed by a scope, e.g. @types/lodash.
    * @see https://docs.npmjs.com/files/package.json#name
+   * @see https://yarnpkg.com/en/docs/package-json#toc-name
    */
   readonly name?: string;
 
@@ -262,14 +287,16 @@ export interface IPackageJson {
    * The difference is that build failures do not cause installation to fail.
    * It is still your program’s responsibility to handle the lack of the dependency.
    * @see https://docs.npmjs.com/files/package.json#optionaldependencies
+   * @see https://yarnpkg.com/en/docs/package-json#toc-optionaldependencies
    */
   readonly optionalDependencies?: IDependencyMap;
 
   /**
    * You can specify which operating systems your module will run on
    * @see https://docs.npmjs.com/files/package.json#os
+   * @see https://yarnpkg.com/en/docs/package-json#toc-os
    */
-  readonly os?: OS[] | string[];
+  readonly os?: NodeJS.Platform[];
 
   /**
    * In some cases, you want to express the compatibility of your package
@@ -278,6 +305,7 @@ export interface IPackageJson {
    * your module may be exposing a specific interface, expected
    * and specified by the host documentation.
    * @see https://docs.npmjs.com/files/package.json#peerdependencies
+   * @see https://yarnpkg.com/en/docs/package-json#toc-peerdependencies
    */
   readonly peerDependencies?: IDependencyMap;
 
@@ -297,6 +325,7 @@ export interface IPackageJson {
    * then use the [[publishConfig]] dictionary described below to override
    * the registry config param at publish-time.
    * @see https://docs.npmjs.com/files/package.json#private
+   * @see https://yarnpkg.com/en/docs/package-json#toc-private
    */
   readonly private?: boolean;
 
@@ -308,7 +337,20 @@ export interface IPackageJson {
    * Any config values can be overridden, but only "tag", "registry" and
    * "access" probably matter for the purposes of publishing.
    * See npm-config to see the list of config options that can be overridden.
+   * * public registry
+   * ```
+   * "publishConfig":{
+   *     "registry":"https://registry.npmjs.org"
+   * }
+   * ```
+   * * your private registry
+   * ```
+   * "publishConfig":{
+   *     "registry":"http://your-registry.local"
+   * }
+   * ```
    * @see https://docs.npmjs.com/files/package.json#publishconfig
+   * @see https://yarnpkg.com/en/docs/package-json#toc-publishconfig
    */
   readonly publishConfig?: IPublishConfig;
 
@@ -333,8 +375,21 @@ export interface IPackageJson {
    *   "directory": "packages/react-dom"
    * }
    * ```
+   * @see https://yarnpkg.com/en/docs/package-json#toc-repository
+   * @see https://docs.npmjs.com/files/package.json#repository
    */
   readonly repository?: string | IRepository;
+
+  /**
+   * Allows you to override a version of a particular nested dependency.
+   * See the Selective Versions Resolutions RFC for the full spec.
+   * Note that installing dependencies via [yarn install --flat] will
+   * automatically add a resolutions block to your package.json file.
+   * @see https://yarnpkg.com/en/docs/package-json#toc-resolutions
+   */
+  readonly resolutions?: {
+    [dependencyName: string]: string
+  };
 
   /**
    * The "scripts" property is a dictionary containing script commands
@@ -353,14 +408,32 @@ export interface IPackageJson {
   readonly scripts?: IScriptsMap;
 
   /**
+   * Indicate the main declaration file in your package.json.
+   * Set the types property to point to your bundled declaration file.
+   * ```json
+   * {
+   *     "name": "some-package",
+   *     "version": "1.0.0",
+   *     "main": "./lib/main.js",
+   *     "types": "./lib/main.d.ts"
+   * }
+   * ```
+   * @see https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html
+   */
+  readonly types?: string;
+
+  /**
    * A version string conforming to the Semantic Versioning requirements.
    * @see https://docs.npmjs.com/files/package.json#version
+   * @see https://yarnpkg.com/en/docs/package-json#toc-version
    */
   readonly version?: string;
 }
 
 export interface IPublishConfig {
+  access?: string;
   registry?: string;
+  tag?: string;
 }
 
 export interface IRepository {
@@ -368,18 +441,140 @@ export interface IRepository {
   url: string;
 }
 
+/**
+ * @see https://docs.npmjs.com/misc/scripts
+ * @see https://yarnpkg.com/en/docs/package-json#toc-scripts
+ */
 export interface IScriptsMap {
   [scriptName: string]: string;
+  install: string;
+  postinstall: string;
+  postpack: string;
+  postrestart: string;
+  postshrinkwrap: string;
+  poststart: string;
+  poststop: string;
+  posttest: string;
+  postuninstall: string;
+  postversion: string;
+  preinstall: string;
+  prepack: string;
+  prepare: string;
+  prepublish: string;
+  prepublishOnly: string;
+  prerestart: string;
+  preshrinkwrap: string;
+  prestart: string;
+  prestop: string;
+  pretest: string;
+  preuninstall: string;
+  preversion: string;
+  publish: string;
+  restart: string;
+  shrinkwrap: string;
+  start: string;
+  stop: string;
+  test: string;
+  uninstall: string;
+  version: string;
 }
 
-export type CPU = 'arm' | 'ia32' | 'mips' | 'x64';
+/**
+ * It checks against process.arc.
+ * @see https://docs.npmjs.com/files/package.json#cpu
+ * @see https://yarnpkg.com/en/docs/package-json#toc-cpu
+ * @see https://nodejs.org/api/process.html#process_process_arch
+ */
+export type CPU = 'arm'
+  | 'arm64'
+  | 'ia32'
+  | 'mips'
+  | 'mipsel'
+  | 'ppc'
+  | 'ppc64'
+  | 's390'
+  | 's390x'
+  | 'x32'
+  | 'x64';
 
-export type OS = 'darwin' | 'linux' | 'win32';
+/**
+ * SPDX License IDs which are not OSI approved.
+ * @see https://spdx.org/licenses/
+ */
+export type SPDXLicenseID = 'Abstyles' | 'Adobe-2006' | 'Adobe-Glyph' | 'ADSL'
+  | 'Afmparse' | 'AGPL-1.0-only' | 'AGPL-1.0-or-later' | 'Aladdin' | 'AMDPLPA'
+  | 'AML' | 'AMPAS' | 'ANTLR-PD' | 'Apache-1.0' | 'APAFML' | 'Bahyph' | 'Barr'
+  | 'Beerware' | 'BitTorrent-1.0' | 'BitTorrent-1.1' | 'Borceux' | 'BSD-1-Clause'
+  | 'BSD-2-Clause-FreeBSD' | 'BSD-2-Clause-NetBSD' | 'BSD-3-Clause-Attribution'
+  | 'BSD-3-Clause-Clear' | 'BSD-3-Clause-LBNL' | 'BSD-3-Clause-No-Nuclear-License'
+  | 'BSD-3-Clause-No-Nuclear-License-2014' | 'BSD-3-Clause-No-Nuclear-Warranty'
+  | 'BSD-4-Clause' | 'BSD-4-Clause-UC' | 'BSD-Protection' | 'BSD-Source-Code'
+  | 'bzip2-1.0.5' | 'bzip2-1.0.6' | 'Caldera' | 'CC-BY-1.0' | 'CC-BY-2.0'
+  | 'CC-BY-2.5' | 'CC-BY-3.0' | 'CC-BY-4.0' | 'CC-BY-NC-1.0' | 'CC-BY-NC-2.0'
+  | 'CC-BY-NC-2.5' | 'CC-BY-NC-3.0' | 'CC-BY-NC-4.0' | 'CC-BY-NC-ND-1.0'
+  | 'CC-BY-NC-ND-2.0' | 'CC-BY-NC-ND-2.5' | 'CC-BY-NC-ND-3.0' | 'CC-BY-NC-ND-4.0'
+  | 'CC-BY-NC-SA-1.0' | 'CC-BY-NC-SA-2.0' | 'CC-BY-NC-SA-2.5' | 'CC-BY-NC-SA-3.0'
+  | 'CC-BY-NC-SA-4.0' | 'CC-BY-ND-1.0' | 'CC-BY-ND-2.0' | 'CC-BY-ND-2.5'
+  | 'CC-BY-ND-3.0' | 'CC-BY-ND-4.0' | 'CC-BY-SA-1.0' | 'CC-BY-SA-2.0'
+  | 'CC-BY-SA-2.5' | 'CC-BY-SA-3.0' | 'CC-BY-SA-4.0' | 'CC0-1.0' | 'CDDL-1.1'
+  | 'CDLA-Permissive-1.0' | 'CDLA-Sharing-1.0' | 'CECILL-1.0' | 'CECILL-1.1'
+  | 'CECILL-2.0' | 'CECILL-B' | 'CECILL-C' | 'CERN-OHL-1.1' | 'CERN-OHL-1.2'
+  | 'ClArtistic' | 'CNRI-Jython' | 'CNRI-Python-GPL-Compatible' | 'Condor-1.1'
+  | 'copyleft-next-0.3.0' | 'copyleft-next-0.3.1' | 'CPOL-1.02' | 'Crossword'
+  | 'CrystalStacker' | 'Cube' | 'curl' | 'D-FSL-1.0' | 'diffmark' | 'DOC'
+  | 'Dotseqn' | 'DSDP' | 'dvipdfm' | 'eGenix' | 'ErlPL-1.1' | 'EUPL-1.0'
+  | 'Eurosym' | 'FreeImage' | 'FSFAP' | 'FSFUL' | 'FSFULLR' | 'FTL'
+  | 'GFDL-1.1-only' | 'GFDL-1.1-or-later' | 'GFDL-1.2-only' | 'GFDL-1.2-or-later'
+  | 'GFDL-1.3-only' | 'GFDL-1.3-or-later' | 'Giftware' | 'GL2PS' | 'Glide'
+  | 'Glulxe' | 'gnuplot' | 'GPL-1.0-only' | 'GPL-1.0-or-later' | 'gSOAP-1.3b'
+  | 'HaskellReport' | 'HPND-sell-variant' | 'IBM-pibs' | 'ICU' | 'IJG'
+  | 'ImageMagick' | 'iMatix' | 'Imlib2' | 'Info-ZIP' | 'Intel-ACPI'
+  | 'Interbase-1.0' | 'JasPer-2.0' | 'JPNIC' | 'JSON' | 'LAL-1.2'
+  | 'LAL-1.3' | 'Latex2e' | 'Leptonica' | 'LGPLLR' | 'Libpng'
+  | 'libpng-2.0' | 'libtiff' | 'Linux-OpenIB' | 'LPPL-1.0'
+  | 'LPPL-1.1' | 'LPPL-1.2' | 'LPPL-1.3a' | 'MakeIndex'
+  | 'MIT-advertising' | 'MIT-CMU' | 'MIT-enna' | 'MIT-feh' | 'MITNFA'
+  | 'mpich2' | 'MTLL' | 'Mup' | 'NBPL-1.0' | 'Net-SNMP' | 'NetCDF'
+  | 'Newsletr' | 'NLOD-1.0' | 'NLPL' | 'NOSL' | 'Noweb' | 'NPL-1.0' | 'NPL-1.1'
+  | 'NRL' | 'OCCT-PL' | 'ODbL-1.0' | 'ODC-By-1.0' | 'OFL-1.0'
+  | 'OGL-UK-1.0' | 'OGL-UK-2.0' | 'OGL-UK-3.0' | 'OLDAP-1.1' | 'OLDAP-1.2' | 'OLDAP-1.3'
+  | 'OLDAP-1.4' | 'OLDAP-2.0' | 'OLDAP-2.0.1' | 'OLDAP-2.1' | 'OLDAP-2.2' | 'OLDAP-2.2.1'
+  | 'OLDAP-2.2.2' | 'OLDAP-2.3' | 'OLDAP-2.4' | 'OLDAP-2.5' | 'OLDAP-2.6' | 'OLDAP-2.7'
+  | 'OLDAP-2.8' | 'OML' | 'OpenSSL' | 'OPL-1.0' | 'OSL-1.1' | 'PDDL-1.0' | 'PHP-3.01'
+  | 'Plexus' | 'psfrag' | 'psutils' | 'Qhull' | 'Rdisc' | 'RHeCos-1.1' | 'RSA-MD'
+  | 'Ruby' | 'SAX-PD' | 'Saxpath' | 'SCEA' | 'Sendmail' | 'Sendmail-8.23'
+  | 'SGI-B-1.0' | 'SGI-B-1.1' | 'SGI-B-2.0' | 'SISSL-1.2' | 'SMLNJ' | 'SMPPL'
+  | 'SNIA' | 'Spencer-86' | 'Spencer-94' | 'Spencer-99' | 'SugarCRM-1.1.3'
+  | 'SWL' | 'TAPR-OHL-1.0' | 'TCL' | 'TCP-wrappers' | 'TMate' | 'TORQUE-1.1'
+  | 'TOSL' | 'TU-Berlin-1.0' | 'TU-Berlin-2.0'
+  | 'Unicode-DFS-2015' | 'Unicode-DFS-2016' | 'Unicode-TOU'
+  | 'Unlicense' | 'Vim' | 'VOSTROM' | 'W3C-19980720' | 'W3C-20150513'
+  | 'Wsuipa' | 'WTFPL' | 'X11' | 'Xerox' | 'XFree86-1.1' | 'xinetd'
+  | 'xpp' | 'XSkat' | 'YPL-1.0' | 'YPL-1.1' | 'Zed' | 'Zend-2.0'
+  | 'Zimbra-1.3' | 'Zimbra-1.4' | 'zlib-acknowledgement' | 'ZPL-1.1' | 'ZPL-2.1';
 
-export type SPDXLicenseID = 'AFL-3.0'
-  | 'APACHE-2.0' | 'ARTISTIC-2.0' | 'BSL-1.0' | 'BSD-2-CLAUSE' | 'BSD-3-CLAUSE'
-  | 'BSD-3-CLAUSE-CLEAR' | 'CC' | 'CC0-1.0' | 'CC-BY-4.0' | 'CC-BY-SA-4.0'
-  | 'WTFPL' | 'ECL-2.0' | 'EPL-1.0' | 'EUPL-1.1'
-  | 'AGPL-3.0' | 'GPL' | 'GPL-2.0' | 'GPL-3.0' | 'LGPL' | 'LGPL-2.1' | 'LGPL-3.0'
-  | 'ISC' | 'LPPL-1.3C' | 'MS-PL' | 'MIT' | 'MPL-2.0' | 'OSL-3.0' | 'POSTGRESQL'
-  | 'OFL-1.1' | 'NCSA' | 'UNLICENSE' | 'ZLIB';
+/**
+ * SPDX License IDs which are approved by OSI.
+ * @see https://spdx.org/licenses/
+ */
+export type SPDXLicenseIDApproved = '0BSD' | 'AAL'
+  | 'AFL-1.1' | 'AFL-1.2' | 'AFL-2.0' | 'AFL-2.1' | 'AFL-3.0'
+  | 'AGPL-3.0-only' | 'AGPL-3.0-or-later' | 'Apache-1.1' | 'Apache-2.0'
+  | 'APL-1.0' | 'APSL-1.0' | 'APSL-1.1' | 'APSL-1.2' | 'APSL-2.0'
+  | 'Artistic-1.0' | 'Artistic-1.0-cl8' | 'Artistic-1.0-Perl' | 'Artistic-2.0'
+  | 'BSD-2-Clause' | 'BSD-2-Clause-Patent' | 'BSD-3-Clause' | 'BSL-1.0'
+  | 'CATOSL-1.1' | 'CDDL-1.0' | 'CECILL-2.1' | 'CNRI-Python' | 'CPAL-1.0' | 'CPL-1.0'
+  | 'CUA-OPL-1.0' | 'ECL-1.0' | 'ECL-2.0' | 'EFL-1.0' | 'EFL-2.0' | 'Entessa' | 'EPL-1.0' | 'EPL-2.0'
+  | 'EUDatagrid' | 'EUPL-1.1' | 'EUPL-1.2' | 'Fair' | 'Frameworx-1.0'
+  | 'GPL-2.0-only' | 'GPL-2.0-or-later' | 'GPL-3.0-only' | 'GPL-3.0-or-later'
+  | 'HPND' | 'Intel' | 'IPA' | 'IPL-1.0' | 'ISC' | 'LGPL-2.0-only' | 'LGPL-2.0-or-later'
+  | 'LGPL-2.1-only' | 'LGPL-2.1-or-later' | 'LGPL-3.0-only' | 'LGPL-3.0-or-later'
+  | 'LiLiQ-P-1.1' | 'LiLiQ-R-1.1' | 'LiLiQ-Rplus-1.1' | 'LPL-1.0' | 'LPL-1.02'
+  | 'LPPL-1.3c' | 'MirOS' | 'MIT' | 'MIT-0' | 'Motosoto'
+  | 'MPL-1.0' | 'MPL-1.1' | 'MPL-2.0' | 'MPL-2.0-no-copyleft-exception'
+  | 'MS-PL' | 'MS-RL' | 'Multics' | 'NASA-1.3' | 'Naumen' | 'NCSA' | 'NGPL'
+  | 'Nokia' | 'NPOSL-3.0' | 'NTP' | 'OCLC-2.0' | 'OFL-1.1' | 'OGTSL'
+  | 'OSET-PL-2.1' | 'OSL-1.0' | 'OSL-2.0' | 'OSL-2.1' | 'OSL-3.0'
+  | 'PHP-3.0' | 'PostgreSQL' | 'Python-2.0' | 'QPL-1.0' | 'RPL-1.1'
+  | 'RPL-1.5' | 'RPSL-1.0' | 'RSCPL' | 'SimPL-2.0' | 'SISSL' | 'Sleepycat'
+  | 'SPL-1.0' | 'UPL-1.0' | 'VSL-1.0' | 'W3C' | 'Watcom-1.0' | 'Xnet' | 'Zlib' | 'ZPL-2.0';
