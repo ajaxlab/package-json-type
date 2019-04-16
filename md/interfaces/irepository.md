@@ -52,7 +52,7 @@ Specify the place where your code lives. This is helpful for people who want to 
 
 **● directory**: *`undefined` \| `string`*
 
-*Defined in [index.ts:653](https://github.com/ajaxlab/package-json-type/blob/7c09ac6/src/index.ts#L653)*
+*Defined in [index.ts:653](https://github.com/ajaxlab/package-json-type/blob/bd56be6/src/index.ts#L653)*
 
 ___
 <a id="type"></a>
@@ -61,7 +61,7 @@ ___
 
 **● type**: *`string`*
 
-*Defined in [index.ts:654](https://github.com/ajaxlab/package-json-type/blob/7c09ac6/src/index.ts#L654)*
+*Defined in [index.ts:654](https://github.com/ajaxlab/package-json-type/blob/bd56be6/src/index.ts#L654)*
 
 ___
 <a id="url"></a>
@@ -70,7 +70,7 @@ ___
 
 **● url**: *`string`*
 
-*Defined in [index.ts:655](https://github.com/ajaxlab/package-json-type/blob/7c09ac6/src/index.ts#L655)*
+*Defined in [index.ts:655](https://github.com/ajaxlab/package-json-type/blob/bd56be6/src/index.ts#L655)*
 
 ___
 

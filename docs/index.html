@@ -68,30 +68,56 @@
 				<p><a href="https://www.npmjs.com/package/package-json-type"><img src="https://img.shields.io/npm/v/package-json-type.svg" alt="npm"></a></p>
 				<p>A TypeScript definition for package.json file</p>
 				<h2 id="usages">Usages</h2>
+				<h3 id="install">Install</h3>
+				<pre><code class="language-bash">  npm install -S package-json-type</code></pre>
+				<pre><code class="language-bash">  yarn add package-json-type</code></pre>
+				<h3 id="import">Import</h3>
+				<pre><code class="language-typescript">  <span class="hljs-keyword">import</span> {
+    IDependencyMap,
+    IEngines,
+    IPackageJson,
+    SPDXLicenseIDApproved
+  } <span class="hljs-keyword">from</span> <span class="hljs-string">'package-json-type'</span>;
+
+  <span class="hljs-keyword">const</span> dependency: IDependencyMap = {
+    bar: <span class="hljs-string">'^1.0.0'</span>,
+    baz: <span class="hljs-string">'^2.1.0'</span>,
+    qux: <span class="hljs-string">'file:../src/qux'</span>
+  };
+
+  <span class="hljs-keyword">const</span> engines: IEngines = {
+    node: <span class="hljs-string">'&gt;=6.0.1 &lt;11.0.0'</span>,
+    yarn: <span class="hljs-string">'^1.15.0'</span>,
+    zlib: <span class="hljs-string">'^0.14.0'</span>
+  };
+
+  <span class="hljs-keyword">const</span> license: SPDXLicenseIDApproved = <span class="hljs-string">'MIT'</span>;
+
+  <span class="hljs-keyword">const</span> pkg: IPackageJson = {
+    name: <span class="hljs-string">'foo'</span>,
+    version: <span class="hljs-string">'1.2.3'</span>,
+    dependency,
+    description: <span class="hljs-string">'This is awesome foo'</span>,
+    engines,
+    license
+  };</code></pre>
+				<h2 id="types">Types</h2>
 				<ul>
-					<li><p>Install</p>
-						<pre><code class="language-bash">npm install -S package-json-type</code></pre>
-						<pre><code class="language-bash">yarn add package-json-type</code></pre>
-					</li>
-					<li><p>Import</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { IDependencyMap, IPackageJson, SPDXLicenseIDApproved } <span class="hljs-keyword">from</span> <span class="hljs-string">'package-json-type'</span>;
-
-<span class="hljs-keyword">const</span> dependency: IDependencyMap = {
-  bar: <span class="hljs-string">'^1.0.0'</span>,
-  baz: <span class="hljs-string">'^2.1.0'</span>,
-  qux: <span class="hljs-string">'file:../src/qux'</span>
-};
-
-<span class="hljs-keyword">const</span> license: SPDXLicenseIDApproved = <span class="hljs-string">'MIT'</span>;
-
-<span class="hljs-keyword">const</span> pkg: IPackageJson = {
-  name: <span class="hljs-string">'foo'</span>,
-  version: <span class="hljs-string">'1.2.3'</span>,
-  dependency,
-  description: <span class="hljs-string">'This is awesome foo'</span>,
-  license
-};</code></pre>
-					</li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/interfaces/iauthor.html">IAuthor</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/interfaces/ibinmap.html">IBinMap</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/interfaces/ibugs.html">IBugs</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/interfaces/iconfig.html">IConfig</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/interfaces/idependencymap.html">IDependencyMap</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/interfaces/idirectories.html">IDirectories</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/interfaces/iengines.html">IEngines</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/interfaces/ipackagejson.html">IPackageJson</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/interfaces/ipublishconfig.html">IPublishConfig</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/interfaces/irepository.html">IRepository</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/interfaces/iscriptsmap.html">IScriptsMap</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/globals.html#cpu">CPU</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/globals.html#os">OS</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/globals.html#spdxlicenseid">SPDXLicenseID</a></li>
+					<li><a href="https://ajaxlab.github.io/package-json-type/globals.html#spdxlicenseidapproved">SPDXLicenseIDApproved</a></li>
 				</ul>
 				<h2 id="documents">Documents</h2>
 				<ul>
@@ -101,13 +127,20 @@
 					</li>
 				</ul>
 				<h2 id="issues">Issues</h2>
-				<ul>
-					<li>If you have any issues, please report to us posting <a href="https://github.com/ajaxlab/package-json-type/issues">issues</a> on GitHub.</li>
-				</ul>
+				<p>If you have any problems, please let us know on github <a href="https://github.com/ajaxlab/package-json-type/issues">issues</a>.</p>
+				<h2 id="contributing">Contributing</h2>
+				<p>Contributions are always welcome :)</p>
+				<ol>
+					<li>If you&#39;d like to contribute, please fork the repository</li>
+					<li>run <code>npm i</code> or <code>yarn</code> inside the project</li>
+					<li>run <code>npm run dev</code> to run in dev mode</li>
+					<li>Make changes as you&#39;d like</li>
+					<li>To test run <code>npm test</code> or <code>yarn test</code></li>
+					<li>For clean code run <code>npm run lint</code> or <code>yarn lint</code></li>
+					<li>And send us your pull requests!</li>
+				</ol>
 				<h2 id="license">License</h2>
-				<ul>
-					<li><a href="./LICENSE">MIT</a></li>
-				</ul>
+				<p>This project is licensed under <a href="./LICENSE">MIT</a> license.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
