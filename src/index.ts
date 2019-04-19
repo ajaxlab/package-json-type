@@ -11,8 +11,8 @@ export interface IAuthor {
 
 /**
  * An executable file which will be installed into the PATH
- * with a package install. npm will symlink that file into
- * prefix/bin for global installs, or ./node_modules/.bin/
+ * with a package install. `npm` will symlink that file into
+ * `prefix/bin` for global installs, or `./node_modules/.bin/`
  * for local installs.
  *
  * ```json
@@ -23,9 +23,9 @@ export interface IAuthor {
  * }
  * ```
  *
- * For example, with linux if you install myapp,
- * it'll create a symlink from the cli.js script
- * to /usr/local/bin/myapp.
+ * For example, with linux if you install `myapp`,
+ * it'll create a symlink from the `cli.js` script
+ * to `/usr/local/bin/myapp`.
  * @see https://docs.npmjs.com/files/package.json#bin
  */
 export interface IBinMap {
@@ -45,7 +45,7 @@ export interface IBugs {
 }
 
 /**
- * A "config" object can be used to set configuration parameters
+ * A `config` object can be used to set configuration parameters
  * used in package scripts that persist across upgrades.
  * For instance, if a package had the following:
  * ```json
@@ -55,9 +55,9 @@ export interface IBugs {
  *   }
  * }
  * ```
- * and then had a “start” command that then referenced the
- * npm_package_config_port environment variable,
- * then the user could override that by doing npm config set foo:port 8001.
+ * and then had a `start` command that then referenced the
+ * `npm_package_config_port` environment variable,
+ * then the user could override that by doing npm config set `foo:port 8001`.
  * @see https://docs.npmjs.com/files/package.json#config
  * @see https://yarnpkg.com/en/docs/package-json#toc-config
  */
@@ -124,14 +124,14 @@ export interface IDirectories {
 
   /**
    * Tell people where the bulk of your library is.
-   * Nothing special is done with the lib folder
+   * Nothing special is done with the `lib` folder
    * in any way, but it's useful meta info.
    */
   lib?: string;
 
   /**
    * A folder that is full of man pages. Sugar to generate
-   * a "man" array by walking the folder.
+   * a `man` array by walking the folder.
    */
   man?: string;
 
@@ -178,8 +178,8 @@ export interface IPackageJson {
 
   /**
    * An executable file which will be installed into the PATH
-   * with a package install. npm will symlink that file into
-   * prefix/bin for global installs, or ./node_modules/.bin/
+   * with a package install. `npm` will symlink that file into
+   * `prefix/bin` for global installs, or `./node_modules/.bin/`
    * for local installs.
    *
    * ```json
@@ -190,16 +190,16 @@ export interface IPackageJson {
    * }
    * ```
    *
-   * For example, with linux if you install myapp,
-   * it'll create a symlink from the cli.js script
-   * to /usr/local/bin/myapp.
+   * For example, with linux if you install `myapp`,
+   * it'll create a symlink from the `cli.js` script
+   * to `/usr/local/bin/myapp`.
    * @see https://docs.npmjs.com/files/package.json#bin
    */
   readonly bin?: string | IBinMap;
 
   /**
    * This is a hint to the module which is meant to be
-   * used client-side instead of nodejs.
+   * used "client-side" instead of "nodejs".
    * @see https://github.com/defunctzombie/package-browser-field-spec
    * @see http://2ality.com/2017/04/setting-up-multi-platform-packages.html#browser-browser-specific-code
    */
@@ -223,7 +223,7 @@ export interface IPackageJson {
   readonly bundledDependencies?: string[];
 
   /**
-   * A "config" object can be used to set configuration parameters
+   * A "`config`" object can be used to set configuration parameters
    * used in package scripts that persist across upgrades.
    * For instance, if a package had the following:
    * ```json
@@ -233,7 +233,7 @@ export interface IPackageJson {
    *   }
    * }
    * ```
-   * and then had a “start” command that then referenced the
+   * and then had a "`start`" command that then referenced the
    * npm_package_config_port environment variable,
    * then the user could override that by doing npm config set foo:port 8001.
    * @see https://docs.npmjs.com/files/package.json#config
@@ -242,7 +242,7 @@ export interface IPackageJson {
   readonly config?: IConfig;
 
   /**
-   * If there is an AUTHORS file in the root of your package,
+   * If there is an `AUTHORS` file in the root of your package,
    * npm will treat each line as a Name <email> (url) format,
    * where email and url are optional. Lines which start with a # or are blank,
    * will be ignored.
@@ -253,7 +253,7 @@ export interface IPackageJson {
 
   /**
    * If your code only runs on certain cpu architectures, you can specify which ones.
-   * This checks against process.arch.
+   * This checks against `process.arch`.
    * @see https://docs.npmjs.com/files/package.json#cpu
    * @see https://yarnpkg.com/en/docs/package-json#toc-cpu
    * @see https://nodejs.org/api/process.html#process_process_arch
@@ -315,7 +315,7 @@ export interface IPackageJson {
 
   /**
    * You can specify the version of node that your stuff works on.
-   * You can also specify which versions of npm are capable
+   * You can also specify which versions of `npm` are capable
    * of properly installing your program.
    * @see https://docs.npmjs.com/files/package.json#engines
    * @see https://yarnpkg.com/en/docs/package-json#toc-engines
@@ -325,7 +325,7 @@ export interface IPackageJson {
   /**
    * Files that are included in your project described
    * as a glob pattern. Omitting the field will make it default
-   * to ["*"], as it will include all files.
+   * to `["*"]`, as it will include all files.
    * @see https://docs.npmjs.com/files/package.json#files
    * @see https://yarnpkg.com/en/docs/package-json#toc-files
    */
@@ -333,7 +333,7 @@ export interface IPackageJson {
 
   /**
    * If your package only allows one version of a given dependency,
-   * and you'd like to enforce the same behavior as yarn install --flat
+   * and you'd like to enforce the same behavior as `yarn install --flat`
    * on the command line, set this to true.
    * @see https://yarnpkg.com/en/docs/package-json#toc-flat
    */
@@ -356,7 +356,7 @@ export interface IPackageJson {
   /**
    * A license for your package so that people know how they are permitted
    * to use it, and any restrictions you're placing on it.
-   * If you're using a common license such as BSD-2-Clause or MIT,
+   * If you're using a common license such as `BSD-2-Clause` or `MIT`,
    * add a current {@link https://spdx.org/licenses/ | SPDX license identifier}.
    * @see https://docs.npmjs.com/files/package.json#license
    * @see https://yarnpkg.com/en/docs/package-json#toc-license
@@ -367,8 +367,8 @@ export interface IPackageJson {
 
   /**
    * The main field is a module ID that is the primary entry point to your package.
-   * That is, if your package is named foo, and a user installs it, and then
-   * does require("foo"), then your main module's exports object will be returned.
+   * That is, if your package is named `foo`, and a user installs it, and then
+   * does `require("foo")`, then your main module's exports object will be returned.
    * This should be a module ID relative to the root of your package folder.
    * For most modules, it makes the most sense to have a main script and often not much else.
    * @see https://docs.npmjs.com/files/package.json#main
@@ -386,7 +386,7 @@ export interface IPackageJson {
    * The name of your package.
    * The name and version together should form a unique identifier accoss a project.
    * The name and version fields are optional if you don't want to publish your package.
-   * A name can be optionally prefixed by a scope, e.g. @types/lodash.
+   * A name can be optionally prefixed by a scope, e.g. `@types/lodash`.
    * @see https://docs.npmjs.com/files/package.json#name
    * @see https://yarnpkg.com/en/docs/package-json#toc-name
    */
@@ -395,8 +395,8 @@ export interface IPackageJson {
   /**
    * If a dependency can be used, but you would like npm to proceed
    * if it cannot be found or fails to install, then you may put it
-   * in the optionalDependencies object. This is a map of package name
-   * to version or url, just like the dependencies object.
+   * in the `optionalDependencies` object. This is a map of package name
+   * to version or url, just like the `dependencies` object.
    * The difference is that build failures do not cause installation to fail.
    * It is still your program's responsibility to handle the lack of the dependency.
    * @see https://docs.npmjs.com/files/package.json#optionaldependencies
@@ -426,13 +426,13 @@ export interface IPackageJson {
   /**
    * This option used to trigger an npm warning, but it will no longer warn.
    * It is purely there for informational purposes. It is now recommended
-   * that you install any binaries as local devDependencies wherever possible.
+   * that you install any binaries as local `devDependencies` wherever possible.
    * @deprecated
    */
   readonly preferGlobal?: boolean;
 
   /**
-   * If you set "private": true in your package.json, then npm will refuse to publish it.
+   * If you set "`private`": true in your `package.json`, then `npm` will refuse to publish it.
    * This is a way to prevent accidental publication of private repositories.
    * If you would like to ensure that a given package is only ever published to
    * a specific registry (for example, an internal registry),
@@ -445,11 +445,11 @@ export interface IPackageJson {
 
   /**
    * This is a set of config values that will be used at publish-time.
-   * It's especially handy if you want to set the tag, registry or access,
-   * so that you can ensure that a given package is not tagged with “latest”,
+   * It's especially handy if you want to set the `tag`, `registry` or `access`,
+   * so that you can ensure that a given package is not tagged with `“latest”`,
    * published to the global public registry or that a scoped module is private by default.
-   * Any config values can be overridden, but only "tag", "registry" and
-   * "access" probably matter for the purposes of publishing.
+   * Any config values can be overridden, but only "`tag`", "`registry`" and
+   * "`access`" probably matter for the purposes of publishing.
    * See npm-config to see the list of config options that can be overridden.
    * * Public Registry
    *
@@ -530,7 +530,7 @@ export interface IPackageJson {
   };
 
   /**
-   * The "scripts" property is a dictionary containing script commands
+   * The "`scripts`" property is a dictionary containing script commands
    * that are run at various times in the lifecycle of your package.
    * The key is the lifecycle event, and the value is the command to run at that point.
    * ```json
@@ -551,7 +551,7 @@ export interface IPackageJson {
 
   /**
    * Indicate the main declaration file in your package.json.
-   * Set the types property to point to your bundled declaration file.
+   * Set the `types` property to point to your bundled declaration file.
    * ```json
    * {
    *   "name": "some-package",
@@ -574,11 +574,11 @@ export interface IPackageJson {
 
 /**
  * This is a set of config values that will be used at publish-time.
- * It's especially handy if you want to set the tag, registry or access,
- * so that you can ensure that a given package is not tagged with “latest”,
+ * It's especially handy if you want to set the `tag`, `registry` or `access`,
+ * so that you can ensure that a given package is not tagged with `“latest”`,
  * published to the global public registry or that a scoped module is private by default.
- * Any config values can be overridden, but only "tag", "registry" and
- * "access" probably matter for the purposes of publishing.
+ * Any config values can be overridden, but only "`tag`", "`registry`" and
+ * "`access`" probably matter for the purposes of publishing.
  * See npm-config to see the list of config options that can be overridden.
  * * Public Registry
  *
@@ -656,7 +656,7 @@ export interface IRepository {
 }
 
 /**
- * The "scripts" property is a dictionary containing script commands
+ * The "`scripts`" property is a dictionary containing script commands
  * that are run at various times in the lifecycle of your package.
  * The key is the lifecycle event, and the value is the command to run at that point.
  * ```json
@@ -707,7 +707,7 @@ export interface IScriptsMap {
 }
 
 /**
- * It checks against process.arc.
+ * It checks against `process.arc`.
  * @see https://docs.npmjs.com/files/package.json#cpu
  * @see https://yarnpkg.com/en/docs/package-json#toc-cpu
  * @see https://nodejs.org/api/process.html#process_process_arch

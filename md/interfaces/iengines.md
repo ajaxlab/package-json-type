@@ -18,7 +18,7 @@ You can specify the version of node that your stuff works on. You can also speci
 
 **● node**: *`undefined` \| `string`*
 
-*Defined in [index.ts:152](https://github.com/ajaxlab/package-json-type/blob/bd56be6/src/index.ts#L152)*
+*Defined in [index.ts:152](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L152)*
 
 ___
 <a id="npm"></a>
@@ -27,7 +27,7 @@ ___
 
 **● npm**: *`undefined` \| `string`*
 
-*Defined in [index.ts:153](https://github.com/ajaxlab/package-json-type/blob/bd56be6/src/index.ts#L153)*
+*Defined in [index.ts:153](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L153)*
 
 ___
 <a id="yarn"></a>
@@ -36,7 +36,7 @@ ___
 
 **● yarn**: *`undefined` \| `string`*
 
-*Defined in [index.ts:154](https://github.com/ajaxlab/package-json-type/blob/bd56be6/src/index.ts#L154)*
+*Defined in [index.ts:154](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L154)*
 
 ___
 <a id="zlib"></a>
@@ -45,7 +45,7 @@ ___
 
 **● zlib**: *`undefined` \| `string`*
 
-*Defined in [index.ts:155](https://github.com/ajaxlab/package-json-type/blob/bd56be6/src/index.ts#L155)*
+*Defined in [index.ts:155](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L155)*
 
 ___
 

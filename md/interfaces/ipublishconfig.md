@@ -1,6 +1,6 @@
 
 
-This is a set of config values that will be used at publish-time. It's especially handy if you want to set the tag, registry or access, so that you can ensure that a given package is not tagged with “latest”, published to the global public registry or that a scoped module is private by default. Any config values can be overridden, but only "tag", "registry" and "access" probably matter for the purposes of publishing. See npm-config to see the list of config options that can be overridden.
+This is a set of config values that will be used at publish-time. It's especially handy if you want to set the `tag`, `registry` or `access`, so that you can ensure that a given package is not tagged with `“latest”`, published to the global public registry or that a scoped module is private by default. Any config values can be overridden, but only "`tag`", "`registry`" and "`access`" probably matter for the purposes of publishing. See npm-config to see the list of config options that can be overridden.
 
 *   Public Registry
 
@@ -38,7 +38,7 @@ This is a set of config values that will be used at publish-time. It's especiall
 
 **● access**: *`undefined` \| `string`*
 
-*Defined in [index.ts:607](https://github.com/ajaxlab/package-json-type/blob/bd56be6/src/index.ts#L607)*
+*Defined in [index.ts:607](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L607)*
 
 ___
 <a id="registry"></a>
@@ -47,7 +47,7 @@ ___
 
 **● registry**: *`undefined` \| `string`*
 
-*Defined in [index.ts:608](https://github.com/ajaxlab/package-json-type/blob/bd56be6/src/index.ts#L608)*
+*Defined in [index.ts:608](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L608)*
 
 ___
 <a id="tag"></a>
@@ -56,7 +56,7 @@ ___
 
 **● tag**: *`undefined` \| `string`*
 
-*Defined in [index.ts:609](https://github.com/ajaxlab/package-json-type/blob/bd56be6/src/index.ts#L609)*
+*Defined in [index.ts:609](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L609)*
 
 ___
 
