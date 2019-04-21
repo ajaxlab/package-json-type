@@ -10,6 +10,11 @@ You can specify the version of node that your stuff works on. You can also speci
 
 **IEngines**
 
+# Indexable
+
+\[field: `string`\]:&nbsp;`any`
+You can specify the version of node that your stuff works on. You can also specify which versions of npm are capable of properly installing your program.
+
 # Properties
 
 <a id="node"></a>
@@ -18,7 +23,7 @@ You can specify the version of node that your stuff works on. You can also speci
 
 **● node**: *`undefined` \| `string`*
 
-*Defined in [index.ts:152](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L152)*
+*Defined in [index.ts:153](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L153)*
 
 ___
 <a id="npm"></a>
@@ -27,7 +32,7 @@ ___
 
 **● npm**: *`undefined` \| `string`*
 
-*Defined in [index.ts:153](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L153)*
+*Defined in [index.ts:154](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L154)*
 
 ___
 <a id="yarn"></a>
@@ -36,7 +41,7 @@ ___
 
 **● yarn**: *`undefined` \| `string`*
 
-*Defined in [index.ts:154](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L154)*
+*Defined in [index.ts:155](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L155)*
 
 ___
 <a id="zlib"></a>
@@ -45,7 +50,7 @@ ___
 
 **● zlib**: *`undefined` \| `string`*
 
-*Defined in [index.ts:155](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L155)*
+*Defined in [index.ts:156](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L156)*
 
 ___
 

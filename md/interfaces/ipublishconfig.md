@@ -38,7 +38,7 @@ This is a set of config values that will be used at publish-time. It's especiall
 
 **● access**: *`undefined` \| `string`*
 
-*Defined in [index.ts:607](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L607)*
+*Defined in [index.ts:608](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L608)*
 
 ___
 <a id="registry"></a>
@@ -47,7 +47,7 @@ ___
 
 **● registry**: *`undefined` \| `string`*
 
-*Defined in [index.ts:608](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L608)*
+*Defined in [index.ts:609](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L609)*
 
 ___
 <a id="tag"></a>
@@ -56,7 +56,7 @@ ___
 
 **● tag**: *`undefined` \| `string`*
 
-*Defined in [index.ts:609](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L609)*
+*Defined in [index.ts:610](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L610)*
 
 ___
 

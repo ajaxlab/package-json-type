@@ -149,6 +149,7 @@ export interface IDirectories {
  * @see https://yarnpkg.com/en/docs/package-json#toc-engines
  */
 export interface IEngines {
+  [field: string]: any;
   node?: string;
   npm?: string;
   yarn?: string;

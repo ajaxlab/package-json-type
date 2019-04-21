@@ -18,7 +18,7 @@ The url to your project's issue tracker and (or) the email address to which issu
 
 **● email**: *`undefined` \| `string`*
 
-*Defined in [index.ts:43](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L43)*
+*Defined in [index.ts:43](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L43)*
 
 ___
 <a id="url"></a>
@@ -27,7 +27,7 @@ ___
 
 **● url**: *`undefined` \| `string`*
 
-*Defined in [index.ts:44](https://github.com/ajaxlab/package-json-type/blob/a5fe63f/src/index.ts#L44)*
+*Defined in [index.ts:44](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L44)*
 
 ___
 
