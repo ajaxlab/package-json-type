@@ -1,8 +1,9 @@
+> # Interface: IRepository
 
+Specify the place where your code lives.
+This is helpful for people who want to contribute.
 
-Specify the place where your code lives. This is helpful for people who want to contribute.
-
-*   Git
+* Git
 
 ```json
 {
@@ -13,7 +14,7 @@ Specify the place where your code lives. This is helpful for people who want to 
 }
 ```
 
-*   Svn
+* Svn
 
 ```json
 {
@@ -24,7 +25,7 @@ Specify the place where your code lives. This is helpful for people who want to 
 }
 ```
 
-*   Monorepo
+* Monorepo
 
 ```json
 {
@@ -36,41 +37,42 @@ Specify the place where your code lives. This is helpful for people who want to 
 }
 ```
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-repository](https://yarnpkg.com/en/docs/package-json#toc-repository)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-repository
 
-*__see__*: [https://docs.npmjs.com/files/package.json#repository](https://docs.npmjs.com/files/package.json#repository)
+**`see`** https://docs.npmjs.com/files/package.json#repository
 
-# Hierarchy
+## Hierarchy
 
-**IRepository**
+* **IRepository**
 
-# Properties
+## Index
 
-<a id="directory"></a>
+### Properties
 
-## `<Optional>` directory
+* [directory](irepository.md#optional-directory)
+* [type](irepository.md#type)
+* [url](irepository.md#url)
 
-**● directory**: *`undefined` \| `string`*
+## Properties
 
-*Defined in [index.ts:654](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L654)*
+### `Optional` directory
 
-___
-<a id="type"></a>
+• **directory**? : *undefined | string*
 
-##  type
-
-**● type**: *`string`*
-
-*Defined in [index.ts:655](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L655)*
-
-___
-<a id="url"></a>
-
-##  url
-
-**● url**: *`string`*
-
-*Defined in [index.ts:656](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L656)*
+*Defined in [index.ts:654](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L654)*
 
 ___
 
+###  type
+
+• **type**: *string*
+
+*Defined in [index.ts:655](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L655)*
+
+___
+
+###  url
+
+• **url**: *string*
+
+*Defined in [index.ts:656](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L656)*

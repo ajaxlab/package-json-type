@@ -1,42 +1,43 @@
-
+> # Interface: IAuthor
 
 Package author information.
 
-*__see__*: [https://docs.npmjs.com/files/package.json#people-fields-author-contributors](https://docs.npmjs.com/files/package.json#people-fields-author-contributors)
+**`see`** https://docs.npmjs.com/files/package.json#people-fields-author-contributors
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-author](https://yarnpkg.com/en/docs/package-json#toc-author)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-author
 
-# Hierarchy
+## Hierarchy
 
-**IAuthor**
+* **IAuthor**
 
-# Properties
+## Index
 
-<a id="email"></a>
+### Properties
 
-## `<Optional>` email
+* [email](iauthor.md#optional-email)
+* [name](iauthor.md#name)
+* [url](iauthor.md#optional-url)
 
-**● email**: *`undefined` \| `string`*
+## Properties
 
-*Defined in [index.ts:7](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L7)*
+### `Optional` email
 
-___
-<a id="name"></a>
+• **email**? : *undefined | string*
 
-##  name
-
-**● name**: *`string`*
-
-*Defined in [index.ts:8](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L8)*
-
-___
-<a id="url"></a>
-
-## `<Optional>` url
-
-**● url**: *`undefined` \| `string`*
-
-*Defined in [index.ts:9](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L9)*
+*Defined in [index.ts:7](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L7)*
 
 ___
 
+###  name
+
+• **name**: *string*
+
+*Defined in [index.ts:8](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L8)*
+
+___
+
+### `Optional` url
+
+• **url**? : *undefined | string*
+
+*Defined in [index.ts:9](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L9)*

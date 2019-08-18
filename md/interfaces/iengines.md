@@ -1,56 +1,62 @@
+> # Interface: IEngines
 
+You can specify the version of node that your stuff works on.
+You can also specify which versions of npm are capable
+of properly installing your program.
 
-You can specify the version of node that your stuff works on. You can also specify which versions of npm are capable of properly installing your program.
+**`see`** https://docs.npmjs.com/files/package.json#engines
 
-*__see__*: [https://docs.npmjs.com/files/package.json#engines](https://docs.npmjs.com/files/package.json#engines)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-engines
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-engines](https://yarnpkg.com/en/docs/package-json#toc-engines)
+## Hierarchy
 
-# Hierarchy
+* **IEngines**
 
-**IEngines**
+## Indexable
 
-# Indexable
+* \[ **field**: *string*\]: any
 
-\[field: `string`\]:&nbsp;`any`
-You can specify the version of node that your stuff works on. You can also specify which versions of npm are capable of properly installing your program.
+You can specify the version of node that your stuff works on.
+You can also specify which versions of npm are capable
+of properly installing your program.
 
-# Properties
+## Index
 
-<a id="node"></a>
+### Properties
 
-## `<Optional>` node
+* [node](iengines.md#optional-node)
+* [npm](iengines.md#optional-npm)
+* [yarn](iengines.md#optional-yarn)
+* [zlib](iengines.md#optional-zlib)
 
-**● node**: *`undefined` \| `string`*
+## Properties
 
-*Defined in [index.ts:153](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L153)*
+### `Optional` node
 
-___
-<a id="npm"></a>
+• **node**? : *undefined | string*
 
-## `<Optional>` npm
-
-**● npm**: *`undefined` \| `string`*
-
-*Defined in [index.ts:154](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L154)*
-
-___
-<a id="yarn"></a>
-
-## `<Optional>` yarn
-
-**● yarn**: *`undefined` \| `string`*
-
-*Defined in [index.ts:155](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L155)*
-
-___
-<a id="zlib"></a>
-
-## `<Optional>` zlib
-
-**● zlib**: *`undefined` \| `string`*
-
-*Defined in [index.ts:156](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L156)*
+*Defined in [index.ts:153](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L153)*
 
 ___
 
+### `Optional` npm
+
+• **npm**? : *undefined | string*
+
+*Defined in [index.ts:154](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L154)*
+
+___
+
+### `Optional` yarn
+
+• **yarn**? : *undefined | string*
+
+*Defined in [index.ts:155](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L155)*
+
+___
+
+### `Optional` zlib
+
+• **zlib**? : *undefined | string*
+
+*Defined in [index.ts:156](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L156)*

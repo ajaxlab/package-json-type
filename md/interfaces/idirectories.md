@@ -1,7 +1,8 @@
+> # Interface: IDirectories
 
-
-You can specify exact locations to put binary files, man pages, documentation, examples, etc. Package manager tools must use these directory definitions to find various package components.
-
+You can specify exact locations to put binary files, man pages,
+documentation, examples, etc. Package manager tools must use
+these directory definitions to find various package components.
 ```
 {
   "directories": {
@@ -14,82 +15,92 @@ You can specify exact locations to put binary files, man pages, documentation, e
 }
 ```
 
-*__see__*: [http://wiki.commonjs.org/wiki/Packages/1.0](http://wiki.commonjs.org/wiki/Packages/1.0)
+**`see`** http://wiki.commonjs.org/wiki/Packages/1.0
 
-*__see__*: [https://docs.npmjs.com/files/package.json#directories](https://docs.npmjs.com/files/package.json#directories)
+**`see`** https://docs.npmjs.com/files/package.json#directories
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-directories](https://yarnpkg.com/en/docs/package-json#toc-directories)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-directories
 
-# Hierarchy
+## Hierarchy
 
-**IDirectories**
+* **IDirectories**
 
-# Properties
+## Index
 
-<a id="bin"></a>
+### Properties
 
-## `<Optional>` bin
+* [bin](idirectories.md#optional-bin)
+* [doc](idirectories.md#optional-doc)
+* [example](idirectories.md#optional-example)
+* [lib](idirectories.md#optional-lib)
+* [man](idirectories.md#optional-man)
+* [test](idirectories.md#optional-test)
 
-**● bin**: *`undefined` \| `string`*
+## Properties
 
-*Defined in [index.ts:113](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L113)*
+### `Optional` bin
 
-If you specify a bin directory in directories.bin, all the files in that folder will be added. Because of the way the bin directive works, specifying both a bin path and setting directories.bin is an error. If you want to specify individual files, use bin, and for all the files in an existing bin directory, use directories.bin.
+• **bin**? : *undefined | string*
+
+*Defined in [index.ts:113](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L113)*
+
+If you specify a bin directory in directories.bin,
+all the files in that folder will be added.
+Because of the way the bin directive works,
+specifying both a bin path and setting directories.bin
+is an error. If you want to specify individual files,
+use bin, and for all the files in an existing bin directory,
+use directories.bin.
 
 ___
-<a id="doc"></a>
 
-## `<Optional>` doc
+### `Optional` doc
 
-**● doc**: *`undefined` \| `string`*
+• **doc**? : *undefined | string*
 
-*Defined in [index.ts:118](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L118)*
+*Defined in [index.ts:118](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L118)*
 
 Put markdown doc files in here.
 
 ___
-<a id="example"></a>
 
-## `<Optional>` example
+### `Optional` example
 
-**● example**: *`undefined` \| `string`*
+• **example**? : *undefined | string*
 
-*Defined in [index.ts:123](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L123)*
+*Defined in [index.ts:123](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L123)*
 
 Put example scripts in here.
 
 ___
-<a id="lib"></a>
 
-## `<Optional>` lib
+### `Optional` lib
 
-**● lib**: *`undefined` \| `string`*
+• **lib**? : *undefined | string*
 
-*Defined in [index.ts:130](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L130)*
+*Defined in [index.ts:130](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L130)*
 
-Tell people where the bulk of your library is. Nothing special is done with the `lib` folder in any way, but it's useful meta info.
-
-___
-<a id="man"></a>
-
-## `<Optional>` man
-
-**● man**: *`undefined` \| `string`*
-
-*Defined in [index.ts:136](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L136)*
-
-A folder that is full of man pages. Sugar to generate a `man` array by walking the folder.
+Tell people where the bulk of your library is.
+Nothing special is done with the `lib` folder
+in any way, but it's useful meta info.
 
 ___
-<a id="test"></a>
 
-## `<Optional>` test
+### `Optional` man
 
-**● test**: *`undefined` \| `string`*
+• **man**? : *undefined | string*
 
-*Defined in [index.ts:141](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L141)*
+*Defined in [index.ts:136](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L136)*
+
+A folder that is full of man pages. Sugar to generate
+a `man` array by walking the folder.
+
+___
+
+### `Optional` test
+
+• **test**? : *undefined | string*
+
+*Defined in [index.ts:141](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L141)*
 
 Put your tests in here.
-
-___
-

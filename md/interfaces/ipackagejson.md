@@ -1,54 +1,90 @@
-
+> # Interface: IPackageJson
 
 A TypeScript definition for the package descriptor file.
 
-*__see__*: [http://wiki.commonjs.org/wiki/Packages/1.0](http://wiki.commonjs.org/wiki/Packages/1.0)
+**`see`** http://wiki.commonjs.org/wiki/Packages/1.0
 
-*__see__*: [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
+**`see`** https://docs.npmjs.com/files/package.json
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json](https://yarnpkg.com/en/docs/package-json)
+**`see`** https://yarnpkg.com/en/docs/package-json
 
-# Hierarchy
+## Hierarchy
 
-**IPackageJson**
+* **IPackageJson**
 
-# Indexable
+## Indexable
 
-\[field: `string`\]:&nbsp;`any`
+* \[ **field**: *string*\]: any
+
 A TypeScript definition for the package descriptor file.
 
-# Properties
+## Index
 
-<a id="author"></a>
+### Properties
 
-## `<Optional>` author
+* [author](ipackagejson.md#optional-author)
+* [bin](ipackagejson.md#optional-bin)
+* [browser](ipackagejson.md#optional-browser)
+* [bugs](ipackagejson.md#optional-bugs)
+* [bundledDependencies](ipackagejson.md#optional-bundleddependencies)
+* [config](ipackagejson.md#optional-config)
+* [contributors](ipackagejson.md#optional-contributors)
+* [cpu](ipackagejson.md#optional-cpu)
+* [dependencies](ipackagejson.md#optional-dependencies)
+* [description](ipackagejson.md#optional-description)
+* [devDependencies](ipackagejson.md#optional-devdependencies)
+* [directories](ipackagejson.md#optional-directories)
+* [engines](ipackagejson.md#optional-engines)
+* [files](ipackagejson.md#optional-files)
+* [flat](ipackagejson.md#optional-flat)
+* [homepage](ipackagejson.md#optional-homepage)
+* [keywords](ipackagejson.md#optional-keywords)
+* [license](ipackagejson.md#optional-license)
+* [main](ipackagejson.md#optional-main)
+* [man](ipackagejson.md#optional-man)
+* [name](ipackagejson.md#optional-name)
+* [optionalDependencies](ipackagejson.md#optional-optionaldependencies)
+* [os](ipackagejson.md#optional-os)
+* [peerDependencies](ipackagejson.md#optional-peerdependencies)
+* [preferGlobal](ipackagejson.md#optional-preferglobal)
+* [private](ipackagejson.md#optional-private)
+* [publishConfig](ipackagejson.md#optional-publishconfig)
+* [repository](ipackagejson.md#optional-repository)
+* [resolutions](ipackagejson.md#optional-resolutions)
+* [scripts](ipackagejson.md#optional-scripts)
+* [types](ipackagejson.md#optional-types)
+* [version](ipackagejson.md#optional-version)
 
-**● author**: *`string` \| [IAuthor](iauthor.md)*
+## Properties
 
-*Defined in [index.ts:178](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L178)*
+### `Optional` author
+
+• **author**? : *string | [IAuthor](iauthor.md)*
+
+*Defined in [index.ts:178](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L178)*
 
 Package author information. An author is one person.
+* Shorthand expression
+```
+your-name <account@your-domain> (http://your-url)
+```
 
-*   Shorthand expression
-    
-    ```
-    your-name <account@your-domain> (http://your-url)
-    ```
+**`see`** https://docs.npmjs.com/files/package.json#people-fields-author-contributors
 
-*__see__*: [https://docs.npmjs.com/files/package.json#people-fields-author-contributors](https://docs.npmjs.com/files/package.json#people-fields-author-contributors)
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-author](https://yarnpkg.com/en/docs/package-json#toc-author)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-author
 
 ___
-<a id="bin"></a>
 
-## `<Optional>` bin
+### `Optional` bin
 
-**● bin**: *`string` \| [IBinMap](ibinmap.md)*
+• **bin**? : *string | [IBinMap](ibinmap.md)*
 
-*Defined in [index.ts:199](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L199)*
+*Defined in [index.ts:199](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L199)*
 
-An executable file which will be installed into the PATH with a package install. `npm` will symlink that file into `prefix/bin` for global installs, or `./node_modules/.bin/` for local installs.
+An executable file which will be installed into the PATH
+with a package install. `npm` will symlink that file into
+`prefix/bin` for global installs, or `./node_modules/.bin/`
+for local installs.
 
 ```json
 {
@@ -58,66 +94,69 @@ An executable file which will be installed into the PATH with a package install.
 }
 ```
 
-For example, with linux if you install `myapp`, it'll create a symlink from the `cli.js` script to `/usr/local/bin/myapp`.
+For example, with linux if you install `myapp`,
+it'll create a symlink from the `cli.js` script
+to `/usr/local/bin/myapp`.
 
-*__see__*: [https://docs.npmjs.com/files/package.json#bin](https://docs.npmjs.com/files/package.json#bin)
-
-___
-<a id="browser"></a>
-
-## `<Optional>` browser
-
-**● browser**: *`undefined` \| `string`*
-
-*Defined in [index.ts:207](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L207)*
-
-This is a hint to the module which is meant to be used "client-side" instead of "nodejs".
-
-*__see__*: [https://github.com/defunctzombie/package-browser-field-spec](https://github.com/defunctzombie/package-browser-field-spec)
-
-*__see__*: [http://2ality.com/2017/04/setting-up-multi-platform-packages.html#browser-browser-specific-code](http://2ality.com/2017/04/setting-up-multi-platform-packages.html#browser-browser-specific-code)
+**`see`** https://docs.npmjs.com/files/package.json#bin
 
 ___
-<a id="bugs"></a>
 
-## `<Optional>` bugs
+### `Optional` browser
 
-**● bugs**: *`string` \| [IBugs](ibugs.md)*
+• **browser**? : *undefined | string*
 
-*Defined in [index.ts:216](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L216)*
+*Defined in [index.ts:207](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L207)*
 
-The url to your project's issue tracker and (or) the email address to which issues should be reported. These are helpful for people who encounter issues with your package.
+This is a hint to the module which is meant to be
+used "client-side" instead of "nodejs".
 
-*__see__*: [https://docs.npmjs.com/files/package.json#bugs](https://docs.npmjs.com/files/package.json#bugs)
+**`see`** https://github.com/defunctzombie/package-browser-field-spec
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-bugs](https://yarnpkg.com/en/docs/package-json#toc-bugs)
-
-___
-<a id="bundleddependencies"></a>
-
-## `<Optional>` bundledDependencies
-
-**● bundledDependencies**: *`string`[]*
-
-*Defined in [index.ts:224](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L224)*
-
-Bundled dependencies are an array of package names that will be bundled together when publishing your package.
-
-*__see__*: [https://docs.npmjs.com/files/package.json#bundleddependencies](https://docs.npmjs.com/files/package.json#bundleddependencies)
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-bundleddependencies](https://yarnpkg.com/en/docs/package-json#toc-bundleddependencies)
+**`see`** http://2ality.com/2017/04/setting-up-multi-platform-packages.html#browser-browser-specific-code
 
 ___
-<a id="config"></a>
 
-## `<Optional>` config
+### `Optional` bugs
 
-**● config**: *[IConfig](iconfig.md)*
+• **bugs**? : *string | [IBugs](ibugs.md)*
 
-*Defined in [index.ts:243](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L243)*
+*Defined in [index.ts:216](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L216)*
 
-A "`config`" object can be used to set configuration parameters used in package scripts that persist across upgrades. For instance, if a package had the following:
+The url to your project's issue tracker and (or) the email
+address to which issues should be reported. These are helpful
+for people who encounter issues with your package.
 
+**`see`** https://docs.npmjs.com/files/package.json#bugs
+
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-bugs
+
+___
+
+### `Optional` bundledDependencies
+
+• **bundledDependencies**? : *string[]*
+
+*Defined in [index.ts:224](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L224)*
+
+Bundled dependencies are an array of package names that
+will be bundled together when publishing your package.
+
+**`see`** https://docs.npmjs.com/files/package.json#bundleddependencies
+
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-bundleddependencies
+
+___
+
+### `Optional` config
+
+• **config**? : *[IConfig](iconfig.md)*
+
+*Defined in [index.ts:243](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L243)*
+
+A "`config`" object can be used to set configuration parameters
+used in package scripts that persist across upgrades.
+For instance, if a package had the following:
 ```json
 {
   "config" : {
@@ -125,105 +164,114 @@ A "`config`" object can be used to set configuration parameters used in package 
   }
 }
 ```
+and then had a "`start`" command that then referenced the
+npm_package_config_port environment variable,
+then the user could override that by doing npm config set foo:port 8001.
 
-and then had a "`start`" command that then referenced the npm\_package\_config\_port environment variable, then the user could override that by doing npm config set foo:port 8001.
+**`see`** https://docs.npmjs.com/files/package.json#config
 
-*__see__*: [https://docs.npmjs.com/files/package.json#config](https://docs.npmjs.com/files/package.json#config)
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-config](https://yarnpkg.com/en/docs/package-json#toc-config)
-
-___
-<a id="contributors"></a>
-
-## `<Optional>` contributors
-
-**● contributors**: *`Array`<[IAuthor](iauthor.md) \| `string`>*
-
-*Defined in [index.ts:253](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L253)*
-
-If there is an `AUTHORS` file in the root of your package, npm will treat each line as a Name (url) format, where email and url are optional. Lines which start with a # or are blank, will be ignored.
-
-*__see__*: [https://docs.npmjs.com/files/package.json#people-fields-author-contributors](https://docs.npmjs.com/files/package.json#people-fields-author-contributors)
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-contributors](https://yarnpkg.com/en/docs/package-json#toc-contributors)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-config
 
 ___
-<a id="cpu"></a>
 
-## `<Optional>` cpu
+### `Optional` contributors
 
-**● cpu**: *[CPU](../#cpu)[]*
+• **contributors**? : *`Array<IAuthor | string>`*
 
-*Defined in [index.ts:262](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L262)*
+*Defined in [index.ts:253](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L253)*
 
-If your code only runs on certain cpu architectures, you can specify which ones. This checks against `process.arch`.
+If there is an `AUTHORS` file in the root of your package,
+npm will treat each line as a Name <email> (url) format,
+where email and url are optional. Lines which start with a # or are blank,
+will be ignored.
 
-*__see__*: [https://docs.npmjs.com/files/package.json#cpu](https://docs.npmjs.com/files/package.json#cpu)
+**`see`** https://docs.npmjs.com/files/package.json#people-fields-author-contributors
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-cpu](https://yarnpkg.com/en/docs/package-json#toc-cpu)
-
-*__see__*: [https://nodejs.org/api/process.html#process\_process\_arch](https://nodejs.org/api/process.html#process_process_arch)
-
-___
-<a id="dependencies"></a>
-
-## `<Optional>` dependencies
-
-**● dependencies**: *[IDependencyMap](idependencymap.md)*
-
-*Defined in [index.ts:273](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L273)*
-
-Dependencies are specified in a simple object that maps a package name to a version range. The version range is a string which has one or more space-separated descriptors. Dependencies can also be identified with a tarball or git URL.
-
-*__see__*: [http://wiki.commonjs.org/wiki/Packages/1.0](http://wiki.commonjs.org/wiki/Packages/1.0)
-
-*__see__*: [https://docs.npmjs.com/files/package.json#dependencies](https://docs.npmjs.com/files/package.json#dependencies)
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-dependencies](https://yarnpkg.com/en/docs/package-json#toc-dependencies)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-contributors
 
 ___
-<a id="description"></a>
 
-## `<Optional>` description
+### `Optional` cpu
 
-**● description**: *`undefined` \| `string`*
+• **cpu**? : *[CPU](../globals.md#cpu)[]*
 
-*Defined in [index.ts:283](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L283)*
+*Defined in [index.ts:262](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L262)*
 
-A brief description of the package. By convention, the first sentence (up to the first ". ") should be usable as a package title in listings.
+If your code only runs on certain cpu architectures, you can specify which ones.
+This checks against `process.arch`.
 
-*__see__*: [https://docs.npmjs.com/files/package.json#description-1](https://docs.npmjs.com/files/package.json#description-1)
+**`see`** https://docs.npmjs.com/files/package.json#cpu
 
-*__see__*: [http://wiki.commonjs.org/wiki/Packages/1.0](http://wiki.commonjs.org/wiki/Packages/1.0)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-cpu
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-description](https://yarnpkg.com/en/docs/package-json#toc-description)
-
-___
-<a id="devdependencies"></a>
-
-## `<Optional>` devDependencies
-
-**● devDependencies**: *[IDependencyMap](idependencymap.md)*
-
-*Defined in [index.ts:294](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L294)*
-
-If someone is planning on downloading and using your module in their program, then they probably don't want or need to download and build the external test or documentation framework that you use. In this case, it's best to map these additional items in a devDependencies object.
-
-*__see__*: [https://docs.npmjs.com/files/package.json#devdependencies](https://docs.npmjs.com/files/package.json#devdependencies)
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-devdependencies](https://yarnpkg.com/en/docs/package-json#toc-devdependencies)
+**`see`** https://nodejs.org/api/process.html#process_process_arch
 
 ___
-<a id="directories"></a>
 
-## `<Optional>` directories
+### `Optional` dependencies
 
-**● directories**: *[IDirectories](idirectories.md)*
+• **dependencies**? : *[IDependencyMap](idependencymap.md)*
 
-*Defined in [index.ts:315](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L315)*
+*Defined in [index.ts:273](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L273)*
 
-You can specify exact locations to put binary files, man pages, documentation, examples, etc. Package manager tools must use these directory definitions to find various package components.
+Dependencies are specified in a simple object that maps a package name
+to a version range. The version range is a string which has one or
+more space-separated descriptors. Dependencies can also be
+identified with a tarball or git URL.
 
+**`see`** http://wiki.commonjs.org/wiki/Packages/1.0
+
+**`see`** https://docs.npmjs.com/files/package.json#dependencies
+
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-dependencies
+
+___
+
+### `Optional` description
+
+• **description**? : *undefined | string*
+
+*Defined in [index.ts:283](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L283)*
+
+A brief description of the package.
+By convention, the first sentence (up to the first ". ")
+should be usable as a package title in listings.
+
+**`see`** https://docs.npmjs.com/files/package.json#description-1
+
+**`see`** http://wiki.commonjs.org/wiki/Packages/1.0
+
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-description
+
+___
+
+### `Optional` devDependencies
+
+• **devDependencies**? : *[IDependencyMap](idependencymap.md)*
+
+*Defined in [index.ts:294](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L294)*
+
+If someone is planning on downloading and using your module
+in their program, then they probably don't want or need
+to download and build the external test or documentation
+framework that you use. In this case, it's best to map
+these additional items in a devDependencies object.
+
+**`see`** https://docs.npmjs.com/files/package.json#devdependencies
+
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-devdependencies
+
+___
+
+### `Optional` directories
+
+• **directories**? : *[IDirectories](idirectories.md)*
+
+*Defined in [index.ts:315](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L315)*
+
+You can specify exact locations to put binary files, man pages,
+documentation, examples, etc. Package manager tools must use
+these directory definitions to find various package components.
 ```
 {
   "directories": {
@@ -236,234 +284,256 @@ You can specify exact locations to put binary files, man pages, documentation, e
 }
 ```
 
-*__see__*: [http://wiki.commonjs.org/wiki/Packages/1.0](http://wiki.commonjs.org/wiki/Packages/1.0)
+**`see`** http://wiki.commonjs.org/wiki/Packages/1.0
 
-*__see__*: [https://docs.npmjs.com/files/package.json#directories](https://docs.npmjs.com/files/package.json#directories)
+**`see`** https://docs.npmjs.com/files/package.json#directories
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-directories](https://yarnpkg.com/en/docs/package-json#toc-directories)
-
-___
-<a id="engines"></a>
-
-## `<Optional>` engines
-
-**● engines**: *[IEngines](iengines.md)*
-
-*Defined in [index.ts:324](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L324)*
-
-You can specify the version of node that your stuff works on. You can also specify which versions of `npm` are capable of properly installing your program.
-
-*__see__*: [https://docs.npmjs.com/files/package.json#engines](https://docs.npmjs.com/files/package.json#engines)
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-engines](https://yarnpkg.com/en/docs/package-json#toc-engines)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-directories
 
 ___
-<a id="files"></a>
 
-## `<Optional>` files
+### `Optional` engines
 
-**● files**: *`string`[]*
+• **engines**? : *[IEngines](iengines.md)*
 
-*Defined in [index.ts:333](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L333)*
+*Defined in [index.ts:324](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L324)*
 
-Files that are included in your project described as a glob pattern. Omitting the field will make it default to `["*"]`, as it will include all files.
+You can specify the version of node that your stuff works on.
+You can also specify which versions of `npm` are capable
+of properly installing your program.
 
-*__see__*: [https://docs.npmjs.com/files/package.json#files](https://docs.npmjs.com/files/package.json#files)
+**`see`** https://docs.npmjs.com/files/package.json#engines
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-files](https://yarnpkg.com/en/docs/package-json#toc-files)
-
-___
-<a id="flat"></a>
-
-## `<Optional>` flat
-
-**● flat**: *`undefined` \| `false` \| `true`*
-
-*Defined in [index.ts:341](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L341)*
-
-If your package only allows one version of a given dependency, and you'd like to enforce the same behavior as `yarn install --flat` on the command line, set this to true.
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-flat](https://yarnpkg.com/en/docs/package-json#toc-flat)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-engines
 
 ___
-<a id="homepage"></a>
 
-## `<Optional>` homepage
+### `Optional` files
 
-**● homepage**: *`undefined` \| `string`*
+• **files**? : *string[]*
 
-*Defined in [index.ts:348](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L348)*
+*Defined in [index.ts:333](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L333)*
+
+Files that are included in your project described
+as a glob pattern. Omitting the field will make it default
+to `["*"]`, as it will include all files.
+
+**`see`** https://docs.npmjs.com/files/package.json#files
+
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-files
+
+___
+
+### `Optional` flat
+
+• **flat**? : *undefined | false | true*
+
+*Defined in [index.ts:341](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L341)*
+
+If your package only allows one version of a given dependency,
+and you'd like to enforce the same behavior as `yarn install --flat`
+on the command line, set this to true.
+
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-flat
+
+___
+
+### `Optional` homepage
+
+• **homepage**? : *undefined | string*
+
+*Defined in [index.ts:348](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L348)*
 
 The url to the project homepage.
 
-*__see__*: [https://docs.npmjs.com/files/package.json#homepage](https://docs.npmjs.com/files/package.json#homepage)
+**`see`** https://docs.npmjs.com/files/package.json#homepage
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-homepage](https://yarnpkg.com/en/docs/package-json#toc-homepage)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-homepage
 
 ___
-<a id="keywords"></a>
 
-## `<Optional>` keywords
+### `Optional` keywords
 
-**● keywords**: *`string`[]*
+• **keywords**? : *string[]*
 
-*Defined in [index.ts:355](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L355)*
+*Defined in [index.ts:355](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L355)*
 
 An array of string keywords to assist users searching for the package in catalogs.
 
-*__see__*: [https://docs.npmjs.com/files/package.json#keywords](https://docs.npmjs.com/files/package.json#keywords)
+**`see`** https://docs.npmjs.com/files/package.json#keywords
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-keywords](https://yarnpkg.com/en/docs/package-json#toc-keywords)
-
-___
-<a id="license"></a>
-
-## `<Optional>` license
-
-**● license**: *[SPDXLicenseID](../#spdxlicenseid) \| [SPDXLicenseIDApproved](../#spdxlicenseidapproved)*
-
-*Defined in [index.ts:367](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L367)*
-
-A license for your package so that people know how they are permitted to use it, and any restrictions you're placing on it. If you're using a common license such as `BSD-2-Clause` or `MIT`, add a current [SPDX license identifier](https://spdx.org/licenses/ ).
-
-*__see__*: [https://docs.npmjs.com/files/package.json#license](https://docs.npmjs.com/files/package.json#license)
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-license](https://yarnpkg.com/en/docs/package-json#toc-license)
-
-*__see__*: [https://spdx.org/licenses/](https://spdx.org/licenses/)
-
-*__see__*: [https://help.github.com/en/articles/licensing-a-repository](https://help.github.com/en/articles/licensing-a-repository)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-keywords
 
 ___
-<a id="main"></a>
 
-## `<Optional>` main
+### `Optional` license
 
-**● main**: *`undefined` \| `string`*
+• **license**? : *[SPDXLicenseID](../globals.md#spdxlicenseid) | [SPDXLicenseIDApproved](../globals.md#spdxlicenseidapproved)*
 
-*Defined in [index.ts:378](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L378)*
+*Defined in [index.ts:367](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L367)*
 
-The main field is a module ID that is the primary entry point to your package. That is, if your package is named `foo`, and a user installs it, and then does `require("foo")`, then your main module's exports object will be returned. This should be a module ID relative to the root of your package folder. For most modules, it makes the most sense to have a main script and often not much else.
+A license for your package so that people know how they are permitted
+to use it, and any restrictions you're placing on it.
+If you're using a common license such as `BSD-2-Clause` or `MIT`,
+add a current https://spdx.org/licenses/ .
 
-*__see__*: [https://docs.npmjs.com/files/package.json#main](https://docs.npmjs.com/files/package.json#main)
+**`see`** https://docs.npmjs.com/files/package.json#license
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-main](https://yarnpkg.com/en/docs/package-json#toc-main)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-license
+
+**`see`** https://spdx.org/licenses/
+
+**`see`** https://help.github.com/en/articles/licensing-a-repository
 
 ___
-<a id="man"></a>
 
-## `<Optional>` man
+### `Optional` main
 
-**● man**: *`string` \| `string`[]*
+• **main**? : *undefined | string*
 
-*Defined in [index.ts:384](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L384)*
+*Defined in [index.ts:378](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L378)*
+
+The main field is a module ID that is the primary entry point to your package.
+That is, if your package is named `foo`, and a user installs it, and then
+does `require("foo")`, then your main module's exports object will be returned.
+This should be a module ID relative to the root of your package folder.
+For most modules, it makes the most sense to have a main script and often not much else.
+
+**`see`** https://docs.npmjs.com/files/package.json#main
+
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-main
+
+___
+
+### `Optional` man
+
+• **man**? : *string | string[]*
+
+*Defined in [index.ts:384](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L384)*
 
 A single file (or an array of filenames) for the man program.
 
-*__see__*: [https://docs.npmjs.com/files/package.json#man](https://docs.npmjs.com/files/package.json#man)
+**`see`** https://docs.npmjs.com/files/package.json#man
 
 ___
-<a id="name"></a>
 
-## `<Optional>` name
+### `Optional` name
 
-**● name**: *`undefined` \| `string`*
+• **name**? : *undefined | string*
 
-*Defined in [index.ts:394](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L394)*
+*Defined in [index.ts:394](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L394)*
 
-The name of your package. The name and version together should form a unique identifier accoss a project. The name and version fields are optional if you don't want to publish your package. A name can be optionally prefixed by a scope, e.g. `@types/lodash`.
+The name of your package.
+The name and version together should form a unique identifier accoss a project.
+The name and version fields are optional if you don't want to publish your package.
+A name can be optionally prefixed by a scope, e.g. `@types/lodash`.
 
-*__see__*: [https://docs.npmjs.com/files/package.json#name](https://docs.npmjs.com/files/package.json#name)
+**`see`** https://docs.npmjs.com/files/package.json#name
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-name](https://yarnpkg.com/en/docs/package-json#toc-name)
-
-___
-<a id="optionaldependencies"></a>
-
-## `<Optional>` optionalDependencies
-
-**● optionalDependencies**: *[IDependencyMap](idependencymap.md)*
-
-*Defined in [index.ts:406](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L406)*
-
-If a dependency can be used, but you would like npm to proceed if it cannot be found or fails to install, then you may put it in the `optionalDependencies` object. This is a map of package name to version or url, just like the `dependencies` object. The difference is that build failures do not cause installation to fail. It is still your program's responsibility to handle the lack of the dependency.
-
-*__see__*: [https://docs.npmjs.com/files/package.json#optionaldependencies](https://docs.npmjs.com/files/package.json#optionaldependencies)
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-optionaldependencies](https://yarnpkg.com/en/docs/package-json#toc-optionaldependencies)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-name
 
 ___
-<a id="os"></a>
 
-## `<Optional>` os
+### `Optional` optionalDependencies
 
-**● os**: *[OS](../#os)[]*
+• **optionalDependencies**? : *[IDependencyMap](idependencymap.md)*
 
-*Defined in [index.ts:414](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L414)*
+*Defined in [index.ts:406](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L406)*
+
+If a dependency can be used, but you would like npm to proceed
+if it cannot be found or fails to install, then you may put it
+in the `optionalDependencies` object. This is a map of package name
+to version or url, just like the `dependencies` object.
+The difference is that build failures do not cause installation to fail.
+It is still your program's responsibility to handle the lack of the dependency.
+
+**`see`** https://docs.npmjs.com/files/package.json#optionaldependencies
+
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-optionaldependencies
+
+___
+
+### `Optional` os
+
+• **os**? : *[OS](../globals.md#os)[]*
+
+*Defined in [index.ts:414](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L414)*
 
 You can specify which operating systems your module will run on
 
-*__see__*: [https://docs.npmjs.com/files/package.json#os](https://docs.npmjs.com/files/package.json#os)
+**`see`** https://docs.npmjs.com/files/package.json#os
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-os](https://yarnpkg.com/en/docs/package-json#toc-os)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-os
 
-*__see__*: [https://nodejs.org/api/process.html#process\_process\_platform](https://nodejs.org/api/process.html#process_process_platform)
-
-___
-<a id="peerdependencies"></a>
-
-## `<Optional>` peerDependencies
-
-**● peerDependencies**: *[IDependencyMap](idependencymap.md)*
-
-*Defined in [index.ts:425](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L425)*
-
-In some cases, you want to express the compatibility of your package with a host tool or library, while not necessarily doing a require of this host. This is usually referred to as a plugin. Notably, your module may be exposing a specific interface, expected and specified by the host documentation.
-
-*__see__*: [https://docs.npmjs.com/files/package.json#peerdependencies](https://docs.npmjs.com/files/package.json#peerdependencies)
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-peerdependencies](https://yarnpkg.com/en/docs/package-json#toc-peerdependencies)
+**`see`** https://nodejs.org/api/process.html#process_process_platform
 
 ___
-<a id="preferglobal"></a>
 
-## `<Optional>` preferGlobal
+### `Optional` peerDependencies
 
-**● preferGlobal**: *`undefined` \| `false` \| `true`*
+• **peerDependencies**? : *[IDependencyMap](idependencymap.md)*
 
-*Defined in [index.ts:433](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L433)*
+*Defined in [index.ts:425](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L425)*
 
-This option used to trigger an npm warning, but it will no longer warn. It is purely there for informational purposes. It is now recommended that you install any binaries as local `devDependencies` wherever possible.
+In some cases, you want to express the compatibility of your package
+with a host tool or library, while not necessarily doing a require
+of this host. This is usually referred to as a plugin. Notably,
+your module may be exposing a specific interface, expected
+and specified by the host documentation.
 
-*__deprecated__*: 
+**`see`** https://docs.npmjs.com/files/package.json#peerdependencies
 
-___
-<a id="private"></a>
-
-## `<Optional>` private
-
-**● private**: *`undefined` \| `false` \| `true`*
-
-*Defined in [index.ts:445](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L445)*
-
-If you set "`private`": true in your `package.json`, then `npm` will refuse to publish it. This is a way to prevent accidental publication of private repositories. If you would like to ensure that a given package is only ever published to a specific registry (for example, an internal registry), then use the [publishConfig](ipackagejson.md#publishconfig) dictionary described below to override the registry config param at publish-time.
-
-*__see__*: [https://docs.npmjs.com/files/package.json#private](https://docs.npmjs.com/files/package.json#private)
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-private](https://yarnpkg.com/en/docs/package-json#toc-private)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-peerdependencies
 
 ___
-<a id="publishconfig"></a>
 
-## `<Optional>` publishConfig
+### `Optional` preferGlobal
 
-**● publishConfig**: *[IPublishConfig](ipublishconfig.md)*
+• **preferGlobal**? : *undefined | false | true*
 
-*Defined in [index.ts:478](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L478)*
+*Defined in [index.ts:433](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L433)*
 
-This is a set of config values that will be used at publish-time. It's especially handy if you want to set the `tag`, `registry` or `access`, so that you can ensure that a given package is not tagged with `“latest”`, published to the global public registry or that a scoped module is private by default. Any config values can be overridden, but only "`tag`", "`registry`" and "`access`" probably matter for the purposes of publishing. See npm-config to see the list of config options that can be overridden.
+This option used to trigger an npm warning, but it will no longer warn.
+It is purely there for informational purposes. It is now recommended
+that you install any binaries as local `devDependencies` wherever possible.
 
-*   Public Registry
+**`deprecated`** 
+
+___
+
+### `Optional` private
+
+• **private**? : *undefined | false | true*
+
+*Defined in [index.ts:445](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L445)*
+
+If you set "`private`": true in your `package.json`, then `npm` will refuse to publish it.
+This is a way to prevent accidental publication of private repositories.
+If you would like to ensure that a given package is only ever published to
+a specific registry (for example, an internal registry),
+then use the [publishConfig](ipackagejson.md#optional-publishconfig) dictionary described below to override
+the registry config param at publish-time.
+
+**`see`** https://docs.npmjs.com/files/package.json#private
+
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-private
+
+___
+
+### `Optional` publishConfig
+
+• **publishConfig**? : *[IPublishConfig](ipublishconfig.md)*
+
+*Defined in [index.ts:478](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L478)*
+
+This is a set of config values that will be used at publish-time.
+It's especially handy if you want to set the `tag`, `registry` or `access`,
+so that you can ensure that a given package is not tagged with `“latest”`,
+published to the global public registry or that a scoped module is private by default.
+Any config values can be overridden, but only "`tag`", "`registry`" and
+"`access`" probably matter for the purposes of publishing.
+See npm-config to see the list of config options that can be overridden.
+* Public Registry
 
 ```json
 {
@@ -473,7 +543,7 @@ This is a set of config values that will be used at publish-time. It's especiall
 }
 ```
 
-*   Your Private Registry
+* Your Private Registry
 
 ```json
 {
@@ -483,22 +553,22 @@ This is a set of config values that will be used at publish-time. It's especiall
 }
 ```
 
-*__see__*: [https://docs.npmjs.com/files/package.json#publishconfig](https://docs.npmjs.com/files/package.json#publishconfig)
+**`see`** https://docs.npmjs.com/files/package.json#publishconfig
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-publishconfig](https://yarnpkg.com/en/docs/package-json#toc-publishconfig)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-publishconfig
 
 ___
-<a id="repository"></a>
 
-## `<Optional>` repository
+### `Optional` repository
 
-**● repository**: *`string` \| [IRepository](irepository.md)*
+• **repository**? : *string | [IRepository](irepository.md)*
 
-*Defined in [index.ts:520](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L520)*
+*Defined in [index.ts:520](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L520)*
 
-Specify the place where your code lives. This is helpful for people who want to contribute.
+Specify the place where your code lives.
+This is helpful for people who want to contribute.
 
-*   Git
+* Git
 
 ```json
 {
@@ -509,7 +579,7 @@ Specify the place where your code lives. This is helpful for people who want to 
 }
 ```
 
-*   Svn
+* Svn
 
 ```json
 {
@@ -520,7 +590,7 @@ Specify the place where your code lives. This is helpful for people who want to 
 }
 ```
 
-*   Monorepo
+* Monorepo
 
 ```json
 {
@@ -532,34 +602,36 @@ Specify the place where your code lives. This is helpful for people who want to 
 }
 ```
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-repository](https://yarnpkg.com/en/docs/package-json#toc-repository)
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-repository
 
-*__see__*: [https://docs.npmjs.com/files/package.json#repository](https://docs.npmjs.com/files/package.json#repository)
-
-___
-<a id="resolutions"></a>
-
-## `<Optional>` resolutions
-
-**● resolutions**: *`undefined` \| `object`*
-
-*Defined in [index.ts:529](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L529)*
-
-Allows you to override a version of a particular nested dependency. See the Selective Versions Resolutions RFC for the full spec. Note that installing dependencies via `[yarn install --flat]` will automatically add a resolutions block to your package.json file.
-
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-resolutions](https://yarnpkg.com/en/docs/package-json#toc-resolutions)
+**`see`** https://docs.npmjs.com/files/package.json#repository
 
 ___
-<a id="scripts"></a>
 
-## `<Optional>` scripts
+### `Optional` resolutions
 
-**● scripts**: *[IScriptsMap](iscriptsmap.md) \| `object`*
+• **resolutions**? : *undefined | object*
 
-*Defined in [index.ts:549](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L549)*
+*Defined in [index.ts:529](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L529)*
 
-The "`scripts`" property is a dictionary containing script commands that are run at various times in the lifecycle of your package. The key is the lifecycle event, and the value is the command to run at that point.
+Allows you to override a version of a particular nested dependency.
+See the Selective Versions Resolutions RFC for the full spec.
+Note that installing dependencies via `[yarn install --flat]` will
+automatically add a resolutions block to your package.json file.
 
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-resolutions
+
+___
+
+### `Optional` scripts
+
+• **scripts**? : *[IScriptsMap](iscriptsmap.md) | object*
+
+*Defined in [index.ts:549](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L549)*
+
+The "`scripts`" property is a dictionary containing script commands
+that are run at various times in the lifecycle of your package.
+The key is the lifecycle event, and the value is the command to run at that point.
 ```json
 {
   "scripts": {
@@ -573,16 +645,15 @@ The "`scripts`" property is a dictionary containing script commands that are run
 ```
 
 ___
-<a id="types"></a>
 
-## `<Optional>` types
+### `Optional` types
 
-**● types**: *`undefined` \| `string`*
+• **types**? : *undefined | string*
 
-*Defined in [index.ts:566](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L566)*
+*Defined in [index.ts:566](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L566)*
 
-Indicate the main declaration file in your package.json. Set the `types` property to point to your bundled declaration file.
-
+Indicate the main declaration file in your package.json.
+Set the `types` property to point to your bundled declaration file.
 ```json
 {
   "name": "some-package",
@@ -592,22 +663,18 @@ Indicate the main declaration file in your package.json. Set the `types` propert
 }
 ```
 
-*__see__*: [https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html)
+**`see`** https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html
 
 ___
-<a id="version"></a>
 
-## `<Optional>` version
+### `Optional` version
 
-**● version**: *`undefined` \| `string`*
+• **version**? : *undefined | string*
 
-*Defined in [index.ts:573](https://github.com/ajaxlab/package-json-type/blob/9e707da/src/index.ts#L573)*
+*Defined in [index.ts:573](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L573)*
 
 A version string conforming to the Semantic Versioning requirements.
 
-*__see__*: [https://docs.npmjs.com/files/package.json#version](https://docs.npmjs.com/files/package.json#version)
+**`see`** https://docs.npmjs.com/files/package.json#version
 
-*__see__*: [https://yarnpkg.com/en/docs/package-json#toc-version](https://yarnpkg.com/en/docs/package-json#toc-version)
-
-___
-
+**`see`** https://yarnpkg.com/en/docs/package-json#toc-version
