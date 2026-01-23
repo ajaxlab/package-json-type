@@ -1,4 +1,12 @@
-> # Interface: IRepository
+[**package-json-type**](../README.md)
+
+***
+
+[package-json-type](../globals.md) / IRepository
+
+# Interface: IRepository
+
+Defined in: [index.ts:1134](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1134)
 
 Specify the place where your code lives.
 This is helpful for people who want to contribute.
@@ -37,42 +45,31 @@ This is helpful for people who want to contribute.
 }
 ```
 
-**`see`** https://yarnpkg.com/en/docs/package-json#toc-repository
+## See
 
-**`see`** https://docs.npmjs.com/files/package.json#repository
-
-## Hierarchy
-
-* **IRepository**
-
-## Index
-
-### Properties
-
-* [directory](irepository.md#optional-directory)
-* [type](irepository.md#type)
-* [url](irepository.md#url)
+ - https://yarnpkg.com/en/docs/package-json#toc-repository
+ - https://docs.npmjs.com/files/package.json#repository
 
 ## Properties
 
-### `Optional` directory
+### directory?
 
-• **directory**? : *undefined | string*
+> `optional` **directory**: `string`
 
-*Defined in [index.ts:654](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L654)*
+Defined in: [index.ts:1135](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1135)
 
-___
+***
 
-###  type
+### type
 
-• **type**: *string*
+> **type**: `string`
 
-*Defined in [index.ts:655](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L655)*
+Defined in: [index.ts:1136](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1136)
 
-___
+***
 
-###  url
+### url
 
-• **url**: *string*
+> **url**: `string`
 
-*Defined in [index.ts:656](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L656)*
+Defined in: [index.ts:1137](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1137)

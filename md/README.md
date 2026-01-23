@@ -1,3 +1,7 @@
+**package-json-type**
+
+***
+
 # package-json-type
 
 [![npm](https://img.shields.io/npm/v/package-json-type.svg)](https://www.npmjs.com/package/package-json-type)
@@ -92,4 +96,4 @@ Contributions are always welcome :)
 
 ## License
 
-This project is licensed under [MIT](./LICENSE) license.
+This project is licensed under [MIT](_media/LICENSE) license.

@@ -1,36 +1,34 @@
-> # Interface: IBugs
+[**package-json-type**](../README.md)
+
+***
+
+[package-json-type](../globals.md) / IBugs
+
+# Interface: IBugs
+
+Defined in: [index.ts:42](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L42)
 
 The url to your project's issue tracker and (or) the email
 address to which issues should be reported. These are helpful
 for people who encounter issues with your package.
 
-**`see`** https://docs.npmjs.com/files/package.json#bugs
+## See
 
-**`see`** https://yarnpkg.com/en/docs/package-json#toc-bugs
-
-## Hierarchy
-
-* **IBugs**
-
-## Index
-
-### Properties
-
-* [email](ibugs.md#optional-email)
-* [url](ibugs.md#optional-url)
+ - https://docs.npmjs.com/files/package.json#bugs
+ - https://yarnpkg.com/en/docs/package-json#toc-bugs
 
 ## Properties
 
-### `Optional` email
+### email?
 
-• **email**? : *undefined | string*
+> `optional` **email**: `string`
 
-*Defined in [index.ts:43](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L43)*
+Defined in: [index.ts:43](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L43)
 
-___
+***
 
-### `Optional` url
+### url?
 
-• **url**? : *undefined | string*
+> `optional` **url**: `string`
 
-*Defined in [index.ts:44](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L44)*
+Defined in: [index.ts:44](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L44)
