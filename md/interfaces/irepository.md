@@ -6,7 +6,7 @@
 
 # Interface: IRepository
 
-Defined in: [index.ts:1134](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1134)
+Defined in: [index.ts:1462](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1462)
 
 Specify the place where your code lives.
 This is helpful for people who want to contribute.
@@ -56,7 +56,7 @@ This is helpful for people who want to contribute.
 
 > `optional` **directory**: `string`
 
-Defined in: [index.ts:1135](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1135)
+Defined in: [index.ts:1463](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1463)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [index.ts:1135](https://github.com/ajaxlab/package-json-type/blob/ca
 
 > **type**: `string`
 
-Defined in: [index.ts:1136](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1136)
+Defined in: [index.ts:1464](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1464)
 
 ***
 
@@ -72,4 +72,4 @@ Defined in: [index.ts:1136](https://github.com/ajaxlab/package-json-type/blob/ca
 
 > **url**: `string`
 
-Defined in: [index.ts:1137](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1137)
+Defined in: [index.ts:1465](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1465)

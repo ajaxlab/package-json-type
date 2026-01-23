@@ -6,7 +6,7 @@
 
 # Interface: IDirectories
 
-Defined in: [index.ts:102](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L102)
+Defined in: [index.ts:120](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L120)
 
 You can specify exact locations to put binary files, man pages,
 documentation, examples, etc. Package manager tools must use
@@ -35,7 +35,7 @@ these directory definitions to find various package components.
 
 > `optional` **bin**: `string`
 
-Defined in: [index.ts:113](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L113)
+Defined in: [index.ts:131](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L131)
 
 If you specify a bin directory in directories.bin,
 all the files in that folder will be added.
@@ -51,7 +51,7 @@ use directories.bin.
 
 > `optional` **doc**: `string`
 
-Defined in: [index.ts:118](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L118)
+Defined in: [index.ts:136](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L136)
 
 Put markdown doc files in here.
 
@@ -61,7 +61,7 @@ Put markdown doc files in here.
 
 > `optional` **example**: `string`
 
-Defined in: [index.ts:123](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L123)
+Defined in: [index.ts:141](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L141)
 
 Put example scripts in here.
 
@@ -71,7 +71,7 @@ Put example scripts in here.
 
 > `optional` **lib**: `string`
 
-Defined in: [index.ts:130](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L130)
+Defined in: [index.ts:148](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L148)
 
 Tell people where the bulk of your library is.
 Nothing special is done with the `lib` folder
@@ -83,7 +83,7 @@ in any way, but it's useful meta info.
 
 > `optional` **man**: `string`
 
-Defined in: [index.ts:136](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L136)
+Defined in: [index.ts:154](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L154)
 
 A folder that is full of man pages. Sugar to generate
 a `man` array by walking the folder.
@@ -94,6 +94,6 @@ a `man` array by walking the folder.
 
 > `optional` **test**: `string`
 
-Defined in: [index.ts:141](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L141)
+Defined in: [index.ts:159](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L159)
 
 Put your tests in here.

@@ -6,7 +6,7 @@
 
 # Interface: IBugs
 
-Defined in: [index.ts:42](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L42)
+Defined in: [index.ts:60](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L60)
 
 The url to your project's issue tracker and (or) the email
 address to which issues should be reported. These are helpful
@@ -23,7 +23,7 @@ for people who encounter issues with your package.
 
 > `optional` **email**: `string`
 
-Defined in: [index.ts:43](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L43)
+Defined in: [index.ts:61](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L61)
 
 ***
 
@@ -31,4 +31,4 @@ Defined in: [index.ts:43](https://github.com/ajaxlab/package-json-type/blob/caff
 
 > `optional` **url**: `string`
 
-Defined in: [index.ts:44](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L44)
+Defined in: [index.ts:62](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L62)

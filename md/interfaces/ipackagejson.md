@@ -6,7 +6,7 @@
 
 # Interface: IPackageJson
 
-Defined in: [index.ts:402](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L402)
+Defined in: [index.ts:544](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L544)
 
 A TypeScript definition for the package descriptor file.
 
@@ -26,7 +26,7 @@ A TypeScript definition for the package descriptor file.
 
 > `readonly` `optional` **author**: `string` \| [`IAuthor`](IAuthor.md)
 
-Defined in: [index.ts:415](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L415)
+Defined in: [index.ts:557](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L557)
 
 Package author information. An author is one person.
 * Shorthand expression
@@ -45,7 +45,7 @@ your-name <account@your-domain> (http://your-url)
 
 > `readonly` `optional` **bin**: `string` \| [`IBinMap`](IBinMap.md)
 
-Defined in: [index.ts:436](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L436)
+Defined in: [index.ts:578](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L578)
 
 An executable file which will be installed into the PATH
 with a package install. `npm` will symlink that file into
@@ -72,12 +72,31 @@ https://docs.npmjs.com/files/package.json#bin
 
 ### browser?
 
-> `readonly` `optional` **browser**: `string`
+> `readonly` `optional` **browser**: `string` \| [`IBrowserMap`](IBrowserMap.md)
 
-Defined in: [index.ts:444](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L444)
+Defined in: [index.ts:605](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L605)
 
 This is a hint to the module which is meant to be
 used "client-side" instead of "nodejs".
+
+Can be a string pointing to the browser entry point:
+
+```json
+{
+  "browser": "./lib/browser.js"
+}
+```
+
+Or an object mapping Node.js modules to browser alternatives:
+
+```json
+{
+  "browser": {
+    "./lib/server.js": "./lib/browser.js",
+    "fs": false
+  }
+}
+```
 
 #### See
 
@@ -90,7 +109,7 @@ used "client-side" instead of "nodejs".
 
 > `readonly` `optional` **bugs**: `string` \| [`IBugs`](IBugs.md)
 
-Defined in: [index.ts:453](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L453)
+Defined in: [index.ts:614](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L614)
 
 The url to your project's issue tracker and (or) the email
 address to which issues should be reported. These are helpful
@@ -107,7 +126,7 @@ for people who encounter issues with your package.
 
 > `readonly` `optional` **bundledDependencies**: `string`[]
 
-Defined in: [index.ts:461](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L461)
+Defined in: [index.ts:622](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L622)
 
 Bundled dependencies are an array of package names that
 will be bundled together when publishing your package.
@@ -119,11 +138,26 @@ will be bundled together when publishing your package.
 
 ***
 
+### bundleDependencies?
+
+> `readonly` `optional` **bundleDependencies**: `string`[]
+
+Defined in: [index.ts:629](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L629)
+
+Alias for `bundledDependencies`.
+Both spellings are supported by npm.
+
+#### See
+
+https://docs.npmjs.com/files/package.json#bundleddependencies
+
+***
+
 ### config?
 
 > `readonly` `optional` **config**: [`IConfig`](IConfig.md)
 
-Defined in: [index.ts:480](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L480)
+Defined in: [index.ts:648](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L648)
 
 A "`config`" object can be used to set configuration parameters
 used in package scripts that persist across upgrades.
@@ -150,7 +184,7 @@ then the user could override that by doing npm config set foo:port 8001.
 
 > `readonly` `optional` **contributors**: (`string` \| [`IAuthor`](IAuthor.md))[]
 
-Defined in: [index.ts:490](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L490)
+Defined in: [index.ts:658](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L658)
 
 If there is an `AUTHORS` file in the root of your package,
 npm will treat each line as a Name <email> (url) format,
@@ -168,7 +202,7 @@ will be ignored.
 
 > `readonly` `optional` **cpu**: [`CPU`](../type-aliases/CPU.md)[]
 
-Defined in: [index.ts:499](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L499)
+Defined in: [index.ts:667](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L667)
 
 If your code only runs on certain cpu architectures, you can specify which ones.
 This checks against `process.arch`.
@@ -185,7 +219,7 @@ This checks against `process.arch`.
 
 > `readonly` `optional` **dependencies**: [`IDependencyMap`](IDependencyMap.md)
 
-Defined in: [index.ts:510](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L510)
+Defined in: [index.ts:678](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L678)
 
 Dependencies are specified in a simple object that maps a package name
 to a version range. The version range is a string which has one or
@@ -200,11 +234,34 @@ identified with a tarball or git URL.
 
 ***
 
+### deprecated?
+
+> `readonly` `optional` **deprecated**: `string`
+
+Defined in: [index.ts:703](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L703)
+
+A deprecation message for the package.
+When set, npm will display a warning when the package is installed.
+This is typically set via `npm deprecate` command, but can also be
+set directly in package.json.
+
+```json
+{
+  "deprecated": "This package is no longer maintained. Use 'new-package' instead."
+}
+```
+
+#### See
+
+https://docs.npmjs.com/cli/v10/commands/npm-deprecate
+
+***
+
 ### description?
 
 > `readonly` `optional` **description**: `string`
 
-Defined in: [index.ts:520](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L520)
+Defined in: [index.ts:688](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L688)
 
 A brief description of the package.
 By convention, the first sentence (up to the first ". ")
@@ -222,7 +279,7 @@ should be usable as a package title in listings.
 
 > `readonly` `optional` **devDependencies**: [`IDependencyMap`](IDependencyMap.md)
 
-Defined in: [index.ts:531](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L531)
+Defined in: [index.ts:714](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L714)
 
 If someone is planning on downloading and using your module
 in their program, then they probably don't want or need
@@ -237,11 +294,42 @@ these additional items in a devDependencies object.
 
 ***
 
+### devEngines?
+
+> `readonly` `optional` **devEngines**: [`IDevEngines`](IDevEngines.md)
+
+Defined in: [index.ts:767](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L767)
+
+Development engine requirements.
+Similar to `engines`, but these requirements only apply during
+development (not when the package is used as a dependency).
+
+```json
+{
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=20.0.0"
+    },
+    "packageManager": {
+      "name": "npm",
+      "version": ">=10.0.0"
+    }
+  }
+}
+```
+
+#### See
+
+https://docs.npmjs.com/cli/v10/configuring-npm/package-json#devengines
+
+***
+
 ### directories?
 
 > `readonly` `optional` **directories**: [`IDirectories`](IDirectories.md)
 
-Defined in: [index.ts:552](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L552)
+Defined in: [index.ts:735](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L735)
 
 You can specify exact locations to put binary files, man pages,
 documentation, examples, etc. Package manager tools must use
@@ -270,7 +358,7 @@ these directory definitions to find various package components.
 
 > `readonly` `optional` **engines**: [`IEngines`](IEngines.md)
 
-Defined in: [index.ts:561](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L561)
+Defined in: [index.ts:744](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L744)
 
 You can specify the version of node that your stuff works on.
 You can also specify which versions of `npm` are capable
@@ -287,7 +375,7 @@ of properly installing your program.
 
 > `readonly` `optional` **exports**: `string` \| [`IConditionalExport`](IConditionalExport.md) \| [`IExportsMap`](IExportsMap.md) \| `string`[] \| `null`
 
-Defined in: [index.ts:582](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L582)
+Defined in: [index.ts:788](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L788)
 
 The `exports` field allows defining entry points of a package
 when imported by name. It takes precedence over the `main` field
@@ -316,7 +404,7 @@ and allows restricting access to internal modules.
 
 > `readonly` `optional` **files**: `string`[]
 
-Defined in: [index.ts:591](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L591)
+Defined in: [index.ts:797](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L797)
 
 Files that are included in your project described
 as a glob pattern. Omitting the field will make it default
@@ -333,7 +421,7 @@ to `["*"]`, as it will include all files.
 
 > `readonly` `optional` **flat**: `boolean`
 
-Defined in: [index.ts:599](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L599)
+Defined in: [index.ts:805](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L805)
 
 If your package only allows one version of a given dependency,
 and you'd like to enforce the same behavior as `yarn install --flat`
@@ -349,7 +437,7 @@ https://yarnpkg.com/en/docs/package-json#toc-flat
 
 > `readonly` `optional` **funding**: `string` \| [`IFunding`](IFunding.md) \| [`IFunding`](IFunding.md)[]
 
-Defined in: [index.ts:626](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L626)
+Defined in: [index.ts:832](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L832)
 
 Funding information for the package.
 Provides details on how to financially support the package maintainers.
@@ -384,7 +472,7 @@ https://docs.npmjs.com/cli/v10/configuring-npm/package-json#funding
 
 > `readonly` `optional` **homepage**: `string`
 
-Defined in: [index.ts:633](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L633)
+Defined in: [index.ts:839](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L839)
 
 The url to the project homepage.
 
@@ -399,7 +487,7 @@ The url to the project homepage.
 
 > `readonly` `optional` **imports**: [`IImportsMap`](IImportsMap.md)
 
-Defined in: [index.ts:651](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L651)
+Defined in: [index.ts:857](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L857)
 
 Package imports field for creating internal module aliases.
 Allows defining import paths that only work within the package itself.
@@ -421,11 +509,32 @@ All entries must start with `#` to distinguish them from package specifiers.
 
 ***
 
+### jsdelivr?
+
+> `readonly` `optional` **jsdelivr**: `string`
+
+Defined in: [index.ts:870](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L870)
+
+Entry point for jsDelivr CDN.
+Specifies the file to serve when the package is loaded via jsDelivr.
+
+```json
+{
+  "jsdelivr": "./dist/index.min.js"
+}
+```
+
+#### See
+
+https://www.jsdelivr.com/features
+
+***
+
 ### keywords?
 
 > `readonly` `optional` **keywords**: `string`[]
 
-Defined in: [index.ts:658](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L658)
+Defined in: [index.ts:877](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L877)
 
 An array of string keywords to assist users searching for the package in catalogs.
 
@@ -436,11 +545,41 @@ An array of string keywords to assist users searching for the package in catalog
 
 ***
 
+### libc?
+
+> `readonly` `optional` **libc**: [`Libc`](../type-aliases/Libc.md)[]
+
+Defined in: [index.ts:899](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L899)
+
+If your code only runs with certain C library implementations,
+you can specify which ones. This checks against the C library
+used by the Node.js runtime.
+
+```json
+{
+  "libc": ["glibc"]
+}
+```
+
+You can also exclude certain implementations:
+
+```json
+{
+  "libc": ["!musl"]
+}
+```
+
+#### See
+
+https://docs.npmjs.com/cli/v10/configuring-npm/package-json#libc
+
+***
+
 ### license?
 
 > `readonly` `optional` **license**: [`SPDXLicenseID`](../type-aliases/SPDXLicenseID.md) \| [`SPDXLicenseIDApproved`](../type-aliases/SPDXLicenseIDApproved.md)
 
-Defined in: [index.ts:670](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L670)
+Defined in: [index.ts:911](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L911)
 
 A license for your package so that people know how they are permitted
 to use it, and any restrictions you're placing on it.
@@ -460,7 +599,7 @@ add a current [SPDX license identifier](https://spdx.org/licenses/).
 
 > `readonly` `optional` **main**: `string`
 
-Defined in: [index.ts:681](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L681)
+Defined in: [index.ts:922](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L922)
 
 The main field is a module ID that is the primary entry point to your package.
 That is, if your package is named `foo`, and a user installs it, and then
@@ -475,11 +614,27 @@ For most modules, it makes the most sense to have a main script and often not mu
 
 ***
 
+### maintainers?
+
+> `readonly` `optional` **maintainers**: (`string` \| [`IAuthor`](IAuthor.md))[]
+
+Defined in: [index.ts:936](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L936)
+
+A list of people who maintain this package.
+This field is managed by npm and may not be directly edited.
+It's populated from the npm registry.
+
+#### See
+
+https://docs.npmjs.com/cli/v10/configuring-npm/package-json#people-fields-author-contributors
+
+***
+
 ### man?
 
 > `readonly` `optional` **man**: `string` \| `string`[]
 
-Defined in: [index.ts:687](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L687)
+Defined in: [index.ts:928](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L928)
 
 A single file (or an array of filenames) for the man program.
 
@@ -493,7 +648,7 @@ https://docs.npmjs.com/files/package.json#man
 
 > `readonly` `optional` **module**: `string`
 
-Defined in: [index.ts:703](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L703)
+Defined in: [index.ts:952](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L952)
 
 The `module` field is used by bundlers like webpack and Rollup
 to detect the ES module entry point of a package.
@@ -517,7 +672,7 @@ This is an unofficial field but widely adopted by the ecosystem.
 
 > `readonly` `optional` **name**: `string`
 
-Defined in: [index.ts:713](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L713)
+Defined in: [index.ts:962](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L962)
 
 The name of your package.
 The name and version together should form a unique identifier accoss a project.
@@ -535,7 +690,7 @@ A name can be optionally prefixed by a scope, e.g. `@types/lodash`.
 
 > `readonly` `optional` **optionalDependencies**: [`IDependencyMap`](IDependencyMap.md)
 
-Defined in: [index.ts:725](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L725)
+Defined in: [index.ts:974](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L974)
 
 If a dependency can be used, but you would like npm to proceed
 if it cannot be found or fails to install, then you may put it
@@ -555,7 +710,7 @@ It is still your program's responsibility to handle the lack of the dependency.
 
 > `readonly` `optional` **os**: [`OS`](../type-aliases/OS.md)[]
 
-Defined in: [index.ts:753](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L753)
+Defined in: [index.ts:1002](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1002)
 
 You can specify which operating systems your module will run on
 
@@ -571,7 +726,7 @@ You can specify which operating systems your module will run on
 
 > `readonly` `optional` **overrides**: [`IOverrides`](IOverrides.md)
 
-Defined in: [index.ts:745](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L745)
+Defined in: [index.ts:994](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L994)
 
 Allows overriding versions of nested dependencies.
 This is useful when you need to fix a security vulnerability
@@ -599,7 +754,7 @@ https://docs.npmjs.com/cli/v10/configuring-npm/package-json#overrides
 
 > `readonly` `optional` **packageManager**: `string`
 
-Defined in: [index.ts:777](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L777)
+Defined in: [index.ts:1026](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1026)
 
 Defines which package manager is expected to be used when working
 on the current project. This field is managed by Corepack.
@@ -631,7 +786,7 @@ Or with yarn or pnpm:
 
 > `readonly` `optional` **peerDependencies**: [`IDependencyMap`](IDependencyMap.md)
 
-Defined in: [index.ts:788](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L788)
+Defined in: [index.ts:1037](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1037)
 
 In some cases, you want to express the compatibility of your package
 with a host tool or library, while not necessarily doing a require
@@ -650,7 +805,7 @@ and specified by the host documentation.
 
 > `readonly` `optional` **peerDependenciesMeta**: [`IPeerDependenciesMeta`](IPeerDependenciesMeta.md)
 
-Defined in: [index.ts:810](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L810)
+Defined in: [index.ts:1059](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1059)
 
 Provides metadata about peer dependencies, such as marking them as optional.
 When a peer dependency is marked as optional, npm will not automatically
@@ -680,7 +835,7 @@ https://docs.npmjs.com/cli/v10/configuring-npm/package-json#peerdependenciesmeta
 
 > `readonly` `optional` **preferGlobal**: `boolean`
 
-Defined in: [index.ts:818](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L818)
+Defined in: [index.ts:1067](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1067)
 
 This option used to trigger an npm warning, but it will no longer warn.
 It is purely there for informational purposes. It is now recommended
@@ -694,7 +849,7 @@ that you install any binaries as local `devDependencies` wherever possible.
 
 > `readonly` `optional` **private**: `boolean`
 
-Defined in: [index.ts:830](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L830)
+Defined in: [index.ts:1079](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1079)
 
 If you set "`private`": true in your `package.json`, then `npm` will refuse to publish it.
 This is a way to prevent accidental publication of private repositories.
@@ -714,7 +869,7 @@ the registry config param at publish-time.
 
 > `readonly` `optional` **publishConfig**: [`IPublishConfig`](IPublishConfig.md)
 
-Defined in: [index.ts:863](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L863)
+Defined in: [index.ts:1112](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1112)
 
 This is a set of config values that will be used at publish-time.
 It's especially handy if you want to set the `tag`, `registry` or `access`,
@@ -754,7 +909,7 @@ See npm-config to see the list of config options that can be overridden.
 
 > `readonly` `optional` **repository**: `string` \| [`IRepository`](IRepository.md)
 
-Defined in: [index.ts:905](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L905)
+Defined in: [index.ts:1154](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1154)
 
 Specify the place where your code lives.
 This is helpful for people who want to contribute.
@@ -804,7 +959,7 @@ This is helpful for people who want to contribute.
 
 > `readonly` `optional` **resolutions**: `object`
 
-Defined in: [index.ts:914](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L914)
+Defined in: [index.ts:1163](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1163)
 
 Allows you to override a version of a particular nested dependency.
 See the Selective Versions Resolutions RFC for the full spec.
@@ -825,7 +980,7 @@ https://yarnpkg.com/en/docs/package-json#toc-resolutions
 
 > `readonly` `optional` **scripts**: [`IScriptsMap`](IScriptsMap.md) \| \{\[`scriptName`: `string`\]: `string`; \}
 
-Defined in: [index.ts:934](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L934)
+Defined in: [index.ts:1183](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1183)
 
 The "`scripts`" property is a dictionary containing script commands
 that are run at various times in the lifecycle of your package.
@@ -848,7 +1003,7 @@ The key is the lifecycle event, and the value is the command to run at that poin
 
 > `readonly` `optional` **sideEffects**: `boolean` \| `string`[]
 
-Defined in: [index.ts:961](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L961)
+Defined in: [index.ts:1210](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1210)
 
 Indicates whether the package has side effects for tree-shaking purposes.
 When set to `false`, bundlers like webpack can safely remove
@@ -881,7 +1036,7 @@ https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free
 
 > `readonly` `optional` **type**: `"module"` \| `"commonjs"`
 
-Defined in: [index.ts:975](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L975)
+Defined in: [index.ts:1224](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1224)
 
 Defines the module format for `.js` files in the package scope.
 When set to `"module"`, `.js` files are treated as ES modules.
@@ -903,7 +1058,7 @@ https://nodejs.org/api/packages.html#type
 
 > `readonly` `optional` **types**: `string`
 
-Defined in: [index.ts:990](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L990)
+Defined in: [index.ts:1239](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1239)
 
 Indicate the main declaration file in your package.json.
 Set the `types` property to point to your bundled declaration file.
@@ -926,7 +1081,7 @@ https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html
 
 > `readonly` `optional` **typesVersions**: [`ITypesVersions`](ITypesVersions.md)
 
-Defined in: [index.ts:1018](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1018)
+Defined in: [index.ts:1267](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1267)
 
 Allows providing different type definitions for different TypeScript versions.
 This is useful when your package uses features that are only available
@@ -955,7 +1110,7 @@ https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#v
 
 > `readonly` `optional` **typings**: `string`
 
-Defined in: [index.ts:997](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L997)
+Defined in: [index.ts:1246](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1246)
 
 Alias for `types`. Used to indicate the main TypeScript declaration file.
 This is the older name for the field, but is still widely supported.
@@ -966,11 +1121,32 @@ https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html
 
 ***
 
+### unpkg?
+
+> `readonly` `optional` **unpkg**: `string`
+
+Defined in: [index.ts:1280](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1280)
+
+Entry point for unpkg CDN.
+Specifies the file to serve when the package is loaded via unpkg.
+
+```json
+{
+  "unpkg": "./dist/index.umd.min.js"
+}
+```
+
+#### See
+
+https://unpkg.com/
+
+***
+
 ### version?
 
 > `readonly` `optional` **version**: `string`
 
-Defined in: [index.ts:1025](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1025)
+Defined in: [index.ts:1287](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1287)
 
 A version string conforming to the Semantic Versioning requirements.
 
@@ -985,7 +1161,7 @@ A version string conforming to the Semantic Versioning requirements.
 
 > `readonly` `optional` **workspaces**: `string`[] \| [`IWorkspaces`](IWorkspaces.md)
 
-Defined in: [index.ts:1054](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1054)
+Defined in: [index.ts:1316](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1316)
 
 Workspaces allow you to manage multiple packages within
 a single repository (monorepo). Define the workspace packages
