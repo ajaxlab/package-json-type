@@ -33,6 +33,24 @@ export interface IBinMap {
 }
 
 /**
+ * Browser field replacement map.
+ * Maps module paths to browser-specific alternatives or `false` to ignore.
+ *
+ * ```json
+ * {
+ *   "browser": {
+ *     "./lib/server.js": "./lib/browser.js",
+ *     "fs": false
+ *   }
+ * }
+ * ```
+ * @see https://github.com/defunctzombie/package-browser-field-spec
+ */
+export interface IBrowserMap {
+  [modulePath: string]: string | false;
+}
+
+/**
  * The url to your project's issue tracker and (or) the email
  * address to which issues should be reported. These are helpful
  * for people who encounter issues with your package.
@@ -152,8 +170,88 @@ export interface IEngines {
   [field: string]: any;
   node?: string;
   npm?: string;
+  pnpm?: string;
   yarn?: string;
   zlib?: string;
+}
+
+/**
+ * Runtime specification for devEngines field.
+ * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#devengines
+ */
+export interface IDevEngineRuntime {
+  /**
+   * The name of the runtime (e.g., "node", "bun", "deno").
+   */
+  name?: string;
+
+  /**
+   * The version range of the runtime.
+   */
+  version?: string;
+
+  /**
+   * An error to show when the engine doesn't match.
+   * If true, mismatches will cause an error. If false, only a warning.
+   */
+  onFail?: 'error' | 'warn' | 'ignore';
+}
+
+/**
+ * Package manager specification for devEngines field.
+ * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#devengines
+ */
+export interface IDevEnginePackageManager {
+  /**
+   * The name of the package manager (e.g., "npm", "yarn", "pnpm").
+   */
+  name?: string;
+
+  /**
+   * The version range of the package manager.
+   */
+  version?: string;
+
+  /**
+   * An error to show when the package manager doesn't match.
+   * If true, mismatches will cause an error. If false, only a warning.
+   */
+  onFail?: 'error' | 'warn' | 'ignore';
+}
+
+/**
+ * Development engine requirements.
+ * Allows specifying runtime and package manager requirements
+ * that only apply during development.
+ *
+ * ```json
+ * {
+ *   "devEngines": {
+ *     "runtime": {
+ *       "name": "node",
+ *       "version": ">=20.0.0",
+ *       "onFail": "error"
+ *     },
+ *     "packageManager": {
+ *       "name": "npm",
+ *       "version": ">=10.0.0",
+ *       "onFail": "warn"
+ *     }
+ *   }
+ * }
+ * ```
+ * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#devengines
+ */
+export interface IDevEngines {
+  /**
+   * Runtime requirements for development.
+   */
+  runtime?: IDevEngineRuntime | IDevEngineRuntime[];
+
+  /**
+   * Package manager requirements for development.
+   */
+  packageManager?: IDevEnginePackageManager | IDevEnginePackageManager[];
 }
 
 /**
@@ -196,6 +294,11 @@ export interface IConditionalExport {
   node?: string | IConditionalExport;
 
   /**
+   * Entry point for Node.js addon modules.
+   */
+  'node-addons'?: string | IConditionalExport;
+
+  /**
    * Generic fallback that always matches. Must be the last condition.
    */
   default?: string | IConditionalExport;
@@ -209,6 +312,45 @@ export interface IConditionalExport {
    * Entry point for browser environments.
    */
   browser?: string | IConditionalExport;
+
+  /**
+   * Entry point for Deno runtime.
+   * @see https://deno.land/manual/node/package_json
+   */
+  deno?: string | IConditionalExport;
+
+  /**
+   * Entry point for Bun runtime.
+   * @see https://bun.sh/docs/runtime/modules#resolution
+   */
+  bun?: string | IConditionalExport;
+
+  /**
+   * Entry point for Worker environments (Web Workers, Service Workers).
+   */
+  worker?: string | IConditionalExport;
+
+  /**
+   * Entry point for Electron main process.
+   */
+  electron?: string | IConditionalExport;
+
+  /**
+   * Entry point for React Native.
+   */
+  'react-native'?: string | IConditionalExport;
+
+  /**
+   * Entry point for development builds.
+   * Used by bundlers to provide development-specific code.
+   */
+  development?: string | IConditionalExport;
+
+  /**
+   * Entry point for production builds.
+   * Used by bundlers to provide production-optimized code.
+   */
+  production?: string | IConditionalExport;
 
   /**
    * Allows custom conditions.
@@ -438,10 +580,29 @@ export interface IPackageJson {
   /**
    * This is a hint to the module which is meant to be
    * used "client-side" instead of "nodejs".
+   *
+   * Can be a string pointing to the browser entry point:
+   *
+   * ```json
+   * {
+   *   "browser": "./lib/browser.js"
+   * }
+   * ```
+   *
+   * Or an object mapping Node.js modules to browser alternatives:
+   *
+   * ```json
+   * {
+   *   "browser": {
+   *     "./lib/server.js": "./lib/browser.js",
+   *     "fs": false
+   *   }
+   * }
+   * ```
    * @see https://github.com/defunctzombie/package-browser-field-spec
    * @see http://2ality.com/2017/04/setting-up-multi-platform-packages.html#browser-browser-specific-code
    */
-  readonly browser?: string;
+  readonly browser?: string | IBrowserMap;
 
   /**
    * The url to your project's issue tracker and (or) the email
@@ -459,6 +620,13 @@ export interface IPackageJson {
    * @see https://yarnpkg.com/en/docs/package-json#toc-bundleddependencies
    */
   readonly bundledDependencies?: string[];
+
+  /**
+   * Alias for `bundledDependencies`.
+   * Both spellings are supported by npm.
+   * @see https://docs.npmjs.com/files/package.json#bundleddependencies
+   */
+  readonly bundleDependencies?: string[];
 
   /**
    * A "`config`" object can be used to set configuration parameters
@@ -520,6 +688,21 @@ export interface IPackageJson {
   readonly description?: string;
 
   /**
+   * A deprecation message for the package.
+   * When set, npm will display a warning when the package is installed.
+   * This is typically set via `npm deprecate` command, but can also be
+   * set directly in package.json.
+   *
+   * ```json
+   * {
+   *   "deprecated": "This package is no longer maintained. Use 'new-package' instead."
+   * }
+   * ```
+   * @see https://docs.npmjs.com/cli/v10/commands/npm-deprecate
+   */
+  readonly deprecated?: string;
+
+  /**
    * If someone is planning on downloading and using your module
    * in their program, then they probably don't want or need
    * to download and build the external test or documentation
@@ -559,6 +742,29 @@ export interface IPackageJson {
    * @see https://yarnpkg.com/en/docs/package-json#toc-engines
    */
   readonly engines?: IEngines;
+
+  /**
+   * Development engine requirements.
+   * Similar to `engines`, but these requirements only apply during
+   * development (not when the package is used as a dependency).
+   *
+   * ```json
+   * {
+   *   "devEngines": {
+   *     "runtime": {
+   *       "name": "node",
+   *       "version": ">=20.0.0"
+   *     },
+   *     "packageManager": {
+   *       "name": "npm",
+   *       "version": ">=10.0.0"
+   *     }
+   *   }
+   * }
+   * ```
+   * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#devengines
+   */
+  readonly devEngines?: IDevEngines;
 
   /**
    * The `exports` field allows defining entry points of a package
@@ -651,11 +857,46 @@ export interface IPackageJson {
   readonly imports?: IImportsMap;
 
   /**
+   * Entry point for jsDelivr CDN.
+   * Specifies the file to serve when the package is loaded via jsDelivr.
+   *
+   * ```json
+   * {
+   *   "jsdelivr": "./dist/index.min.js"
+   * }
+   * ```
+   * @see https://www.jsdelivr.com/features
+   */
+  readonly jsdelivr?: string;
+
+  /**
    * An array of string keywords to assist users searching for the package in catalogs.
    * @see https://docs.npmjs.com/files/package.json#keywords
    * @see https://yarnpkg.com/en/docs/package-json#toc-keywords
    */
   readonly keywords?: string[];
+
+  /**
+   * If your code only runs with certain C library implementations,
+   * you can specify which ones. This checks against the C library
+   * used by the Node.js runtime.
+   *
+   * ```json
+   * {
+   *   "libc": ["glibc"]
+   * }
+   * ```
+   *
+   * You can also exclude certain implementations:
+   *
+   * ```json
+   * {
+   *   "libc": ["!musl"]
+   * }
+   * ```
+   * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#libc
+   */
+  readonly libc?: Libc[];
 
   /**
    * A license for your package so that people know how they are permitted
@@ -685,6 +926,14 @@ export interface IPackageJson {
    * @see https://docs.npmjs.com/files/package.json#man
    */
   readonly man?: string | string[];
+
+  /**
+   * A list of people who maintain this package.
+   * This field is managed by npm and may not be directly edited.
+   * It's populated from the npm registry.
+   * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#people-fields-author-contributors
+   */
+  readonly maintainers?: Array<IAuthor | string>;
 
   /**
    * The `module` field is used by bundlers like webpack and Rollup
@@ -1018,6 +1267,19 @@ export interface IPackageJson {
   readonly typesVersions?: ITypesVersions;
 
   /**
+   * Entry point for unpkg CDN.
+   * Specifies the file to serve when the package is loaded via unpkg.
+   *
+   * ```json
+   * {
+   *   "unpkg": "./dist/index.umd.min.js"
+   * }
+   * ```
+   * @see https://unpkg.com/
+   */
+  readonly unpkg?: string;
+
+  /**
    * A version string conforming to the Semantic Versioning requirements.
    * @see https://docs.npmjs.com/files/package.json#version
    * @see https://yarnpkg.com/en/docs/package-json#toc-version
@@ -1086,9 +1348,75 @@ export interface IPackageJson {
  * @see https://yarnpkg.com/en/docs/package-json#toc-publishconfig
  */
 export interface IPublishConfig {
-  access?: string;
+  /**
+   * Access level for scoped packages: "public" or "restricted".
+   */
+  access?: 'public' | 'restricted';
+
+  /**
+   * The npm registry URL to publish to.
+   */
   registry?: string;
+
+  /**
+   * The distribution tag to publish to.
+   */
   tag?: string;
+
+  /**
+   * The subdirectory to publish. Useful for monorepos where
+   * the build output is in a subdirectory.
+   */
+  directory?: string;
+
+  /**
+   * Files to mark as executable after extraction.
+   * Only relevant for pnpm.
+   */
+  executableFiles?: string[];
+
+  /**
+   * When set to true, the local package will be linked
+   * to the virtual store instead of being copied.
+   * Only relevant for pnpm.
+   */
+  linkDirectory?: boolean;
+
+  /**
+   * Override the main entry point for publishing.
+   */
+  main?: string;
+
+  /**
+   * Override the module entry point for publishing.
+   */
+  module?: string;
+
+  /**
+   * Override the types entry point for publishing.
+   */
+  types?: string;
+
+  /**
+   * Override the exports field for publishing.
+   */
+  exports?: string | IExportsMap | IConditionalExport | null;
+
+  /**
+   * Override the bin field for publishing.
+   */
+  bin?: string | IBinMap;
+
+  /**
+   * Override the browser field for publishing.
+   */
+  browser?: string | IBrowserMap;
+
+  /**
+   * Provenance attestation for the package.
+   * When true, npm generates and publishes provenance statements.
+   */
+  provenance?: boolean;
 }
 
 /**
@@ -1227,6 +1555,13 @@ export type OS = 'aix'
   | 'openbsd'
   | 'sunos'
   | 'win32';
+
+/**
+ * C library types for native module compatibility.
+ * Used in the `libc` field to specify which C library the package is compatible with.
+ * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#libc
+ */
+export type Libc = 'glibc' | 'musl';
 
 /**
  * SPDX License IDs which are not OSI approved.
