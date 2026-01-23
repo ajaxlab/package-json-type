@@ -620,3 +620,255 @@ const modernPackage: IPackageJson = {
     url: 'https://github.com/sponsors/user'
   }
 };
+
+// Additional field tests for complete coverage
+
+const browserMapPkg1: IPackageJson = {
+  browser: {
+    './lib/server.js': './lib/browser.js',
+    'fs': false
+  }
+};
+
+const browserMapPkg2: IPackageJson = {
+  browser: {
+    'stream': false,
+    'path': false,
+    './src/node-utils.js': './src/browser-utils.js'
+  }
+};
+
+const bundleDependenciesPkg: IPackageJson = {
+  bundleDependencies: [
+    'my-private-package'
+  ]
+};
+
+const deprecatedPkg: IPackageJson = {
+  deprecated: 'This package is no longer maintained. Use "new-package" instead.'
+};
+
+const devEnginesPkg1: IPackageJson = {
+  devEngines: {
+    runtime: {
+      name: 'node',
+      version: '>=20.0.0',
+      onFail: 'error'
+    }
+  }
+};
+
+const devEnginesPkg2: IPackageJson = {
+  devEngines: {
+    runtime: {
+      name: 'node',
+      version: '>=18.0.0'
+    },
+    packageManager: {
+      name: 'npm',
+      version: '>=10.0.0',
+      onFail: 'warn'
+    }
+  }
+};
+
+const devEnginesPkg3: IPackageJson = {
+  devEngines: {
+    runtime: [
+      { name: 'node', version: '>=20.0.0' },
+      { name: 'bun', version: '>=1.0.0' }
+    ],
+    packageManager: [
+      { name: 'npm', version: '>=10.0.0' },
+      { name: 'pnpm', version: '>=8.0.0' }
+    ]
+  }
+};
+
+const flatPkg: IPackageJson = {
+  flat: true
+};
+
+const jsdelivrPkg: IPackageJson = {
+  jsdelivr: './dist/index.min.js'
+};
+
+const libcPkg1: IPackageJson = {
+  libc: ['glibc']
+};
+
+const libcPkg2: IPackageJson = {
+  libc: ['glibc', 'musl']
+};
+
+const maintainersPkg: IPackageJson = {
+  maintainers: [
+    { name: 'maintainer1', email: 'maintainer1@example.com' },
+    'maintainer2 <maintainer2@example.com>'
+  ]
+};
+
+const preferGlobalPkg: IPackageJson = {
+  preferGlobal: true
+};
+
+const unpkgPkg: IPackageJson = {
+  unpkg: './dist/index.umd.min.js'
+};
+
+const exportsNullPkg: IPackageJson = {
+  exports: {
+    '.': './index.js',
+    './internal/*': null
+  }
+};
+
+const exportsArrayPkg: IPackageJson = {
+  exports: ['./index.js', './utils.js']
+};
+
+const conditionalExportsPkg: IPackageJson = {
+  exports: {
+    '.': {
+      node: {
+        import: './dist/node-esm.js',
+        require: './dist/node-cjs.js'
+      },
+      browser: './dist/browser.js',
+      deno: './dist/deno.js',
+      bun: './dist/bun.js',
+      worker: './dist/worker.js',
+      electron: './dist/electron.js',
+      'react-native': './dist/react-native.js',
+      development: './dist/dev.js',
+      production: './dist/prod.js',
+      default: './dist/index.js'
+    }
+  }
+};
+
+const importsPkg3: IPackageJson = {
+  imports: {
+    '#lib/*': './src/lib/*.js',
+    '#config': {
+      development: './config/dev.json',
+      production: './config/prod.json',
+      default: './config/default.json'
+    }
+  }
+};
+
+const publishConfigExtendedPkg: IPackageJson = {
+  publishConfig: {
+    access: 'public',
+    registry: 'https://registry.npmjs.org/',
+    tag: 'next',
+    directory: 'dist',
+    main: './dist/index.js',
+    module: './dist/index.esm.js',
+    types: './dist/index.d.ts',
+    provenance: true
+  }
+};
+
+const workspacesExtendedPkg: IPackageJson = {
+  workspaces: {
+    packages: ['packages/*', 'apps/*'],
+    nohoist: ['**/react-native', '**/react-native/**']
+  }
+};
+
+const completeModernPackage: IPackageJson = {
+  name: '@scope/complete-modern-package',
+  version: '2.0.0',
+  description: 'A complete modern package example',
+  type: 'module',
+  main: './dist/cjs/index.js',
+  module: './dist/esm/index.js',
+  types: './dist/types/index.d.ts',
+  typings: './dist/types/index.d.ts',
+  exports: {
+    '.': {
+      import: {
+        types: './dist/types/index.d.ts',
+        default: './dist/esm/index.js'
+      },
+      require: {
+        types: './dist/types/index.d.ts',
+        default: './dist/cjs/index.js'
+      }
+    },
+    './utils': {
+      import: './dist/esm/utils.js',
+      require: './dist/cjs/utils.js'
+    }
+  },
+  imports: {
+    '#internal': './src/internal/index.js'
+  },
+  browser: {
+    './dist/cjs/index.js': './dist/browser/index.js'
+  },
+  sideEffects: false,
+  files: ['dist'],
+  bin: {
+    'my-cli': './dist/cli.js'
+  },
+  engines: {
+    node: '>=18.0.0'
+  },
+  devEngines: {
+    runtime: { name: 'node', version: '>=20.0.0' },
+    packageManager: { name: 'pnpm', version: '>=8.0.0' }
+  },
+  packageManager: 'pnpm@8.15.0',
+  workspaces: ['packages/*'],
+  dependencies: {
+    'some-dep': '^1.0.0'
+  },
+  devDependencies: {
+    typescript: '^5.0.0'
+  },
+  peerDependencies: {
+    react: '^18.0.0'
+  },
+  peerDependenciesMeta: {
+    react: { optional: true }
+  },
+  overrides: {
+    'vulnerable-package': '2.0.0'
+  },
+  funding: [
+    { type: 'github', url: 'https://github.com/sponsors/user' },
+    { type: 'opencollective', url: 'https://opencollective.com/project' }
+  ],
+  repository: {
+    type: 'git',
+    url: 'https://github.com/user/repo.git',
+    directory: 'packages/pkg'
+  },
+  bugs: {
+    url: 'https://github.com/user/repo/issues',
+    email: 'bugs@example.com'
+  },
+  homepage: 'https://example.com',
+  license: 'MIT',
+  author: {
+    name: 'Author Name',
+    email: 'author@example.com',
+    url: 'https://author.example.com'
+  },
+  contributors: [
+    { name: 'Contributor', email: 'contrib@example.com' }
+  ],
+  keywords: ['typescript', 'modern', 'esm'],
+  typesVersions: {
+    '>=5.0': { '*': ['dist/types/*'] },
+    '*': { '*': ['dist/types-legacy/*'] }
+  },
+  jsdelivr: './dist/browser/index.min.js',
+  unpkg: './dist/browser/index.min.js',
+  cpu: ['x64', 'arm64'],
+  os: ['linux', 'darwin', 'win32'],
+  libc: ['glibc']
+};
