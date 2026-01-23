@@ -431,3 +431,192 @@ const allInOne2: IPackageJson = {
   name: 'test2',
   version: '0.1.0',
 };
+
+// New field tests for modern package.json spec
+
+const typePkg1: IPackageJson = {
+  type: 'module'
+};
+
+const typePkg2: IPackageJson = {
+  type: 'commonjs'
+};
+
+const exportsPkg1: IPackageJson = {
+  exports: './index.js'
+};
+
+const exportsPkg2: IPackageJson = {
+  exports: {
+    '.': './index.js',
+    './utils': './src/utils.js'
+  }
+};
+
+const exportsPkg3: IPackageJson = {
+  exports: {
+    '.': {
+      import: './dist/esm/index.js',
+      require: './dist/cjs/index.js'
+    }
+  }
+};
+
+const exportsPkg4: IPackageJson = {
+  exports: {
+    '.': {
+      import: {
+        types: './dist/esm/index.d.ts',
+        default: './dist/esm/index.js'
+      },
+      require: {
+        types: './dist/cjs/index.d.ts',
+        default: './dist/cjs/index.js'
+      }
+    }
+  }
+};
+
+const importsPkg1: IPackageJson = {
+  imports: {
+    '#utils': './src/utils/index.js'
+  }
+};
+
+const importsPkg2: IPackageJson = {
+  imports: {
+    '#internal': {
+      node: './src/internal-node.js',
+      default: './src/internal-browser.js'
+    }
+  }
+};
+
+const modulePkg: IPackageJson = {
+  main: './dist/cjs/index.js',
+  module: './dist/esm/index.js'
+};
+
+const fundingPkg1: IPackageJson = {
+  funding: 'https://github.com/sponsors/user'
+};
+
+const fundingPkg2: IPackageJson = {
+  funding: {
+    type: 'github',
+    url: 'https://github.com/sponsors/user'
+  }
+};
+
+const fundingPkg3: IPackageJson = {
+  funding: [
+    { type: 'github', url: 'https://github.com/sponsors/user' },
+    { type: 'opencollective', url: 'https://opencollective.com/project' }
+  ]
+};
+
+const peerDependenciesMetaPkg: IPackageJson = {
+  peerDependencies: {
+    react: '^18.0.0',
+    typescript: '^5.0.0'
+  },
+  peerDependenciesMeta: {
+    typescript: {
+      optional: true
+    }
+  }
+};
+
+const overridesPkg1: IPackageJson = {
+  overrides: {
+    foo: '1.0.0'
+  }
+};
+
+const overridesPkg2: IPackageJson = {
+  overrides: {
+    foo: '1.0.0',
+    bar: {
+      baz: '2.0.0'
+    }
+  }
+};
+
+const sideEffectsPkg1: IPackageJson = {
+  sideEffects: false
+};
+
+const sideEffectsPkg2: IPackageJson = {
+  sideEffects: ['./src/polyfills.js', '*.css']
+};
+
+const packageManagerPkg1: IPackageJson = {
+  packageManager: 'npm@10.2.0'
+};
+
+const packageManagerPkg2: IPackageJson = {
+  packageManager: 'pnpm@8.10.0'
+};
+
+const typingsPkg: IPackageJson = {
+  typings: 'types/index.d.ts'
+};
+
+const typesVersionsPkg: IPackageJson = {
+  typesVersions: {
+    '>=4.0': {
+      '*': ['ts4.0/*']
+    },
+    '>=3.0': {
+      '*': ['ts3.0/*']
+    }
+  }
+};
+
+const workspacesPkg1: IPackageJson = {
+  workspaces: [
+    'packages/*',
+    'apps/*'
+  ]
+};
+
+const workspacesPkg2: IPackageJson = {
+  workspaces: {
+    packages: ['packages/*']
+  }
+};
+
+const cpuPkg3: IPackageJson = {
+  cpu: ['arm64', 'x64', 'loong64', 'riscv64']
+};
+
+const osPkg3: IPackageJson = {
+  os: ['darwin', 'linux', 'win32', 'netbsd', 'haiku']
+};
+
+const modernPackage: IPackageJson = {
+  name: 'modern-package',
+  version: '1.0.0',
+  type: 'module',
+  main: './dist/cjs/index.js',
+  module: './dist/esm/index.js',
+  types: './dist/types/index.d.ts',
+  exports: {
+    '.': {
+      import: {
+        types: './dist/types/index.d.ts',
+        default: './dist/esm/index.js'
+      },
+      require: {
+        types: './dist/types/index.d.ts',
+        default: './dist/cjs/index.js'
+      }
+    }
+  },
+  sideEffects: false,
+  packageManager: 'pnpm@8.10.0',
+  funding: {
+    type: 'github',
+    url: 'https://github.com/sponsors/user'
+  }
+};

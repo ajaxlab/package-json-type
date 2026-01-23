@@ -157,6 +157,243 @@ export interface IEngines {
 }
 
 /**
+ * Conditional export entry for the `exports` field.
+ * Allows specifying different entry points based on conditions
+ * like `import`, `require`, `node`, `browser`, etc.
+ *
+ * ```json
+ * {
+ *   "exports": {
+ *     ".": {
+ *       "import": {
+ *         "types": "./dist/esm/index.d.ts",
+ *         "default": "./dist/esm/index.js"
+ *       },
+ *       "require": {
+ *         "types": "./dist/cjs/index.d.ts",
+ *         "default": "./dist/cjs/index.js"
+ *       }
+ *     }
+ *   }
+ * }
+ * ```
+ * @see https://nodejs.org/api/packages.html#conditional-exports
+ */
+export interface IConditionalExport {
+  /**
+   * Entry point when loaded via `import` or `import()`.
+   */
+  import?: string | IConditionalExport;
+
+  /**
+   * Entry point when loaded via `require()`.
+   */
+  require?: string | IConditionalExport;
+
+  /**
+   * Entry point for any Node.js environment.
+   */
+  node?: string | IConditionalExport;
+
+  /**
+   * Generic fallback that always matches. Must be the last condition.
+   */
+  default?: string | IConditionalExport;
+
+  /**
+   * TypeScript type definitions entry point.
+   */
+  types?: string;
+
+  /**
+   * Entry point for browser environments.
+   */
+  browser?: string | IConditionalExport;
+
+  /**
+   * Allows custom conditions.
+   */
+  [condition: string]: string | IConditionalExport | undefined;
+}
+
+/**
+ * Package exports map for the `exports` field.
+ * Defines entry points of a package when imported by name.
+ *
+ * ```json
+ * {
+ *   "exports": {
+ *     ".": "./index.js",
+ *     "./feature": "./src/feature.js",
+ *     "./package.json": "./package.json"
+ *   }
+ * }
+ * ```
+ * @see https://nodejs.org/api/packages.html#exports
+ * @see https://nodejs.org/api/packages.html#subpath-exports
+ */
+export interface IExportsMap {
+  /**
+   * Maps subpath patterns to file paths or conditional exports.
+   * Use `null` to restrict access to a subpath.
+   */
+  [path: string]: string | IConditionalExport | null;
+}
+
+/**
+ * Package imports map for the `imports` field.
+ * Allows defining internal import aliases within the package.
+ * All entries must start with `#`.
+ *
+ * ```json
+ * {
+ *   "imports": {
+ *     "#utils": "./src/utils/index.js",
+ *     "#internal/*": "./src/internal/*.js"
+ *   }
+ * }
+ * ```
+ * @see https://nodejs.org/api/packages.html#imports
+ * @see https://nodejs.org/api/packages.html#subpath-imports
+ */
+export interface IImportsMap {
+  [path: string]: string | IConditionalExport;
+}
+
+/**
+ * Funding information for a package.
+ * Provides details on how to financially support the package.
+ *
+ * ```json
+ * {
+ *   "funding": {
+ *     "type": "opencollective",
+ *     "url": "https://opencollective.com/webpack"
+ *   }
+ * }
+ * ```
+ * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#funding
+ */
+export interface IFunding {
+  /**
+   * The type of funding (e.g., "opencollective", "github", "patreon").
+   */
+  type?: string;
+
+  /**
+   * The URL to the funding page.
+   */
+  url: string;
+}
+
+/**
+ * Metadata for a single peer dependency.
+ * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#peerdependenciesmeta
+ */
+export interface IPeerDependencyMeta {
+  /**
+   * Marks the peer dependency as optional.
+   * When true, npm will not automatically install this peer dependency.
+   */
+  optional?: boolean;
+}
+
+/**
+ * Metadata for peer dependencies.
+ * Allows specifying additional information about peer dependencies,
+ * such as marking them as optional.
+ *
+ * ```json
+ * {
+ *   "peerDependencies": {
+ *     "react": "^18.0.0",
+ *     "typescript": "^5.0.0"
+ *   },
+ *   "peerDependenciesMeta": {
+ *     "typescript": {
+ *       "optional": true
+ *     }
+ *   }
+ * }
+ * ```
+ * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#peerdependenciesmeta
+ */
+export interface IPeerDependenciesMeta {
+  [packageName: string]: IPeerDependencyMeta;
+}
+
+/**
+ * TypeScript types version map.
+ * Allows providing different type definitions for different TypeScript versions.
+ *
+ * ```json
+ * {
+ *   "typesVersions": {
+ *     ">=4.0": {
+ *       "*": ["ts4.0/*"]
+ *     },
+ *     ">=3.0": {
+ *       "*": ["ts3.0/*"]
+ *     }
+ *   }
+ * }
+ * ```
+ * @see https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions
+ */
+export interface ITypesVersions {
+  [version: string]: {
+    [path: string]: string[];
+  };
+}
+
+/**
+ * Workspaces configuration for monorepos.
+ * Allows defining glob patterns for workspace packages.
+ *
+ * ```json
+ * {
+ *   "workspaces": {
+ *     "packages": ["packages/*"],
+ *     "nohoist": ["**\/react-native"]
+ *   }
+ * }
+ * ```
+ * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#workspaces
+ * @see https://yarnpkg.com/features/workspaces
+ */
+export interface IWorkspaces {
+  /**
+   * Glob patterns of workspace packages.
+   */
+  packages?: string[];
+
+  /**
+   * Packages that should not be hoisted to the root node_modules (Yarn only).
+   */
+  nohoist?: string[];
+}
+
+/**
+ * Dependency overrides configuration.
+ * Allows overriding versions of nested dependencies.
+ *
+ * ```json
+ * {
+ *   "overrides": {
+ *     "foo": "1.0.0",
+ *     "bar": {
+ *       "baz": "2.0.0"
+ *     }
+ *   }
+ * }
+ * ```
+ * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#overrides
+ */
+export interface IOverrides {
+  [packageName: string]: string | IOverrides;
+}
+
+/**
  * A TypeScript definition for the package descriptor file.
  * @see http://wiki.commonjs.org/wiki/Packages/1.0
  * @see https://docs.npmjs.com/files/package.json
@@ -324,6 +561,27 @@ export interface IPackageJson {
   readonly engines?: IEngines;
 
   /**
+   * The `exports` field allows defining entry points of a package
+   * when imported by name. It takes precedence over the `main` field
+   * and allows restricting access to internal modules.
+   *
+   * ```json
+   * {
+   *   "exports": {
+   *     ".": {
+   *       "import": "./dist/esm/index.js",
+   *       "require": "./dist/cjs/index.js"
+   *     },
+   *     "./utils": "./dist/utils.js"
+   *   }
+   * }
+   * ```
+   * @see https://nodejs.org/api/packages.html#exports
+   * @see https://nodejs.org/api/packages.html#conditional-exports
+   */
+  readonly exports?: string | string[] | IExportsMap | IConditionalExport | null;
+
+  /**
    * Files that are included in your project described
    * as a glob pattern. Omitting the field will make it default
    * to `["*"]`, as it will include all files.
@@ -341,11 +599,56 @@ export interface IPackageJson {
   readonly flat?: boolean;
 
   /**
+   * Funding information for the package.
+   * Provides details on how to financially support the package maintainers.
+   *
+   * ```json
+   * {
+   *   "funding": {
+   *     "type": "github",
+   *     "url": "https://github.com/sponsors/user"
+   *   }
+   * }
+   * ```
+   *
+   * Can also be an array for multiple funding sources:
+   *
+   * ```json
+   * {
+   *   "funding": [
+   *     { "type": "github", "url": "https://github.com/sponsors/user" },
+   *     { "type": "opencollective", "url": "https://opencollective.com/project" }
+   *   ]
+   * }
+   * ```
+   * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#funding
+   */
+  readonly funding?: string | IFunding | IFunding[];
+
+  /**
    * The url to the project homepage.
    * @see https://docs.npmjs.com/files/package.json#homepage
    * @see https://yarnpkg.com/en/docs/package-json#toc-homepage
    */
   readonly homepage?: string;
+
+  /**
+   * Package imports field for creating internal module aliases.
+   * Allows defining import paths that only work within the package itself.
+   * All entries must start with `#` to distinguish them from package specifiers.
+   *
+   * ```json
+   * {
+   *   "imports": {
+   *     "#utils": "./src/utils/index.js",
+   *     "#internal/*": "./src/internal/*.js"
+   *   }
+   * }
+   * ```
+   * @see https://nodejs.org/api/packages.html#imports
+   * @see https://nodejs.org/api/packages.html#subpath-imports
+   */
+  readonly imports?: IImportsMap;
 
   /**
    * An array of string keywords to assist users searching for the package in catalogs.
@@ -384,6 +687,22 @@ export interface IPackageJson {
   readonly man?: string | string[];
 
   /**
+   * The `module` field is used by bundlers like webpack and Rollup
+   * to detect the ES module entry point of a package.
+   * This is an unofficial field but widely adopted by the ecosystem.
+   *
+   * ```json
+   * {
+   *   "main": "./dist/cjs/index.js",
+   *   "module": "./dist/esm/index.js"
+   * }
+   * ```
+   * @see https://github.com/rollup/rollup/wiki/pkg.module
+   * @see https://webpack.js.org/guides/author-libraries/#final-steps
+   */
+  readonly module?: string;
+
+  /**
    * The name of your package.
    * The name and version together should form a unique identifier accoss a project.
    * The name and version fields are optional if you don't want to publish your package.
@@ -406,12 +725,56 @@ export interface IPackageJson {
   readonly optionalDependencies?: IDependencyMap;
 
   /**
+   * Allows overriding versions of nested dependencies.
+   * This is useful when you need to fix a security vulnerability
+   * or bug in a transitive dependency without waiting for the
+   * direct dependency to update.
+   *
+   * ```json
+   * {
+   *   "overrides": {
+   *     "foo": "1.0.0",
+   *     "bar": {
+   *       "baz": "2.0.0"
+   *     }
+   *   }
+   * }
+   * ```
+   * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#overrides
+   */
+  readonly overrides?: IOverrides;
+
+  /**
    * You can specify which operating systems your module will run on
    * @see https://docs.npmjs.com/files/package.json#os
    * @see https://yarnpkg.com/en/docs/package-json#toc-os
    * @see https://nodejs.org/api/process.html#process_process_platform
    */
   readonly os?: OS[];
+
+  /**
+   * Defines which package manager is expected to be used when working
+   * on the current project. This field is managed by Corepack.
+   * Setting this field causes Corepack to ensure the specified package
+   * manager version is available and to run it transparently.
+   *
+   * ```json
+   * {
+   *   "packageManager": "npm@10.2.0"
+   * }
+   * ```
+   *
+   * Or with yarn or pnpm:
+   *
+   * ```json
+   * {
+   *   "packageManager": "pnpm@8.10.0"
+   * }
+   * ```
+   * @see https://nodejs.org/api/corepack.html
+   * @see https://nodejs.org/api/packages.html#packagemanager
+   */
+  readonly packageManager?: string;
 
   /**
    * In some cases, you want to express the compatibility of your package
@@ -423,6 +786,28 @@ export interface IPackageJson {
    * @see https://yarnpkg.com/en/docs/package-json#toc-peerdependencies
    */
   readonly peerDependencies?: IDependencyMap;
+
+  /**
+   * Provides metadata about peer dependencies, such as marking them as optional.
+   * When a peer dependency is marked as optional, npm will not automatically
+   * install it and will not emit a warning if it's missing.
+   *
+   * ```json
+   * {
+   *   "peerDependencies": {
+   *     "react": "^18.0.0",
+   *     "typescript": "^5.0.0"
+   *   },
+   *   "peerDependenciesMeta": {
+   *     "typescript": {
+   *       "optional": true
+   *     }
+   *   }
+   * }
+   * ```
+   * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#peerdependenciesmeta
+   */
+  readonly peerDependenciesMeta?: IPeerDependenciesMeta;
 
   /**
    * This option used to trigger an npm warning, but it will no longer warn.
@@ -551,6 +936,45 @@ export interface IPackageJson {
   };
 
   /**
+   * Indicates whether the package has side effects for tree-shaking purposes.
+   * When set to `false`, bundlers like webpack can safely remove
+   * unused exports from the bundle.
+   *
+   * ```json
+   * {
+   *   "sideEffects": false
+   * }
+   * ```
+   *
+   * Can also be an array of files that have side effects:
+   *
+   * ```json
+   * {
+   *   "sideEffects": [
+   *     "./src/polyfills.js",
+   *     "*.css"
+   *   ]
+   * }
+   * ```
+   * @see https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free
+   */
+  readonly sideEffects?: boolean | string[];
+
+  /**
+   * Defines the module format for `.js` files in the package scope.
+   * When set to `"module"`, `.js` files are treated as ES modules.
+   * When set to `"commonjs"` (default), `.js` files are treated as CommonJS.
+   *
+   * ```json
+   * {
+   *   "type": "module"
+   * }
+   * ```
+   * @see https://nodejs.org/api/packages.html#type
+   */
+  readonly type?: 'module' | 'commonjs';
+
+  /**
    * Indicate the main declaration file in your package.json.
    * Set the `types` property to point to your bundled declaration file.
    * ```json
@@ -566,11 +990,68 @@ export interface IPackageJson {
   readonly types?: string;
 
   /**
+   * Alias for `types`. Used to indicate the main TypeScript declaration file.
+   * This is the older name for the field, but is still widely supported.
+   * @see https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html
+   */
+  readonly typings?: string;
+
+  /**
+   * Allows providing different type definitions for different TypeScript versions.
+   * This is useful when your package uses features that are only available
+   * in newer TypeScript versions.
+   *
+   * ```json
+   * {
+   *   "typesVersions": {
+   *     ">=4.0": {
+   *       "*": ["ts4.0/*"]
+   *     },
+   *     ">=3.0": {
+   *       "*": ["ts3.0/*"]
+   *     }
+   *   }
+   * }
+   * ```
+   * @see https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions
+   */
+  readonly typesVersions?: ITypesVersions;
+
+  /**
    * A version string conforming to the Semantic Versioning requirements.
    * @see https://docs.npmjs.com/files/package.json#version
    * @see https://yarnpkg.com/en/docs/package-json#toc-version
    */
   readonly version?: string;
+
+  /**
+   * Workspaces allow you to manage multiple packages within
+   * a single repository (monorepo). Define the workspace packages
+   * using glob patterns.
+   *
+   * ```json
+   * {
+   *   "workspaces": [
+   *     "packages/*",
+   *     "apps/*"
+   *   ]
+   * }
+   * ```
+   *
+   * Can also be an object with more options:
+   *
+   * ```json
+   * {
+   *   "workspaces": {
+   *     "packages": ["packages/*"],
+   *     "nohoist": ["**\/react-native"]
+   *   }
+   * }
+   * ```
+   * @see https://docs.npmjs.com/cli/v10/configuring-npm/package-json#workspaces
+   * @see https://yarnpkg.com/features/workspaces
+   */
+  readonly workspaces?: string[] | IWorkspaces;
 }
 
 /**
@@ -708,7 +1189,8 @@ export interface IScriptsMap {
 }
 
 /**
- * It checks against `process.arc`.
+ * CPU architectures supported by Node.js.
+ * It checks against `process.arch`.
  * @see https://docs.npmjs.com/files/package.json#cpu
  * @see https://yarnpkg.com/en/docs/package-json#toc-cpu
  * @see https://nodejs.org/api/process.html#process_process_arch
@@ -716,30 +1198,35 @@ export interface IScriptsMap {
 export type CPU = 'arm'
   | 'arm64'
   | 'ia32'
+  | 'loong64'
   | 'mips'
   | 'mipsel'
   | 'ppc'
   | 'ppc64'
+  | 'riscv64'
   | 's390'
   | 's390x'
   | 'x32'
   | 'x64';
 
 /**
- * You can specify which operating systems your module will run on
+ * Operating systems supported by Node.js.
+ * You can specify which operating systems your module will run on.
  * @see https://docs.npmjs.com/files/package.json#os
  * @see https://yarnpkg.com/en/docs/package-json#toc-os
  * @see https://nodejs.org/api/process.html#process_process_platform
  */
 export type OS = 'aix'
   | 'android'
+  | 'cygwin'
   | 'darwin'
   | 'freebsd'
+  | 'haiku'
   | 'linux'
+  | 'netbsd'
   | 'openbsd'
   | 'sunos'
-  | 'win32'
-  | 'cygwin';
+  | 'win32';
 
 /**
  * SPDX License IDs which are not OSI approved.
