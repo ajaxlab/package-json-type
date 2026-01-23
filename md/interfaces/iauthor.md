@@ -6,7 +6,7 @@
 
 # Interface: IAuthor
 
-Defined in: [index.ts:6](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L6)
+Defined in: [index.ts:6](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L6)
 
 Package author information.
 
@@ -21,7 +21,7 @@ Package author information.
 
 > `optional` **email**: `string`
 
-Defined in: [index.ts:7](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L7)
+Defined in: [index.ts:7](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L7)
 
 ***
 
@@ -29,7 +29,7 @@ Defined in: [index.ts:7](https://github.com/ajaxlab/package-json-type/blob/caff0
 
 > **name**: `string`
 
-Defined in: [index.ts:8](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L8)
+Defined in: [index.ts:8](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L8)
 
 ***
 
@@ -37,4 +37,4 @@ Defined in: [index.ts:8](https://github.com/ajaxlab/package-json-type/blob/caff0
 
 > `optional` **url**: `string`
 
-Defined in: [index.ts:9](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L9)
+Defined in: [index.ts:9](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L9)

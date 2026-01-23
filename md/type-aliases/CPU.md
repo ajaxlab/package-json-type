@@ -8,7 +8,7 @@
 
 > **CPU** = `"arm"` \| `"arm64"` \| `"ia32"` \| `"loong64"` \| `"mips"` \| `"mipsel"` \| `"ppc"` \| `"ppc64"` \| `"riscv64"` \| `"s390"` \| `"s390x"` \| `"x32"` \| `"x64"`
 
-Defined in: [index.ts:1198](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1198)
+Defined in: [index.ts:1526](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1526)
 
 CPU architectures supported by Node.js.
 It checks against `process.arch`.

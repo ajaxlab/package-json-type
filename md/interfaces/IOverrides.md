@@ -6,7 +6,7 @@
 
 # Interface: IOverrides
 
-Defined in: [index.ts:392](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L392)
+Defined in: [index.ts:534](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L534)
 
 Dependency overrides configuration.
 Allows overriding versions of nested dependencies.

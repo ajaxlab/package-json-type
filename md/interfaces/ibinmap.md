@@ -6,7 +6,7 @@
 
 # Interface: IBinMap
 
-Defined in: [index.ts:31](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L31)
+Defined in: [index.ts:31](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L31)
 
 An executable file which will be installed into the PATH
 with a package install. `npm` will symlink that file into

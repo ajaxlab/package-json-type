@@ -6,7 +6,7 @@
 
 # Interface: IPeerDependenciesMeta
 
-Defined in: [index.ts:321](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L321)
+Defined in: [index.ts:463](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L463)
 
 Metadata for peer dependencies.
 Allows specifying additional information about peer dependencies,

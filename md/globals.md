@@ -8,10 +8,14 @@
 
 - [IAuthor](interfaces/IAuthor.md)
 - [IBinMap](interfaces/IBinMap.md)
+- [IBrowserMap](interfaces/IBrowserMap.md)
 - [IBugs](interfaces/IBugs.md)
 - [IConditionalExport](interfaces/IConditionalExport.md)
 - [IConfig](interfaces/IConfig.md)
 - [IDependencyMap](interfaces/IDependencyMap.md)
+- [IDevEnginePackageManager](interfaces/IDevEnginePackageManager.md)
+- [IDevEngineRuntime](interfaces/IDevEngineRuntime.md)
+- [IDevEngines](interfaces/IDevEngines.md)
 - [IDirectories](interfaces/IDirectories.md)
 - [IEngines](interfaces/IEngines.md)
 - [IExportsMap](interfaces/IExportsMap.md)
@@ -30,6 +34,7 @@
 ## Type Aliases
 
 - [CPU](type-aliases/CPU.md)
+- [Libc](type-aliases/Libc.md)
 - [OS](type-aliases/OS.md)
 - [SPDXLicenseID](type-aliases/SPDXLicenseID.md)
 - [SPDXLicenseIDApproved](type-aliases/SPDXLicenseIDApproved.md)

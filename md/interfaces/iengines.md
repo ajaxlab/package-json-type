@@ -6,7 +6,7 @@
 
 # Interface: IEngines
 
-Defined in: [index.ts:151](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L151)
+Defined in: [index.ts:169](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L169)
 
 You can specify the version of node that your stuff works on.
 You can also specify which versions of npm are capable
@@ -27,7 +27,7 @@ of properly installing your program.
 
 > `optional` **node**: `string`
 
-Defined in: [index.ts:153](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L153)
+Defined in: [index.ts:171](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L171)
 
 ***
 
@@ -35,7 +35,15 @@ Defined in: [index.ts:153](https://github.com/ajaxlab/package-json-type/blob/caf
 
 > `optional` **npm**: `string`
 
-Defined in: [index.ts:154](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L154)
+Defined in: [index.ts:172](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L172)
+
+***
+
+### pnpm?
+
+> `optional` **pnpm**: `string`
+
+Defined in: [index.ts:173](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L173)
 
 ***
 
@@ -43,7 +51,7 @@ Defined in: [index.ts:154](https://github.com/ajaxlab/package-json-type/blob/caf
 
 > `optional` **yarn**: `string`
 
-Defined in: [index.ts:155](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L155)
+Defined in: [index.ts:174](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L174)
 
 ***
 
@@ -51,4 +59,4 @@ Defined in: [index.ts:155](https://github.com/ajaxlab/package-json-type/blob/caf
 
 > `optional` **zlib**: `string`
 
-Defined in: [index.ts:156](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L156)
+Defined in: [index.ts:175](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L175)

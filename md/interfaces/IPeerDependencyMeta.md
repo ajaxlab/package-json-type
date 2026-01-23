@@ -6,7 +6,7 @@
 
 # Interface: IPeerDependencyMeta
 
-Defined in: [index.ts:293](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L293)
+Defined in: [index.ts:435](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L435)
 
 Metadata for a single peer dependency.
 
@@ -20,7 +20,7 @@ https://docs.npmjs.com/cli/v10/configuring-npm/package-json#peerdependenciesmeta
 
 > `optional` **optional**: `boolean`
 
-Defined in: [index.ts:298](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L298)
+Defined in: [index.ts:440](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L440)
 
 Marks the peer dependency as optional.
 When true, npm will not automatically install this peer dependency.
