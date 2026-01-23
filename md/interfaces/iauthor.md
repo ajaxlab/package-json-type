@@ -1,43 +1,40 @@
-> # Interface: IAuthor
+[**package-json-type**](../README.md)
+
+***
+
+[package-json-type](../globals.md) / IAuthor
+
+# Interface: IAuthor
+
+Defined in: [index.ts:6](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L6)
 
 Package author information.
 
-**`see`** https://docs.npmjs.com/files/package.json#people-fields-author-contributors
+## See
 
-**`see`** https://yarnpkg.com/en/docs/package-json#toc-author
-
-## Hierarchy
-
-* **IAuthor**
-
-## Index
-
-### Properties
-
-* [email](iauthor.md#optional-email)
-* [name](iauthor.md#name)
-* [url](iauthor.md#optional-url)
+ - https://docs.npmjs.com/files/package.json#people-fields-author-contributors
+ - https://yarnpkg.com/en/docs/package-json#toc-author
 
 ## Properties
 
-### `Optional` email
+### email?
 
-• **email**? : *undefined | string*
+> `optional` **email**: `string`
 
-*Defined in [index.ts:7](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L7)*
+Defined in: [index.ts:7](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L7)
 
-___
+***
 
-###  name
+### name
 
-• **name**: *string*
+> **name**: `string`
 
-*Defined in [index.ts:8](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L8)*
+Defined in: [index.ts:8](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L8)
 
-___
+***
 
-### `Optional` url
+### url?
 
-• **url**? : *undefined | string*
+> `optional` **url**: `string`
 
-*Defined in [index.ts:9](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L9)*
+Defined in: [index.ts:9](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L9)

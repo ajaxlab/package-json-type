@@ -1,4 +1,12 @@
-> # Interface: IScriptsMap
+[**package-json-type**](../README.md)
+
+***
+
+[package-json-type](../globals.md) / IScriptsMap
+
+# Interface: IScriptsMap
+
+Defined in: [index.ts:1158](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1158)
 
 The "`scripts`" property is a dictionary containing script commands
 that are run at various times in the lifecycle of your package.
@@ -15,285 +23,247 @@ The key is the lifecycle event, and the value is the command to run at that poin
 }
 ```
 
-**`see`** https://docs.npmjs.com/misc/scripts
+## See
 
-**`see`** https://yarnpkg.com/en/docs/package-json#toc-scripts
-
-## Hierarchy
-
-* **IScriptsMap**
-
-## Index
-
-### Properties
-
-* [install](iscriptsmap.md#install)
-* [postinstall](iscriptsmap.md#postinstall)
-* [postpack](iscriptsmap.md#postpack)
-* [postrestart](iscriptsmap.md#postrestart)
-* [postshrinkwrap](iscriptsmap.md#postshrinkwrap)
-* [poststart](iscriptsmap.md#poststart)
-* [poststop](iscriptsmap.md#poststop)
-* [posttest](iscriptsmap.md#posttest)
-* [postuninstall](iscriptsmap.md#postuninstall)
-* [postversion](iscriptsmap.md#postversion)
-* [preinstall](iscriptsmap.md#preinstall)
-* [prepack](iscriptsmap.md#prepack)
-* [prepare](iscriptsmap.md#prepare)
-* [prepublish](iscriptsmap.md#prepublish)
-* [prepublishOnly](iscriptsmap.md#prepublishonly)
-* [prerestart](iscriptsmap.md#prerestart)
-* [preshrinkwrap](iscriptsmap.md#preshrinkwrap)
-* [prestart](iscriptsmap.md#prestart)
-* [prestop](iscriptsmap.md#prestop)
-* [pretest](iscriptsmap.md#pretest)
-* [preuninstall](iscriptsmap.md#preuninstall)
-* [preversion](iscriptsmap.md#preversion)
-* [publish](iscriptsmap.md#publish)
-* [restart](iscriptsmap.md#restart)
-* [shrinkwrap](iscriptsmap.md#shrinkwrap)
-* [start](iscriptsmap.md#start)
-* [stop](iscriptsmap.md#stop)
-* [test](iscriptsmap.md#test)
-* [uninstall](iscriptsmap.md#uninstall)
-* [version](iscriptsmap.md#version)
+ - https://docs.npmjs.com/misc/scripts
+ - https://yarnpkg.com/en/docs/package-json#toc-scripts
 
 ## Properties
 
-###  install
+### install
 
-• **install**: *string*
+> **install**: `string`
 
-*Defined in [index.ts:678](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L678)*
+Defined in: [index.ts:1159](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1159)
 
-___
+***
 
-###  postinstall
+### postinstall
 
-• **postinstall**: *string*
+> **postinstall**: `string`
 
-*Defined in [index.ts:679](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L679)*
+Defined in: [index.ts:1160](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1160)
 
-___
+***
 
-###  postpack
+### postpack
 
-• **postpack**: *string*
+> **postpack**: `string`
 
-*Defined in [index.ts:680](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L680)*
+Defined in: [index.ts:1161](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1161)
 
-___
+***
 
-###  postrestart
+### postrestart
 
-• **postrestart**: *string*
+> **postrestart**: `string`
 
-*Defined in [index.ts:681](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L681)*
+Defined in: [index.ts:1162](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1162)
 
-___
+***
 
-###  postshrinkwrap
+### postshrinkwrap
 
-• **postshrinkwrap**: *string*
+> **postshrinkwrap**: `string`
 
-*Defined in [index.ts:682](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L682)*
+Defined in: [index.ts:1163](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1163)
 
-___
+***
 
-###  poststart
+### poststart
 
-• **poststart**: *string*
+> **poststart**: `string`
 
-*Defined in [index.ts:683](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L683)*
+Defined in: [index.ts:1164](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1164)
 
-___
+***
 
-###  poststop
+### poststop
 
-• **poststop**: *string*
+> **poststop**: `string`
 
-*Defined in [index.ts:684](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L684)*
+Defined in: [index.ts:1165](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1165)
 
-___
+***
 
-###  posttest
+### posttest
 
-• **posttest**: *string*
+> **posttest**: `string`
 
-*Defined in [index.ts:685](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L685)*
+Defined in: [index.ts:1166](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1166)
 
-___
+***
 
-###  postuninstall
+### postuninstall
 
-• **postuninstall**: *string*
+> **postuninstall**: `string`
 
-*Defined in [index.ts:686](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L686)*
+Defined in: [index.ts:1167](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1167)
 
-___
+***
 
-###  postversion
+### postversion
 
-• **postversion**: *string*
+> **postversion**: `string`
 
-*Defined in [index.ts:687](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L687)*
+Defined in: [index.ts:1168](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1168)
 
-___
+***
 
-###  preinstall
+### preinstall
 
-• **preinstall**: *string*
+> **preinstall**: `string`
 
-*Defined in [index.ts:688](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L688)*
+Defined in: [index.ts:1169](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1169)
 
-___
+***
 
-###  prepack
+### prepack
 
-• **prepack**: *string*
+> **prepack**: `string`
 
-*Defined in [index.ts:689](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L689)*
+Defined in: [index.ts:1170](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1170)
 
-___
+***
 
-###  prepare
+### prepare
 
-• **prepare**: *string*
+> **prepare**: `string`
 
-*Defined in [index.ts:690](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L690)*
+Defined in: [index.ts:1171](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1171)
 
-___
+***
 
-###  prepublish
+### prepublish
 
-• **prepublish**: *string*
+> **prepublish**: `string`
 
-*Defined in [index.ts:691](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L691)*
+Defined in: [index.ts:1172](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1172)
 
-___
+***
 
-###  prepublishOnly
+### prepublishOnly
 
-• **prepublishOnly**: *string*
+> **prepublishOnly**: `string`
 
-*Defined in [index.ts:692](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L692)*
+Defined in: [index.ts:1173](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1173)
 
-___
+***
 
-###  prerestart
+### prerestart
 
-• **prerestart**: *string*
+> **prerestart**: `string`
 
-*Defined in [index.ts:693](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L693)*
+Defined in: [index.ts:1174](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1174)
 
-___
+***
 
-###  preshrinkwrap
+### preshrinkwrap
 
-• **preshrinkwrap**: *string*
+> **preshrinkwrap**: `string`
 
-*Defined in [index.ts:694](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L694)*
+Defined in: [index.ts:1175](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1175)
 
-___
+***
 
-###  prestart
+### prestart
 
-• **prestart**: *string*
+> **prestart**: `string`
 
-*Defined in [index.ts:695](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L695)*
+Defined in: [index.ts:1176](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1176)
 
-___
+***
 
-###  prestop
+### prestop
 
-• **prestop**: *string*
+> **prestop**: `string`
 
-*Defined in [index.ts:696](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L696)*
+Defined in: [index.ts:1177](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1177)
 
-___
+***
 
-###  pretest
+### pretest
 
-• **pretest**: *string*
+> **pretest**: `string`
 
-*Defined in [index.ts:697](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L697)*
+Defined in: [index.ts:1178](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1178)
 
-___
+***
 
-###  preuninstall
+### preuninstall
 
-• **preuninstall**: *string*
+> **preuninstall**: `string`
 
-*Defined in [index.ts:698](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L698)*
+Defined in: [index.ts:1179](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1179)
 
-___
+***
 
-###  preversion
+### preversion
 
-• **preversion**: *string*
+> **preversion**: `string`
 
-*Defined in [index.ts:699](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L699)*
+Defined in: [index.ts:1180](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1180)
 
-___
+***
 
-###  publish
+### publish
 
-• **publish**: *string*
+> **publish**: `string`
 
-*Defined in [index.ts:700](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L700)*
+Defined in: [index.ts:1181](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1181)
 
-___
+***
 
-###  restart
+### restart
 
-• **restart**: *string*
+> **restart**: `string`
 
-*Defined in [index.ts:701](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L701)*
+Defined in: [index.ts:1182](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1182)
 
-___
+***
 
-###  shrinkwrap
+### shrinkwrap
 
-• **shrinkwrap**: *string*
+> **shrinkwrap**: `string`
 
-*Defined in [index.ts:702](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L702)*
+Defined in: [index.ts:1183](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1183)
 
-___
+***
 
-###  start
+### start
 
-• **start**: *string*
+> **start**: `string`
 
-*Defined in [index.ts:703](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L703)*
+Defined in: [index.ts:1184](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1184)
 
-___
+***
 
-###  stop
+### stop
 
-• **stop**: *string*
+> **stop**: `string`
 
-*Defined in [index.ts:704](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L704)*
+Defined in: [index.ts:1185](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1185)
 
-___
+***
 
-###  test
+### test
 
-• **test**: *string*
+> **test**: `string`
 
-*Defined in [index.ts:705](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L705)*
+Defined in: [index.ts:1186](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1186)
 
-___
+***
 
-###  uninstall
+### uninstall
 
-• **uninstall**: *string*
+> **uninstall**: `string`
 
-*Defined in [index.ts:706](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L706)*
+Defined in: [index.ts:1187](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1187)
 
-___
+***
 
-###  version
+### version
 
-• **version**: *string*
+> **version**: `string`
 
-*Defined in [index.ts:707](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L707)*
+Defined in: [index.ts:1188](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1188)

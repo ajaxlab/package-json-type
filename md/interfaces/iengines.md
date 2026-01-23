@@ -1,62 +1,54 @@
-> # Interface: IEngines
+[**package-json-type**](../README.md)
+
+***
+
+[package-json-type](../globals.md) / IEngines
+
+# Interface: IEngines
+
+Defined in: [index.ts:151](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L151)
 
 You can specify the version of node that your stuff works on.
 You can also specify which versions of npm are capable
 of properly installing your program.
 
-**`see`** https://docs.npmjs.com/files/package.json#engines
+## See
 
-**`see`** https://yarnpkg.com/en/docs/package-json#toc-engines
-
-## Hierarchy
-
-* **IEngines**
+ - https://docs.npmjs.com/files/package.json#engines
+ - https://yarnpkg.com/en/docs/package-json#toc-engines
 
 ## Indexable
 
-* \[ **field**: *string*\]: any
-
-You can specify the version of node that your stuff works on.
-You can also specify which versions of npm are capable
-of properly installing your program.
-
-## Index
-
-### Properties
-
-* [node](iengines.md#optional-node)
-* [npm](iengines.md#optional-npm)
-* [yarn](iengines.md#optional-yarn)
-* [zlib](iengines.md#optional-zlib)
+\[`field`: `string`\]: `any`
 
 ## Properties
 
-### `Optional` node
+### node?
 
-• **node**? : *undefined | string*
+> `optional` **node**: `string`
 
-*Defined in [index.ts:153](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L153)*
+Defined in: [index.ts:153](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L153)
 
-___
+***
 
-### `Optional` npm
+### npm?
 
-• **npm**? : *undefined | string*
+> `optional` **npm**: `string`
 
-*Defined in [index.ts:154](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L154)*
+Defined in: [index.ts:154](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L154)
 
-___
+***
 
-### `Optional` yarn
+### yarn?
 
-• **yarn**? : *undefined | string*
+> `optional` **yarn**: `string`
 
-*Defined in [index.ts:155](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L155)*
+Defined in: [index.ts:155](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L155)
 
-___
+***
 
-### `Optional` zlib
+### zlib?
 
-• **zlib**? : *undefined | string*
+> `optional` **zlib**: `string`
 
-*Defined in [index.ts:156](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L156)*
+Defined in: [index.ts:156](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L156)

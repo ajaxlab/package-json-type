@@ -1,4 +1,12 @@
-> # Interface: IPublishConfig
+[**package-json-type**](../README.md)
+
+***
+
+[package-json-type](../globals.md) / IPublishConfig
+
+# Interface: IPublishConfig
+
+Defined in: [index.ts:1088](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1088)
 
 This is a set of config values that will be used at publish-time.
 It's especially handy if you want to set the `tag`, `registry` or `access`,
@@ -27,42 +35,31 @@ See npm-config to see the list of config options that can be overridden.
 }
 ```
 
-**`see`** https://docs.npmjs.com/files/package.json#publishconfig
+## See
 
-**`see`** https://yarnpkg.com/en/docs/package-json#toc-publishconfig
-
-## Hierarchy
-
-* **IPublishConfig**
-
-## Index
-
-### Properties
-
-* [access](ipublishconfig.md#optional-access)
-* [registry](ipublishconfig.md#optional-registry)
-* [tag](ipublishconfig.md#optional-tag)
+ - https://docs.npmjs.com/files/package.json#publishconfig
+ - https://yarnpkg.com/en/docs/package-json#toc-publishconfig
 
 ## Properties
 
-### `Optional` access
+### access?
 
-• **access**? : *undefined | string*
+> `optional` **access**: `string`
 
-*Defined in [index.ts:608](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L608)*
+Defined in: [index.ts:1089](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1089)
 
-___
+***
 
-### `Optional` registry
+### registry?
 
-• **registry**? : *undefined | string*
+> `optional` **registry**: `string`
 
-*Defined in [index.ts:609](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L609)*
+Defined in: [index.ts:1090](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1090)
 
-___
+***
 
-### `Optional` tag
+### tag?
 
-• **tag**? : *undefined | string*
+> `optional` **tag**: `string`
 
-*Defined in [index.ts:610](https://github.com/ajaxlab/package-json-type/blob/5df272e/src/index.ts#L610)*
+Defined in: [index.ts:1091](https://github.com/ajaxlab/package-json-type/blob/caff02b677277957703a01fc439db9c263653d61/src/index.ts#L1091)
