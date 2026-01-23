@@ -8,7 +8,7 @@
 
 > **OS** = `"aix"` \| `"android"` \| `"cygwin"` \| `"darwin"` \| `"freebsd"` \| `"haiku"` \| `"linux"` \| `"netbsd"` \| `"openbsd"` \| `"sunos"` \| `"win32"`
 
-Defined in: [index.ts:1547](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L1547)
+Defined in: [index.ts:1547](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L1547)
 
 Operating systems supported by Node.js.
 You can specify which operating systems your module will run on.

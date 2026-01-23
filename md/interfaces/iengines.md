@@ -6,7 +6,7 @@
 
 # Interface: IEngines
 
-Defined in: [index.ts:169](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L169)
+Defined in: [index.ts:169](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L169)
 
 You can specify the version of node that your stuff works on.
 You can also specify which versions of npm are capable
@@ -27,7 +27,7 @@ of properly installing your program.
 
 > `optional` **node**: `string`
 
-Defined in: [index.ts:171](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L171)
+Defined in: [index.ts:171](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L171)
 
 ***
 
@@ -35,7 +35,7 @@ Defined in: [index.ts:171](https://github.com/ajaxlab/package-json-type/blob/44b
 
 > `optional` **npm**: `string`
 
-Defined in: [index.ts:172](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L172)
+Defined in: [index.ts:172](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L172)
 
 ***
 
@@ -43,7 +43,7 @@ Defined in: [index.ts:172](https://github.com/ajaxlab/package-json-type/blob/44b
 
 > `optional` **pnpm**: `string`
 
-Defined in: [index.ts:173](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L173)
+Defined in: [index.ts:173](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L173)
 
 ***
 
@@ -51,7 +51,7 @@ Defined in: [index.ts:173](https://github.com/ajaxlab/package-json-type/blob/44b
 
 > `optional` **yarn**: `string`
 
-Defined in: [index.ts:174](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L174)
+Defined in: [index.ts:174](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L174)
 
 ***
 
@@ -59,4 +59,4 @@ Defined in: [index.ts:174](https://github.com/ajaxlab/package-json-type/blob/44b
 
 > `optional` **zlib**: `string`
 
-Defined in: [index.ts:175](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L175)
+Defined in: [index.ts:175](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L175)

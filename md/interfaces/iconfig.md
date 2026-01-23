@@ -6,7 +6,7 @@
 
 # Interface: IConfig
 
-Defined in: [index.ts:82](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L82)
+Defined in: [index.ts:82](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L82)
 
 A `config` object can be used to set configuration parameters
 used in package scripts that persist across upgrades.

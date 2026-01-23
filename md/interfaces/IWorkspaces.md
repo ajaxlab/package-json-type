@@ -6,7 +6,7 @@
 
 # Interface: IWorkspaces
 
-Defined in: [index.ts:506](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L506)
+Defined in: [index.ts:506](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L506)
 
 Workspaces configuration for monorepos.
 Allows defining glob patterns for workspace packages.
@@ -31,7 +31,7 @@ Allows defining glob patterns for workspace packages.
 
 > `optional` **nohoist**: `string`[]
 
-Defined in: [index.ts:515](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L515)
+Defined in: [index.ts:515](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L515)
 
 Packages that should not be hoisted to the root node_modules (Yarn only).
 
@@ -41,6 +41,6 @@ Packages that should not be hoisted to the root node_modules (Yarn only).
 
 > `optional` **packages**: `string`[]
 
-Defined in: [index.ts:510](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L510)
+Defined in: [index.ts:510](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L510)
 
 Glob patterns of workspace packages.

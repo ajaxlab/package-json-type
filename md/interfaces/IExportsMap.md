@@ -6,7 +6,7 @@
 
 # Interface: IExportsMap
 
-Defined in: [index.ts:377](https://github.com/ajaxlab/package-json-type/blob/44b7b1d8e2c534bb3c6eadf0eee5fa4ec56f31af/src/index.ts#L377)
+Defined in: [index.ts:377](https://github.com/ajaxlab/package-json-type/blob/b079c269fd789de45d0c3206fdcd6decbf5d8209/src/index.ts#L377)
 
 Package exports map for the `exports` field.
 Defines entry points of a package when imported by name.
